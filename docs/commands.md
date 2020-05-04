@@ -351,6 +351,7 @@ Used for controlling how the TeleFeed functions.
 * <b>Process Edit:</b> Turn this on if you want <b>TeleFeed</b> to edit messages if they got edited in the <b>SOURCE</b>
 * <b>Process Delete:</b> Turn this on if you want <b>TeleFeed</b> to remove messages if they got removed in the <b>SOURCE</b>
 * <b>Process Me:</b> Turn this on if you want <b>TeleFeed</b> to redirect your own messages from <b>SOURCE</b>
+* <b>Process Forward:</b> Turn this on if you want <b>TeleFeed</b> to <b>FORWARD</b> message instead of writting them as <b>user</b>
 
 
 #### Filters SubMenu
