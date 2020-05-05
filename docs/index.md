@@ -14,13 +14,13 @@ delay and change words.
 
 * Forward from anything (be it public or private)
 * Highest <b>performance</b> from any bot available currently
-* Multiple SOURCE and TARGET setups <b>unlike other bots</b>
 * Can change messages format and remove/add defined words
 * Can filter messages (images, media, voice_notes etc)
+* Can translate messages from source to target
 * Can delay messages up to defined amount
 * Can steal all members from chat
 * Can Clone all messages from SOURCE chat to TARGET chat
-* Forwards are sent from the connected account
+* Can forward or rewrite into the TARGET chat
 
 
 ## Commands
@@ -35,3 +35,4 @@ delay and change words.
 * <b>[/bitly](/commands/#bitly)</b> -> Setup bitly account
 * <b>[/config](/commands/#config)</b> -> Show active configuration
 * <b>[/settings](/commands/#settings)</b> -> Show settings menu to control redirections
+* <b>[/translate](/commands/#translate)</b> -> Setup translation for your redirections
