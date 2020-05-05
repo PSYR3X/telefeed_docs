@@ -305,12 +305,16 @@ This command is used for setting up translation for your redirection groups.
 
 ```nohighlight
 /translate SRC DEST REDIRECTIONID on PHONE_NUMBER
+/translate remove REDIRECTIONID on PHONE_NUMBER
 ```
 
 ####Command example:
 
 ```nohighlight
 Translate from src=English to dest=Italian for REDIRECTIONID=grp1 on PHONE_NUMBER=2759205517
+/translate en it grp1 on 2759205517
+
+Remove translate setup for REDIRECTIONID=grp1 on PHONE_NUMBER=2759205517
 /translate en it grp1 on 2759205517
 ```
 
