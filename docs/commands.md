@@ -72,11 +72,11 @@ Where <b>SOURCE</b> is the channel/user/group you want to redirect messages from
 Redirect messages from SOURCE: 708415014 to TARGET:642797040
 708415014 - 642797040
 
-Redirect messages from SOURCE: 53469647 to TARGET:20801978
-53469647 - 20801978
+Redirect messages from multiple SOURCES to TARGET
+53469647,708415014 - 20801978
 
-Redirect messages from SOURCE: 25492601 to TARGET:86782810
-25492601 - 86782810
+Redirect messages from SOURCE to Multiple TARGETS
+20801978 - 53469647,708415014 
 ```
 
 
