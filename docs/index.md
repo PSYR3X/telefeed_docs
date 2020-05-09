@@ -13,12 +13,12 @@ delay and change words.
 ## Features
 
 * Forward from anything (be it public or private)
-* Highest <b>performance</b> from any bot available currently
+* Highest <b>performance</b> from any bot available currently (up to 200 msg/min)
+* Can setup multiple SOURCES to one TARGET or one TARGET to multiple SOURCES
 * Can change messages format and remove/add defined words
 * Can filter messages (images, media, voice_notes etc)
 * Can translate messages from source to target
 * Can delay messages up to defined amount
-* Can steal all members from chat
 * Can Clone all messages from SOURCE chat to TARGET chat
 * Can forward or rewrite into the TARGET chat
 
@@ -31,8 +31,10 @@ delay and change words.
 * <b>[/delay](/commands/#delay)</b> -> Set delay for redirections
 * <b>[/chats](/commands/#chats)</b> -> Get chats ID to use with redirection
 * <b>[/clone](/commands/#clone)</b> -> Clone chats
+* <b>[/selectusers](/commands/#selectusers)</b> -> Use it to only allow message from allowed users
 * <b>[/features](/commands/#features)</b> -> Show all the features
 * <b>[/bitly](/commands/#bitly)</b> -> Setup bitly account
 * <b>[/config](/commands/#config)</b> -> Show active configuration
+* <b>[/clear](/commands/#clear)</b> -> Clear your active configuration
 * <b>[/settings](/commands/#settings)</b> -> Show settings menu to control redirections
 * <b>[/translate](/commands/#translate)</b> -> Setup translation for your redirections

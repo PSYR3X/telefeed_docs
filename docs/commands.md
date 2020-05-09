@@ -308,6 +308,9 @@ This command is used for setting up translation for your redirection groups.
 /translate remove REDIRECTIONID on PHONE_NUMBER
 ```
 
+* <b>SRC</b>  -> Language you want to translate from
+* <b>DEST</b> -> Language you want to translate into
+
 ####Command example:
 
 ```nohighlight
@@ -317,9 +320,6 @@ Translate from src=English to dest=Italian for REDIRECTIONID=grp1 on PHONE_NUMBE
 Remove translate setup for REDIRECTIONID=grp1 on PHONE_NUMBER=2759205517
 /translate en it grp1 on 2759205517
 ```
-
-* <b>SRC</b>  -> Language you want to translate from
-* <b>DEST</b> -> Language you want to translate into
 
 ####Language Code for using this command
 
@@ -434,6 +434,58 @@ Remove translate setup for REDIRECTIONID=grp1 on PHONE_NUMBER=2759205517
 
 __This command will not work if you use wrong language codes.__
 
+
+## Clone
+
+This command is used for cloning (mirror) chats/channels or users messages from SOURCE to TARGET
+
+```nohighlight
+/clone SOURCE TARGET on PHONE_NUMBER
+/clone SOURCE TARGET LIMIT on PHONE_NUMBER
+```
+
+* <b>SOURCE</b>  -> Chat/User you want to clone messages from
+* <b>TARGET</b> -> Chat/User you want to clone messages into
+
+If you have a redirection setup with the same ID's (SOURCE, TARGET) when using this command. It will use the your redirection setup (transformation, filtering) when applying this command.
+
+####Command example:
+
+```nohighlight
+Clone from SOURCE:2759205517 to TARGET:28887387 on PHONE_NUMBER=2759205517
+/clone 2759205517 28887387 on 2759205517
+
+Clone from SOURCE=2759205517 to TARGET=28887387 with LIMIT=200 on PHONE_NUMBER=2759205517
+/clone 2759205517 28887387 200 on 2759205517
+```
+
+__Important:__ When using this command, the bot might delay message redirection for your setups.
+
+## Selectusers
+
+You can set a list of <b>user id s</b> to tell the bot <b>to process messages</b> you receive from source channel <b>only if it matches at least one</b> of the <b>user id's</b> on the list.
+
+
+```nohighlight
+/selectusers REDIRECTIONID> on PHONE_NUMBER
+```
+
+####Command example:
+
+```nohighlight
+Setup for REDIRECTIONID=grp on PHONE_NUMBER=2759205517
+/selectusers grp1 on 2759205517
+```
+
+After running the above command <b>you will be asked</b> to input a list of <b>users id's</b>.  
+Input the user you want to allow messages from. Separate them using commads <b>,</b> for multiple users.
+
+```nohighlight
+6516516,651651651,16516516
+```
+
+That's all. Now every time you receive a message on <b>grp1 SOURCE</b>, the bot will check if the user who sent the message is allowed. If so it will process the message otherwise it will not.
+
 ## Bitly
 
 This command is used for configuring bitly access for <b>TeleFeed</b>
@@ -489,6 +541,8 @@ Used for controlling how the TeleFeed functions.
 * <b>Process Forward:</b> Turn this on if you want <b>TeleFeed</b> to <b>FORWARD</b> message instead of writting them as <b>user</b>
 
 
+__Important:__ Process Forward is one of the command known to have a limitation (by the telegram api). Basically we cannnot edit a <b>forward acton</b>. In case you want <b>to modify/edit</b> forward messages please read <b>Known Issues</b> Section.
+
 #### Filters SubMenu
 
 Can be found within the [/settings](/commands/#settings) command.  
@@ -511,4 +565,12 @@ This command is used to get a message with your active configuration. You can us
 
 ```nohighlight
 /config
+```
+
+## Clear
+
+This command is used to clear your active configuration.
+
+```nohighlight
+/clear PHONE_NUMBER
 ```
