@@ -31,6 +31,8 @@ delay and change words.
 * <b>[/delay](/commands/#delay)</b> -> Set delay for redirections
 * <b>[/chats](/commands/#chats)</b> -> Get chats ID to use with redirection
 * <b>[/clone](/commands/#clone)</b> -> Clone chats
+* <b>[/whitelist](/commands/#whitelist)</b> -> Blacklist setup for redirections
+* <b>[/blacklist](/commands/#blacklist)</b> ->  Blacklist setup for redirections
 * <b>[/selectusers](/commands/#selectusers)</b> -> Use it to only allow message from allowed users
 * <b>[/features](/commands/#features)</b> -> Show all the features
 * <b>[/bitly](/commands/#bitly)</b> -> Setup bitly account
