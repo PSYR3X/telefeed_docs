@@ -19,8 +19,8 @@ This command is used for connecting telegram accounts with <b>TeleFeed</b>. You 
 
 ####Command example:
 
+<p style="margin-bottom: -13px; font-size: 14px;">Connecting to TeleFeed with PHONE_NUMBER=<b>2759205517</b></b></p>
 ```nohighlight
-Connecting to TeleFeed with PHONE_NUMBER: 2759205517
 /connect 2759205517
 ```
 
@@ -48,14 +48,20 @@ You can use the [/chats](/commands/#chats) command to get channel/users/groups I
 
 ####Command example:
 
+
+<p style="margin-bottom: -13px; font-size: 14px;">Setting up redirection with REDIRECTIONID=<b>group1</b> on PHONE_NUMBER=<b>2759205517</b></p>
 ```nohighlight
-Setting up redirection with REDIRECTIONID: group1 on PHONE_NUMBER: 2759205517
 /redirection add group1 on 2759205517
+```
 
-Removing redirection with REDIRECTIONID: group1 on PHONE_NUMBER: 2759205517
+<p style="margin-bottom: -13px; font-size: 14px;">Removing redirection with REDIRECTIONID=<b>group1</b> on PHONE_NUMBER=<b>2759205517</b></p>
+```
 /redirection remove group1 on 2759205517
+```
 
-Showing all active redirections on PHONE_NUMBER: 2759205517
+
+<p style="margin-bottom: -13px; font-size: 14px;">Showing all active redirections on PHONE_NUMBER=<b>2759205517</b></p>
+```
 /redirection 2759205517
 ```
 
@@ -250,8 +256,8 @@ You can set a list of words or regex patterns that tell the bot <b>to process me
 
 ####Command example:
 
+<p style="margin-bottom: -13px; font-size: 14px;">Whitelist for REDIRECTIONID: <b>group1</b> on PHONE_NUMBER: <b>2759205517</b></p>
 ```nohighlight
-Whitelist for REDIRECTIONID: group1 on PHONE_NUMBER: 2759205517
 /whitelist group1 on 2759205517
 ```
 
@@ -261,25 +267,36 @@ Whitelist for REDIRECTIONID: group1 on PHONE_NUMBER: 2759205517
 
 The synax for this command is the same as [/transformation](/commands/#power-feature) <b>power feature</b>
 
-Process messages only if it has the word <b>bad</b> in it. (REGEX DISABLED)
+
+<p style="margin-bottom: -13px; font-size: 14px;">Process messages only if it has the word <b>bad</b> in it. <b>(REGEX DISABLED)</b></p>
 ```nohighlight
 "bad"
 ```
 
-Process messages only if it has the any <b>@mention</b> on it.
+<p style="margin-bottom: -13px; font-size: 14px;">Process messages only if it has the any <b>@mention</b> on it</p>
 ```nohighlight
 @\S+
 ```
+
+<p style="margin-bottom: -13px; font-size: 14px;">Clear whitelist setup</p>
+```nohighlight
+.
+```
+
 <b>Tip:</b> To disable regex just wrap the word in quotes such as the word <b>bad</b> becomes <b>"bad"</b>  
 <b>Tip:</b> To use regex effectivity, test your regex on [regex101.com](https://regex101.com)  
-Make sure to use the <b>Python Flavor</b> otherwise your regex will not work on <b>TeleFeed</b>
+<b>Tip:</b> Make sure to use the <b>Python Flavor</b> otherwise your regex will not work on <b>TeleFeed</b>    
+
+<b>Important:</b> Remember to clear whitelist or blacklist you need to use just a single <b>.</b> character  
+<b>Important:</b> The <b>(dot)</b> character should be used as input after the whitelist command (do not for any reason add random <b>(dot)</b> to /whitelist command resulting into /.whitelist etc)
+
 
 ## Blacklist
 
 You can set a list of words or regex patterns which tells the bot that <b>if the message received</b> from source channel has any of the blacklisted words or regex pattern match the bot should <b>ignore</b> that <b>message</b> and do not process it even if it passes all other conditions.
 
 ```nohighlight
-/Whitelist REDIRECTIONID on <b>PHONE_NUMBER</b>
+/blacklist REDIRECTIONID on <b>PHONE_NUMBER</b>
 ```
 
 This command uses the same syntax as the [/whitelist](/commands/#whitelist) command
@@ -294,8 +311,8 @@ This command is used to get a list of groups, bots, channels or users ID's for u
 
 ####Command example:
 
+<p style="margin-bottom: -13px; font-size: 14px;">Getting chats for PHONE_NUMBER: <b>2759205517</b></p>
 ```nohighlight
-Getting chats for PHONE_NUMBER: 2759205517
 /chats 2759205517
 ```
 
@@ -313,12 +330,14 @@ This command is used for setting up translation for your redirection groups.
 
 ####Command example:
 
+<p style="margin-bottom: -13px; font-size: 14px;">Translate from src=<b>English</b> to dest=<b>Italian</b> for REDIRECTIONID=<b>grp1</b> on PHONE_NUMBER=<b>2759205517</b></p>
 ```nohighlight
-Translate from src=English to dest=Italian for REDIRECTIONID=grp1 on PHONE_NUMBER=2759205517
 /translate en it grp1 on 2759205517
+```
 
-Remove translate setup for REDIRECTIONID=grp1 on PHONE_NUMBER=2759205517
-/translate en it grp1 on 2759205517
+<p style="margin-bottom: -13px; font-size: 14px;">Remove translate setup for REDIRECTIONID=<b>grp1</b> on PHONE_NUMBER=<B>2759205517</B></p>
+```
+/translate remove grp1 on 2759205517
 ```
 
 ####Language Code for using this command
@@ -451,11 +470,14 @@ If you have a redirection setup with the same ID's (SOURCE, TARGET) when using t
 
 ####Command example:
 
+<p style="margin-bottom: -13px; font-size: 14px;">Clone from SOURCE=<b>2759205517</b> to TARGET=<b>28887387</b> on PHONE_NUMBER=<b>2759205517</b></p>
 ```nohighlight
-Clone from SOURCE:2759205517 to TARGET:28887387 on PHONE_NUMBER=2759205517
 /clone 2759205517 28887387 on 2759205517
+```
 
-Clone from SOURCE=2759205517 to TARGET=28887387 with LIMIT=200 on PHONE_NUMBER=2759205517
+
+<p style="margin-bottom: -13px; font-size: 14px;">Clone from SOURCE=<b>2759205517</b> to TARGET=<b>28887387</b> with LIMIT=<b>200</b> on PHONE_NUMBER=<b>2759205517</b></p>
+```
 /clone 2759205517 28887387 200 on 2759205517
 ```
 
@@ -472,8 +494,8 @@ You can set a list of <b>user id s</b> to tell the bot <b>to process messages</b
 
 ####Command example:
 
+<p style="margin-bottom: -13px; font-size: 14px;">Setup for REDIRECTIONID=<b>grp</b> on PHONE_NUMBER=<b>2759205517</b></p>
 ```nohighlight
-Setup for REDIRECTIONID=grp on PHONE_NUMBER=2759205517
 /selectusers grp1 on 2759205517
 ```
 
@@ -496,9 +518,9 @@ This command is used for configuring bitly access for <b>TeleFeed</b>
 
 ####Command example:
 
+<p style="margin-bottom: -13px; font-size: 14px;">Setting bitly api with TOKEN=<b>43nafkiynmy7pn7lkqgiuwn6krquwisvjsdbgf</b></p>
 ```nohighlight
-Getting chats for PHONE_NUMBER: 2759205517
-/chats 43nafkiynmy7pn7lkqgiuwn6krquwisvjsdbgf
+/bitly 43nafkiynmy7pn7lkqgiuwn6krquwisvjsdbgf
 ```
 
 ## Delay
@@ -511,11 +533,14 @@ This command is used for setting up delays for your redirections.
 
 ####Command example:
 
+<p style="margin-bottom: -13px; font-size: 14px;">Delay REDIRECTIONID=<b>group_1</b> by Value=<b>120sec</b> on PHONE_NUMBER=<b>2759205517</b></p>
 ```nohighlight
-Delay REDIRECTIONID: group_1 by Value: 120sec on PHONE_NUMBER: 2759205517
 /delay 120 group1 on 2759205517
+```
 
-Delay all redirections by Value: 120sec on PHONE_NUMBER: 2759205517
+
+<p style="margin-bottom: -13px; font-size: 14px;">Delay all redirections by Value=<b>120sec</b> on PHONE_NUMBER=<b>2759205517</b></p>
+```
 /delay 120 group1 on 2759205517
 ```
 
