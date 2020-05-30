@@ -85,6 +85,12 @@ We have many features that conflux and junction do not have. Here's a list of ho
     <td style="padding:10px 20px; text-align:center;">No</td>
     <td style="padding:10px 20px; text-align:center;">Yes</td>
   </tr>
+  <tr>
+    <td style="padding:10px 20px;">Discord, Twitter Gateway</td>
+    <td style="padding:10px 20px; text-align:center;">Yes</td>
+    <td style="padding:10px 20px; text-align:center;">No</td>
+    <td style="padding:10px 20px; text-align:center;">No</br>(Coming Soon)</td>
+  </tr>
 </table>  
 
 As anyone can see from the list, we cover every feature that our competitors provide and we don't limit messages and we also do not add a delay on the messages.
@@ -228,3 +234,20 @@ There is a very convenient instrument to test regular expressions: https://regex
 #### Q: Does this bot delay messages?
 
 <b>No.</b> Our bot does not delay messages apart from user specified delay.
+
+
+#### Q: I was trying out /whitelist or /blacklist and now redirections do not work. What can I do?
+
+You probably messed up the regex while using /whitelist or /blacklist and now the messages do not pass because of that. The way to fix this is by simple using a <b>.</b> <b>(dot)</b> as /whitelist or /blacklist input.
+
+#### Q: I was trying out /transformation and now messages format is totally wrong. What can I do?
+
+You can clear /transformation command using the following syntax
+
+```nohighlight
+/transformation remove REDIRECTIONID on PHONE_NUMBER
+```
+
+It will remove every config you have on that group using /transformation
+
+You can read more about this on the command help over at [/transformation](/commands/#transformation)

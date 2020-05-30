@@ -253,6 +253,16 @@ If the result is correct you just have to click on the <b>Correct</b> button oth
 <b>Tip:</b> To use regex effectivity, test your regex on [regex101.com](https://regex101.com)  
 Make sure to use the <b>Python Flavor</b> otherwise your regex will not work on <b>TeleFeed</b>
 
+### Clear:
+
+You can clear your current configuration on <b>/transformation</b> using the following syntax
+
+```nohighlight
+/transformation remove REDIRECTIONID on PHONE_NUMBER
+```
+
+It will remove every config you have with <b>format</b>, <b>removeLines</b> and <b>power</b> on that REDIRECTIONID 
+
 
 ## Whitelist
 
