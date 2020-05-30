@@ -113,3 +113,12 @@ Use /settings -> phone_number -> group_nickname -> Cleaner -> Mention On
 Sorry but we don't have time to consult you on regular expressions. Read an article online or just google your case and find a ready solution.
 
 There is a very convenient instrument to test regular expressions: https://regex101.com. Set the Flavor to "python" and set the flag "Single line: Dot matches the new line". This will make it work in the same way as @tg_feedbot's matcher
+
+
+#### Q: Does this bot have any message limitation?
+
+<b>No.</b> We don't have any message limitations in place.
+
+#### Q: Does this bot delay messages?
+
+<b>No.</b> Our bot does not delay messages apart from user specified delay.
