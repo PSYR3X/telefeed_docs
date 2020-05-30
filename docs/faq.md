@@ -160,7 +160,7 @@ If you just need a bot to forward messages without <b>Rewrite Mode</b> and you h
 
 #### Q: Can I forward from a channel I don't have access?
 
-<B>No.</B> This bot can only see channels you as a user can see. So basically if you don't have access to a channel, the bot cannnot forward from it.
+<b>No.</b> This bot can only see channels you as a user can see. So basically if you don't have access to a channel, the bot cannnot forward from it.
 
 #### Q: Can I forward from a private channel?
 
@@ -184,19 +184,35 @@ Once in a while we are updating the bot. Usually it takes around 30 seconds to 1
 
 #### Q: Can I filter out duplicates?
 
-<b>Yes.</b> Use /settings -> phone_number -> group_nickname -> redirection -> Process Duplicates Off
+1.   First run the command [/settings](/commands/#settings)
+2.   Choose which number you want to change settings on
+3.   Choose which setup you want to change settings on
+4.   Choose redirection
+5.   Toggle <b>Process Duplicates Off</b>
 
 #### Q: Can I filter out myself?
 
-<b>Yes.</b> Use /settings -> phone_number -> group_nickname -> redirection -> Process Me Off
+1.   First run the command [/settings](/commands/#settings)
+2.   Choose which number you want to change settings on
+3.   Choose which setup you want to change settings on
+4.   Choose redirection
+5.   Toggle <b>Process Me Off</b>
 
 #### Q: I want to remove all links from source channel. How do I do that?
 
-Use /settings -> phone_number -> group_nickname -> Cleaner -> Urls On
+1.   First run the command [/settings](/commands/#settings)
+2.   Choose which number you want to change settings on
+3.   Choose which setup you want to change settings on
+4.   Choose cleaner
+5.   Toggle <b>Urls On</b>
 
 #### Q: I want to remove all mentions from source channel. How do I do that?
 
-Use /settings -> phone_number -> group_nickname -> Cleaner -> Mention On
+1.   First run the command [/settings](/commands/#settings)
+2.   Choose which number you want to change settings on
+3.   Choose which setup you want to change settings on
+4.   Choose cleaner
+5.   Toggle <b>Mention On</b>
 
 #### Q: I need to do some complex filtering, I think I need to use a regular expression. Could you please help me to set it up?
 
