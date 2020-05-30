@@ -100,7 +100,7 @@ There are many reasons why our bot needs account access and to cover them all he
   <tr>
     <th style="padding:10px 20px;">Features</th>
     <th style="padding:10px 20px;">Without Account</th>
-    <th style="padding:10px 20px;">Our Bot</th>
+    <th style="padding:10px 20px;">Us</th>
   </tr>
   <tr>
     <td style="padding:10px 20px;">Forward from channels</td>
