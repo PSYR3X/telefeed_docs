@@ -138,12 +138,20 @@ Inserted Footer from Telefeed
 ```nohighlight
 Inserted Header from Telefeed
 
-[[message]]
+[[Message.Text]]
 
 Inserted Footer from Telefeed
 ```
 
-TeleFeed will look at this and replace <b>[[message]]</b> with the actual <b>message</b> and we will get the output we desire.
+TeleFeed will look at this and replace <b>[[Message.Text]]</b> with the actual <b>message</b> and we will get the output we desire.  
+
+<p style="margin-bottom: 5px; font-size: 18px;"><b>You can use the following keywords:</b></p>
+
+* <b>[[Message.Text]]</b> -> The source message <b>text</b> content  
+* <b>[[Message.Group]]</b> -> The source message <b>group</b> name  
+* <b>[[Message.Username]]</b> -> The user <B>Username</B> that sent the message  
+* <b>[[Message.First_Name]]</b> -> The user <B>First Name</B> that sent the message  
+* <b>[[Message.Last_Name]]</b> -> The user <B>Last Name</B> that sent the message  
 
 <b>Tip:</b> To change format you can just run the same command again.
 
@@ -480,6 +488,10 @@ If you have a redirection setup with the same ID's (SOURCE, TARGET) when using t
 ```
 /clone 2759205517 28887387 200 on 2759205517
 ```
+__Warning!__  
+Because this commands sends a high amount of messages in a short time it will cause temporary limits from telegram servers. Basically when this happens you will not be able to send any message from this account for <b>5 minutes</b> to <b>1 hour</b> depending on the limit.
+
+You will get a notification from the bot when such a limit is encountered (You will also notice yourself since you will not be able to send any message when that happens). There's no way around this other than not using this command.
 
 __Important:__ When using this command, the bot might delay message redirection for your setups.
 
