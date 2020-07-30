@@ -254,7 +254,19 @@ If the result is correct you just have to click on the <b>Correct</b> button oth
 <b>Tip:</b> To use regex effectivity, test your regex on [regex101.com](https://regex101.com)  
 Make sure to use the <b>Python Flavor</b> otherwise your regex will not work on <b>TeleFeed</b>
 
-### 4. Clear configuration from /transformation
+### 4. Remove
+
+You can use this command to remove configuration from power feature.
+
+```nohighlight
+## Syntax
+/transformation remove FEATURE REDIRECTIONID on PHONE_NUMBER
+
+## Example
+/transformation remove power group1 on 2759205517
+```
+
+### 5. Clear configuration from /transformation
 
 You can clear your current configuration on <b>/transformation</b> using the following syntax
 
@@ -264,7 +276,7 @@ You can clear your current configuration on <b>/transformation</b> using the fol
 
 It will remove every config you have with <b>format</b>, <b>removeLines</b> and <b>power</b> on that REDIRECTIONID 
 
-### 5. Show Active Configuration
+### 6. Show Active Configuration
 
 To show active configuration on <b>/transformation</b> you need to use the following syntax.
 ```nohighlight
