@@ -17,7 +17,7 @@ Every command has some variables in common. Below you will find their meaning so
 
 This command is used for connecting telegram accounts with <b>TeleFeed</b>. You need to run this first before trying to run other commands since they rely on you having a number connected.
 
-####Command example:
+<b  style="font-size: 115%;">Command Example</b>
 
 <p style="margin-bottom: -13px; font-size: 14px;">Connecting to TeleFeed with PHONE_NUMBER=<b>2759205517</b></b></p>
 ```nohighlight
@@ -46,7 +46,7 @@ This command is used for setting up redirections for <b>TeleFeed</b>. This comma
 
 You can use the [/chats](/commands/#chats) command to get channel/users/groups ID's for use with this command
 
-####Command example:
+<b  style="font-size: 115%;">Command Example</b>
 
 
 <p style="margin-bottom: -13px; font-size: 14px;">Setting up redirection with REDIRECTIONID=<b>group1</b> on PHONE_NUMBER=<b>2759205517</b></p>
@@ -72,7 +72,7 @@ After typing the command you will be asked to enter ID's of the channel/groups/u
 
 Where <b>SOURCE</b> is the channel/user/group you want to redirect messages from and <b>TARGET</b> is the channel/group/user you want to redirect message into.
 
-####Syntax example:
+<b  style="font-size: 115%;">Syntax Example</b>
 
 ```nohighlight
 Redirect messages from SOURCE: 708415014 to TARGET:642797040
@@ -99,11 +99,11 @@ This command is used for setting up transformations for your redirections on <b>
 
 With this command you can change messages format, remove words from messages or remove lines if <b>keyword</b> is in it.
 
-### Format Feature:
+### 1. Format Feature
 
 This feature is used to change the output format for the message. Basically you can add text on the message and have it output like that (for example a header or footer etc)
 
-#### Command Example
+<b  style="font-size: 115%;">Command Example</b>
 
 ```nohighlight
 /transformation add format group1 on 2759205517
@@ -145,7 +145,7 @@ Inserted Footer from Telefeed
 
 TeleFeed will look at this and replace <b>[[Message.Text]]</b> with the actual <b>message</b> and we will get the output we desire.  
 
-<p style="margin-bottom: 5px; font-size: 18px;"><b>You can use the following keywords:</b></p>
+<p style="margin-bottom: 5px; font-size: 115%"><b>You can use the following keywords:</b></p>
 
 * <b>[[Message.Text]]</b> -> The source message <b>text</b> content  
 * <b>[[Message.Group]]</b> -> The source message <b>group</b> name  
@@ -156,11 +156,11 @@ TeleFeed will look at this and replace <b>[[Message.Text]]</b> with the actual <
 
 <b>Tip:</b> To change format you can just run the same command again.
 
-### Remove Lines Feature:
+### 2. Remove Lines Feature
 
 This feature is used to remove lines from the message. You will use keywords to check message lines and if a keyword or one of the keywords (if multiple) is found on the line, TeleFeed will remove that line from the final result.
 
-#### Command example
+<b  style="font-size: 115%;">Command Example</b>
 
 ```nohighlight
 /transformation add removeLines group1 on 2759205517
@@ -170,7 +170,7 @@ This feature is used to remove lines from the message. You will use keywords to 
 
 After typing the command you will be asked to enter which keywords you want to look for in the message. You can enter multiple lines so the bot looks for multiple keywords etc.
 
-#### Syntax example
+<b  style="font-size: 115%;">Syntax Example</b>
 
 ```nohighlight
 good, bad
@@ -182,20 +182,20 @@ The setup we made above will look on every message if a line has the keyword <b>
 <b>Important:</b> This command is not used for removing keywords from the message, what it does is remove the whole line if it contains the keyword. For removing just the keyword you will need to use the <b>next</b> feature
 
 
-### Power Feature:
+### 3. Power Feature
 
 This is one of the most powerful feature this bot has. It is used to remove and change keywords from the message. You can use <b>regex</b> with this feature
 
 <b>Important:</b> You need to be careful with this command since it insert some wrong syntax (like wrong regex) it will stop message from redirecting. To fix it you just need to remove power feature.
 
-#### Command example
+<b  style="font-size: 115%;">Command Example</b>
 
 ```nohighlight
 /transformation add power group1 on 2759205517
 /transformation power group1 on 2759205517
 ```
 
-#### Syntax example
+<b  style="font-size: 115%;">Syntax Example</b>
 
 Change <b>app</b> to <b>bot</b> (REGEX ENABLED)
 
@@ -254,7 +254,7 @@ If the result is correct you just have to click on the <b>Correct</b> button oth
 <b>Tip:</b> To use regex effectivity, test your regex on [regex101.com](https://regex101.com)  
 Make sure to use the <b>Python Flavor</b> otherwise your regex will not work on <b>TeleFeed</b>
 
-### Clear:
+### 4. Clear configuration from /transformation
 
 You can clear your current configuration on <b>/transformation</b> using the following syntax
 
@@ -263,6 +263,13 @@ You can clear your current configuration on <b>/transformation</b> using the fol
 ```
 
 It will remove every config you have with <b>format</b>, <b>removeLines</b> and <b>power</b> on that REDIRECTIONID 
+
+### 5. Show Active Configuration
+
+To show active configuration on <b>/transformation</b> you need to use the following syntax.
+```nohighlight
+/transformation active on PHONE_NUMBER
+```
 
 
 ## Whitelist
@@ -273,7 +280,7 @@ You can set a list of words or regex patterns that tell the bot <b>to process me
 /Whitelist REDIRECTIONID on <b>PHONE_NUMBER</b>
 ```
 
-####Command example:
+<b  style="font-size: 115%;">Command Example</b>
 
 <p style="margin-bottom: -13px; font-size: 14px;">Whitelist for REDIRECTIONID: <b>group1</b> on PHONE_NUMBER: <b>2759205517</b></p>
 ```nohighlight
@@ -282,7 +289,7 @@ You can set a list of words or regex patterns that tell the bot <b>to process me
 
 <b>TeleFeed</b> will ask you to input the keywords you want to whitelist.
 
-####Syntax example:
+<b  style="font-size: 115%;">Syntax Example</b>
 
 The synax for this command is the same as [/transformation](/commands/#power-feature) <b>power feature</b>
 
@@ -328,7 +335,7 @@ This command is used to get a list of groups, bots, channels or users ID's for u
 /chats PHONE_NUMBER
 ```
 
-####Command example:
+<b  style="font-size: 115%;">Command Example</b>
 
 <p style="margin-bottom: -13px; font-size: 14px;">Getting chats for PHONE_NUMBER: <b>2759205517</b></p>
 ```nohighlight
@@ -347,7 +354,7 @@ This command is used for setting up translation for your redirection groups.
 * <b>SRC</b>  -> Language you want to translate from
 * <b>DEST</b> -> Language you want to translate into
 
-####Command example:
+<b  style="font-size: 115%;">Command Example</b>
 
 <p style="margin-bottom: -13px; font-size: 14px;">Translate from src=<b>English</b> to dest=<b>Italian</b> for REDIRECTIONID=<b>grp1</b> on PHONE_NUMBER=<b>2759205517</b></p>
 ```nohighlight
@@ -359,7 +366,7 @@ This command is used for setting up translation for your redirection groups.
 /translate remove grp1 on 2759205517
 ```
 
-####Language Code for using this command
+<b  style="font-size: 115%;">Language Code for using this command</b>
 
 ```nohighlight
 'af': 'afrikaans',
@@ -487,7 +494,7 @@ This command is used for cloning (mirror) chats/channels or users messages from 
 
 If you have a redirection setup with the same ID's (SOURCE, TARGET) when using this command. It will use the your redirection setup (transformation, filtering) when applying this command.
 
-####Command example:
+<b  style="font-size: 115%;">Command Example</b>
 
 <p style="margin-bottom: -13px; font-size: 14px;">Clone from SOURCE=<b>2759205517</b> to TARGET=<b>28887387</b> on PHONE_NUMBER=<b>2759205517</b></p>
 ```nohighlight
@@ -515,7 +522,7 @@ You can set a list of <b>user id s</b> to tell the bot <b>to process messages</b
 /selectusers REDIRECTIONID> on PHONE_NUMBER
 ```
 
-####Command example:
+<b  style="font-size: 115%;">Command Example</b>
 
 <p style="margin-bottom: -13px; font-size: 14px;">Setup for REDIRECTIONID=<b>grp</b> on PHONE_NUMBER=<b>2759205517</b></p>
 ```nohighlight
@@ -539,7 +546,7 @@ This command is used for configuring bitly access for <b>TeleFeed</b>
 /bitly TOKEN
 ```
 
-####Command example:
+<b  style="font-size: 115%;">Command Example</b>
 
 <p style="margin-bottom: -13px; font-size: 14px;">Setting bitly api with TOKEN=<b>43nafkiynmy7pn7lkqgiuwn6krquwisvjsdbgf</b></p>
 ```nohighlight
@@ -554,7 +561,7 @@ This command is used for setting up delays for your redirections.
 /delay VALUE REDIRECTIONID on PHONE_NUMBER
 ```
 
-####Command example:
+<b  style="font-size: 115%;">Command Example</b>
 
 <p style="margin-bottom: -13px; font-size: 14px;">Delay REDIRECTIONID=<b>group_1</b> by Value=<b>120sec</b> on PHONE_NUMBER=<b>2759205517</b></p>
 ```nohighlight
@@ -575,7 +582,7 @@ This command will show you a menu which you can use to control your redirections
 /settings
 ```
 
-#### Redirection SubMenu
+#### 1. Redirection SubMenu
 
 Can be found within the [/settings](/commands/#settings) command.  
 Used for controlling how the TeleFeed functions.
@@ -591,7 +598,7 @@ Used for controlling how the TeleFeed functions.
 
 __Important:__ Process Forward is one of the command known to have a limitation (by the telegram api). Basically we cannnot edit a <b>forward acton</b>. In case you want <b>to modify/edit</b> forward messages please read <b>Known Issues</b> Section.
 
-#### Filters SubMenu
+#### 2. Filters SubMenu
 
 Can be found within the [/settings](/commands/#settings) command.  
 Used for filtering messages on <b>TeleFeed</b>
@@ -599,7 +606,7 @@ Used for filtering messages on <b>TeleFeed</b>
 You can turn it <b>ON</b> if you don't want message to pass with that filter or <b>OFF</b> if you want them to pass.
 
 
-#### Cleaner SubMenu
+#### 3. Cleaner SubMenu
 
 Can be found within the [/settings](/commands/#settings) command.  
 Same as filters menu but with this menu instead of filtering the message, it deletes the content it founds.
