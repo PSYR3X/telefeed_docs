@@ -147,12 +147,19 @@ TeleFeed will look at this and replace <b>[[Message.Text]]</b> with the actual <
 
 <p style="margin-bottom: 5px; font-size: 115%"><b>You can use the following keywords:</b></p>
 
+* <b>[[PROCESS_EMPTY]]</b> -> Normally <b>format</b> will ignore empty messages (media etc). If you add this <b>variable</b> then it will start <b>formatting</b> empty messages. This can be used for adding <b>USERNAME</b>, <b>GROUP_NAME</b> on <b>MEDIA</b>
+
 * <b>[[Message.Text]]</b> -> The source message <b>text</b> content  
 * <b>[[Message.Group]]</b> -> The source message <b>group</b> name  
+
 * <b>[[Message.Username]]</b> -> The user <b>Username</b> that sent the message  
 * <b>[[Message.First_Name]]</b> -> The user <B>First Name</b> that sent the message  
 * <b>[[Message.Last_Name]]</b> -> The user <b>Last Name</b> that sent the message  
-* <b>[[PROCESS_EMPTY]]</b> -> Normally <b>format</b> will ignore empty messages (media etc). If you add this <b>variable</b> then it will start <b>formatting</b> empty messages. This can be used for adding <b>USERNAME</b>, <b>GROUP_NAME</b> on <b>MEDIA</b>
+
+* <b>[[Message.File.Filename]]</b> -> The source message <b>file</b> filename
+* <b>[[Message.File.File_Size]]</b> -> The source message <b>file</b> filesize  
+* <b>[[Message.File.File_Ext]]</b> -> The source message <b>file</b> file extension  
+
 
 <b>Tip:</b> To change format you can just run the same command again.
 
