@@ -375,14 +375,14 @@ This command is used for setting up translation for your redirection groups.
 
 <b  style="font-size: 115%;">Command Example</b>
 
-<p style="margin-bottom: -13px; font-size: 14px;">Translate from src=<b>English</b> to dest=<b>Italian</b> for REDIRECTIONID=<b>grp1</b> on PHONE_NUMBER=<b>2759205517</b></p>
+<p style="margin-bottom: -13px; font-size: 14px;">Translate from src=<b>English</b> to dest=<b>Italian</b> for REDIRECTIONID=<b>group1</b> on PHONE_NUMBER=<b>2759205517</b></p>
 ```nohighlight
-/translate en it grp1 on 2759205517
+/translate en it group1 on 2759205517
 ```
 
-<p style="margin-bottom: -13px; font-size: 14px;">Remove translate setup for REDIRECTIONID=<b>grp1</b> on PHONE_NUMBER=<B>2759205517</B></p>
+<p style="margin-bottom: -13px; font-size: 14px;">Remove translate setup for REDIRECTIONID=<b>group1</b> on PHONE_NUMBER=<B>2759205517</B></p>
 ```
-/translate remove grp1 on 2759205517
+/translate remove group1 on 2759205517
 ```
 
 <b  style="font-size: 115%;">Language Code for using this command</b>
@@ -532,6 +532,45 @@ You will get a notification from the bot when such a limit is encountered (You w
 
 __Important:__ When using this command, the bot might delay message redirection for your setups.
 
+
+## Scheduler
+
+You can define start and stop time for each of your redirection setup using this command.
+
+```nohighlight
+/scheduler action REDIRECTIONID on PHONE_NUMBER
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;">Add schdule for REDIRECTIONID=<b>group1</b> on PHONE_NUMBER=<b>2759205517</b></p>
+```nohighlight
+/scheduler add group1 on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;">Remove schdule for REDIRECTIONID=<b>group1</b> on PHONE_NUMBER=<b>2759205517</b></p>
+```nohighlight
+/scheduler remove group1 on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;">Clear all schedules for PHONE_NUMBER=<b>2759205517</b></p>
+```nohighlight
+/scheduler clear on 2759205517
+```
+
+After running the above commands <b>you will be asked</b> to input the time that you want TeleFeed to turn on and off your setups.
+Here are a few example syntax on how to do this.
+
+<p style="margin-bottom: -13px; font-size: 14px;">Start at <b>12:30</b> and Stop at <b>2:30</b></p>
+```nohighlight
+12:30 - 2:30
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;">Start at <b>09:00</b> and Stop at <b>21:00</b></p>
+```nohighlight
+9:00 - 21:00
+```
+
+That's all. Now TeleFeed will (based on first example) <b>turn on</b> group1 <b>at 12:30</b> and <b>turn off at 2:30</b>
+
 ## Selectusers
 
 You can set a list of <b>user id s</b> to tell the bot <b>to process messages</b> you receive from source channel <b>only if it matches at least one</b> of the <b>user id's</b> on the list.
@@ -545,7 +584,7 @@ You can set a list of <b>user id s</b> to tell the bot <b>to process messages</b
 
 <p style="margin-bottom: -13px; font-size: 14px;">Setup for REDIRECTIONID=<b>grp</b> on PHONE_NUMBER=<b>2759205517</b></p>
 ```nohighlight
-/selectusers grp1 on 2759205517
+/selectusers group1 on 2759205517
 ```
 
 After running the above command <b>you will be asked</b> to input a list of <b>users id's</b>.  
@@ -555,7 +594,7 @@ Input the user you want to allow messages from. Separate them using commads <b>,
 6516516,651651651,16516516
 ```
 
-That's all. Now every time you receive a message on <b>grp1 SOURCE</b>, the bot will check if the user who sent the message is allowed. If so it will process the message otherwise it will not.
+That's all. Now every time you receive a message on <b>group1 SOURCE</b>, the bot will check if the user who sent the message is allowed. If so it will process the message otherwise it will not.
 
 ## Bitly
 
