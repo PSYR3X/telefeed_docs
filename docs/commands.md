@@ -611,6 +611,48 @@ This command is used for configuring bitly access for <b>TeleFeed</b>
 /bitly 43nafkiynmy7pn7lkqgiuwn6krquwisvjsdbgf
 ```
 
+## Watermark
+
+You can use this command to add logo to every media <b>TeleFeed</b> forwards.
+
+```nohighlight
+/watermark action REDIRECTIONID on PHONE_NUMBER
+```
+
+<b  style="font-size: 115%;">Command Example</b>
+
+<p style="margin-bottom: -13px; font-size: 14px;"><b>Add Watermark group1 on 2759205517</b></p>
+```nohighlight
+/watermark add group1 on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;"><b>Remove Watermark group1 on 2759205517</b></p>
+```nohighlight
+/watermark remove group1 on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;"><b>Remove all watermarks from 2759205517</b></p>
+```nohighlight
+/watermark clear on 2759205517
+```
+
+## PlanSwap
+
+This command is used to exchange plans between phone numbers. To use this command you need to have both phone numbers <b>connected</b> with TeleFeed and the <b>Target Phone Number</b> should be on <b>Free Plan</b>
+
+This command <b>has a fee of 1 day</b> for each usage. This means that when you move a <b>30 Days Pro Plan</b> from 27505517, you will get <b>29 Days of Pro Plan</b> on 32529517
+
+```nohighlight
+/planswap SOURCE_PHONE_NUMBER TARGET_PHONE_NUMBER
+```
+
+<b  style="font-size: 115%;">Command Example</b>
+
+<p style="margin-bottom: -13px; font-size: 14px;"><b>Exchange Plan from 27505517 to 32529517</b></p>
+```nohighlight
+/planswap 27505517 32529517
+```
+
 ## Delay
 
 This command is used for setting up delays for your redirections.
