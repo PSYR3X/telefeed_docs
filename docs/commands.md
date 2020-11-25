@@ -40,6 +40,7 @@ If you are using a <b>Two Factor Authentication</b> you will be asked to enter t
 
 ```nohighlight
 /redirection ACTION REDIRECTIONID on PHONE_NUMBER
+/redirection PHONE_NUMBER
 ```
 
 This command is used for setting up redirections for <b>TeleFeed</b>. This command should be run after you have already connected a telegram account with [/connect](/commands/#connect) command
@@ -57,6 +58,11 @@ You can use the [/chats](/commands/#chats) command to get channel/users/groups I
 <p style="margin-bottom: -13px; font-size: 14px;">Removing redirection with REDIRECTIONID=<b>group1</b> on PHONE_NUMBER=<b>2759205517</b></p>
 ```
 /redirection remove group1 on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;">Changing redirection with REDIRECTIONID=<b>group1</b> on PHONE_NUMBER=<b>2759205517</b></p>
+```
+/redirection change group1 on 2759205517
 ```
 
 
@@ -88,6 +94,73 @@ Redirect messages from SOURCE to Multiple TARGETS
 
 <b>Min Source/Target Number:</b> -2147483648  
 <b>Max Source/Target Number:</b> 2147483647
+
+## Redirection Settings
+
+This menu is used for controlling redirection setttings such as <b>reply, edit, delete and more</b>
+
+To reach this first you will need to type [/settings](/commands/#settings) on <b>TeleFeed</b>, then click on <b>2759205517</b> to open settings menu for <b>2759205517 phone number</b>. Now click on <b>group1</b> so you can access the setup settings. Finally the <b>Redirection Menu</b> will show up and you can proceed by clicking on it
+
+<p style="margin-bottom: 5px;"><b style="font-size: 115%; ">Available Options:</b></p>
+
+* <b>Process Reply:</b> Turn this <b>ON</b> if you want to properly <b>process replies</b>
+* <b>Process Edit:</b> Turn this <b>ON</b> if you want to edit messages if they got edited in the <b>SOURCE</b>
+* <b>Process Delete:</b> Turn this <b>ON</b> if you want to remove messages if they got removed in the <b>SOURCE</b>
+* <b>Process Me:</b> Turn this <b>ON</b> if you want to redirect your own messages from <b>SOURCE</b>
+* <b>Process Forward:</b> Turn this <b>ON</b> if you want to <b>FORWARD</b> messages instead of writting them as <b>user</b>
+* <b>Process Duplicates:</b> Turn this <b>OFF</b> if you want to <b>block duplicate messages</b> from forwarding.
+
+## Filters
+
+This menu is used to filter messages by type. Using it will tell TeleFeed which messages you want <b>to process</b> and which ones <b>to ignore</b>
+
+To reach this first you will need to type [/settings](/commands/#settings) on <b>TeleFeed</b>, then click on <b>2759205517</b> to open settings menu for <b>2759205517 phone number</b>. Now click on <b>group1</b> so you can access the setup settings. Finally the <b>Filters Menu</b> will show up and you can proceed by clicking on it
+
+<p style="margin-bottom: -13px; font-size: 14px;">Access <b>Filters Menu</b> for REDIRECTIONID: <b>group1</b> on PHONE_NUMBER: <b>2759205517</b></p>
+```nohighlight
+/settings > 2759205517 > group1 > Filters
+```
+
+<p style="margin-bottom: 5px;"><b style="font-size: 115%; ">Available Filters:</b></p>
+
+* <b>Audio:</b> Turn this <b>ON</b> if you want to <b>ignore audio messages</b>
+* <b>Videos:</b> Turn this <b>ON</b> if you want to <b>ignore video messages</b>
+* <b>Voicenotes:</b> Turn this <b>ON</b> if you want to <b>ignore voicenotes messages</b>
+* <b>Animations:</b> Turn this <b>ON</b> if you want to <b>ignore message</b> that <b>contain animations (gif etc)</b> 
+* <b>Photos:</b> Turn this <b>ON</b> if you want to <b>ignore photo messages</b>
+* <b>Stickers:</b> Turn this <b>ON</b> if you want to <b>ignore sticker messages</b>
+* <b>Document:</b> Turn this <b>ON</b> if you want to <b>ignore document messages</b>
+* <b>Text:</b> Turn this <b>ON</b> if you want to <b>ignore messages</b> that <b>contain text</b>
+* <b>Caption:</b> Turn this <b>ON</b> if you want to <b>ignore messages</b> that <b>contain captions</b>
+
+<b>Tip:</b> You can choose to filter for <b>multiple conditions at once</b> by keeping them <b>on</b>
+
+
+## Cleaner
+
+This menu is used to remove text, video, photo etc from messages if the <b>conditions match.</b> It's basically <b>Filters</b> but instead of ignoring or allowing messages, <b>it removes the content it matches</b>
+
+To reach this first you will need to type [/settings](/commands/#settings) on <b>TeleFeed</b>, then click on <b>2759205517</b> to open settings menu for <b>2759205517 phone number</b>. Now click on <b>group1</b> so you can access the setup settings. Finally the <b>Cleaner Menu</b> will show up and you can proceed by clicking on it
+
+<p style="margin-bottom: -13px; font-size: 14px;">Access <b>Filters Menu</b> for REDIRECTIONID: <b>group1</b> on PHONE_NUMBER: <b>2759205517</b></p>
+```nohighlight
+/settings > 2759205517 > group1 > Cleaner
+```
+
+<p style="margin-bottom: 5px;"><b style="font-size: 115%; ">Available Cleaners:</b></p>
+
+* <b>Audio:</b> Turn this <b>ON</b> if you want to <b>remove audio from messages</b>
+* <b>Videos:</b> Turn this <b>ON</b> if you want to <b>remove video from messages</b>
+* <b>Voicenotes:</b> Turn this <b>ON</b> if you want to <b>remove voicenotes from messages</b>
+* <b>Animations:</b> Turn this <b>ON</b> if you want to <b>remove animations (gif, etc) from messages</b>
+* <b>Photos:</b> Turn this <b>ON</b> if you want to <b>remove photo from messages</b>
+* <b>Stickers:</b> Turn this <b>ON</b> if you want to <b>remove sticker from messages</b>
+* <b>Document:</b> Turn this <b>ON</b> if you want to <b>remove document from messages</b>
+* <b>Text:</b> Turn this <b>ON</b> if you want to <b>remove text from messages</b>
+* <b>Caption:</b> Turn this <b>ON</b> if you want to <b>remove caption from messages</b>
+
+<b>Tip:</b> Same as <b>Filters</b>, you can keep <b>on</b> multiple conditions at once
+
 
 ## Transformation
 
@@ -290,20 +363,40 @@ To show active configuration on <b>/transformation</b> you need to use the follo
 /transformation active on PHONE_NUMBER
 ```
 
-
 ## Whitelist
 
 You can set a list of words or regex patterns that tell the bot <b>to process message</b> you receive from source channel <b>only if it has at least one</b> of the whitelisted word or regex pattern match.
 
 ```nohighlight
-/Whitelist REDIRECTIONID on <b>PHONE_NUMBER</b>
+/whitelist ACTION REDIRECTIONID on PHONE_NUMBER
+/whitelist ACTION on PHONE_NUMBER
 ```
 
 <b  style="font-size: 115%;">Command Example</b>
 
-<p style="margin-bottom: -13px; font-size: 14px;">Whitelist for REDIRECTIONID: <b>group1</b> on PHONE_NUMBER: <b>2759205517</b></p>
+<p style="margin-bottom: -13px; font-size: 14px;">Add whitelist for REDIRECTIONID: <b>group1</b> on PHONE_NUMBER: <b>2759205517</b></p>
 ```nohighlight
-/whitelist group1 on 2759205517
+/whitelist add group1 on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;">Remove whitelist for REDIRECTIONID: <b>group1</b> on PHONE_NUMBER: <b>2759205517</b></p>
+```nohighlight
+/whitelist remove group1 on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;">Change whitelist for REDIRECTIONID: <b>group1</b> on PHONE_NUMBER: <b>2759205517</b></p>
+```nohighlight
+/whitelist change group1 on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;">Show active whitelist on PHONE_NUMBER: <b>2759205517</b></p>
+```nohighlight
+/whitelist active on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;">Clear all whitelist on PHONE_NUMBER: <b>2759205517</b></p>
+```nohighlight
+/whitelist clear on 2759205517
 ```
 
 <b>TeleFeed</b> will ask you to input the keywords you want to whitelist.
@@ -318,33 +411,73 @@ The synax for this command is the same as [/transformation](/commands/#power-fea
 "bad"
 ```
 
-<p style="margin-bottom: -13px; font-size: 14px;">Process messages only if it has the any <b>@mention</b> on it</p>
+<p style="margin-bottom: -13px; font-size: 14px;">Process messages only if it has the any <b>@mention</b> word on it. <b>(REGEX ENABLED)</b></p>
 ```nohighlight
 @\S+
 ```
 
-<p style="margin-bottom: -13px; font-size: 14px;">Clear whitelist setup</p>
-```nohighlight
-.
-```
-
+<b>Tip:</b> Normal keywords are faster than regex, so use them if you do not need regex.  
 <b>Tip:</b> To disable regex just wrap the word in quotes such as the word <b>bad</b> becomes <b>"bad"</b>  
 <b>Tip:</b> To use regex effectivity, test your regex on [regex101.com](https://regex101.com)  
 <b>Tip:</b> Make sure to use the <b>Python Flavor</b> otherwise your regex will not work on <b>TeleFeed</b>    
-
-<b>Important:</b> Remember to clear whitelist or blacklist you need to use just a single <b>.</b> character  
-<b>Important:</b> The <b>(dot)</b> character should be used as input after the whitelist command (do not for any reason add random <b>(dot)</b> to /whitelist command resulting into /.whitelist etc)
-
 
 ## Blacklist
 
 You can set a list of words or regex patterns which tells the bot that <b>if the message received</b> from source channel has any of the blacklisted words or regex pattern match the bot should <b>ignore</b> that <b>message</b> and do not process it even if it passes all other conditions.
 
 ```nohighlight
-/blacklist REDIRECTIONID on <b>PHONE_NUMBER</b>
+/blacklist ACTION REDIRECTIONID on PHONE_NUMBER
+/blacklist ACTION on PHONE_NUMBER
 ```
 
-This command uses the same syntax as the [/whitelist](/commands/#whitelist) command
+<b  style="font-size: 115%;">Command Example</b>
+
+<p style="margin-bottom: -13px; font-size: 14px;">Add blacklist for REDIRECTIONID: <b>group1</b> on PHONE_NUMBER: <b>2759205517</b></p>
+```nohighlight
+/blacklist add group1 on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;">Remove blacklist for REDIRECTIONID: <b>group1</b> on PHONE_NUMBER: <b>2759205517</b></p>
+```nohighlight
+/blacklist remove group1 on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;">Change blacklist for REDIRECTIONID: <b>group1</b> on PHONE_NUMBER: <b>2759205517</b></p>
+```nohighlight
+/blacklist change group1 on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;">Show active blacklist on PHONE_NUMBER: <b>2759205517</b></p>
+```nohighlight
+/blacklist active on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;">Clear all blacklist on PHONE_NUMBER: <b>2759205517</b></p>
+```nohighlight
+/blacklist clear on 2759205517
+```
+
+<b>TeleFeed</b> will ask you to input the keywords you want to blacklist.
+
+<b  style="font-size: 115%;">Syntax Example</b>
+
+The synax for this command is the same as [/transformation](/commands/#power-feature) <b>power feature</b>
+
+
+<p style="margin-bottom: -13px; font-size: 14px;">Process messages only if it has the word <b>bad</b> in it. <b>(REGEX DISABLED)</b></p>
+```nohighlight
+"bad"
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;">Process messages only if it has the any <b>@mention</b> word on it. <b>(REGEX ENABLED)</b></p>
+```nohighlight
+@\S+
+```
+
+<b>Tip:</b> Normal keywords are faster than regex, so use them if you do not need regex.  
+<b>Tip:</b> To disable regex just wrap the word in quotes such as the word <b>bad</b> becomes <b>"bad"</b>  
+<b>Tip:</b> To use regex effectivity, test your regex on [regex101.com](https://regex101.com)  
+<b>Tip:</b> Make sure to use the <b>Python Flavor</b> otherwise your regex will not work on <b>TeleFeed</b>    
 
 ## Chats
 
@@ -360,6 +493,24 @@ This command is used to get a list of groups, bots, channels or users ID's for u
 ```nohighlight
 /chats 2759205517
 ```
+
+## Bot Settings
+
+On this menu you will find settings such as <b>Start</b>, <b>Stop</b>, <b>Performance Rate</b> and more.
+
+<p style="margin-bottom: 5px;"><b style="font-size: 115%; ">Available Options:</b></p>
+
+* <b>Start:</b> Used to <b>start</b> TeleFeed
+* <b>Stop:</b> Used to <b>stop</b> TeleFeed
+* <b>Disconnect Account:</b> This removes your account from TeleFeed. When you use <b>Disconnect Account</b>, TeleFeed will not login into your account unless you use <b>[/connect](/commands/#connect)</b> again
+* <b>Export:</b> You can use this option to <b>Export</b> TeleFeed configuration so you can import it on another account.
+* <b>Import:</b> After using <b>Export</b>, you will need to import the configuration for usage. You can use this option to import any <b>TeleFeed configuration</b>
+* <b>Improve Performance:</b> This option increases TeleFeed Performance. The reason this option is <b>OFF</b> by default is because using it will cause TeleFeed to <b>forward messages out of order.</b> If you do not care about message order, turning this setting <b>ON</b> will <b>increase performance</b> by a <b>big margin</b>
+* <b>Burst Mode:</b> This option controls message rate for TeleFeed. Message rate means the number of messages TeleFeed can send at once. If this option is set to <b>HIGH (default)</b> then TeleFeed will use its max rate for sending messages. Sometimes this might cause <b>Telegram Account Limited Error</b>  which is why we offer a way to lower this rate.
+
+
+<b>Tip:</b> <b>Telegram Account Limited Error</b> is an error which happens when an account sends many messages at once. This does not cause any permanent issues with the account. When this error happens TeleFeed will not send any more messages via the account. This is because Telegram gives an <b>Temporary Wait Limit</b> so TeleFeed will need to for that to expire before it sends another message.
+
 
 ## Translate
 
@@ -676,42 +827,7 @@ This command is used for setting up delays for your redirections.
 
 ## Settings
 
-This command will show you a menu which you can use to control your redirections functions.
-
-```nohighlight
-/settings
-```
-
-#### 1. Redirection SubMenu
-
-Can be found within the [/settings](/commands/#settings) command.  
-Used for controlling how the TeleFeed functions.
-
-<b>Here are the options you can change on this menu:</b>
-
-* <b>Process Reply:</b> Turn this on if you want <b>TeleFeed</b> to reply to its own messages
-* <b>Process Edit:</b> Turn this on if you want <b>TeleFeed</b> to edit messages if they got edited in the <b>SOURCE</b>
-* <b>Process Delete:</b> Turn this on if you want <b>TeleFeed</b> to remove messages if they got removed in the <b>SOURCE</b>
-* <b>Process Me:</b> Turn this on if you want <b>TeleFeed</b> to redirect your own messages from <b>SOURCE</b>
-* <b>Process Forward:</b> Turn this on if you want <b>TeleFeed</b> to <b>FORWARD</b> message instead of writting them as <b>user</b>
-
-
-__Important:__ Process Forward is one of the command known to have a limitation (by the telegram api). Basically we cannnot edit a <b>forward acton</b>. In case you want <b>to modify/edit</b> forward messages please read <b>Known Issues</b> Section.
-
-#### 2. Filters SubMenu
-
-Can be found within the [/settings](/commands/#settings) command.  
-Used for filtering messages on <b>TeleFeed</b>
-
-You can turn it <b>ON</b> if you don't want message to pass with that filter or <b>OFF</b> if you want them to pass.
-
-
-#### 3. Cleaner SubMenu
-
-Can be found within the [/settings](/commands/#settings) command.  
-Same as filters menu but with this menu instead of filtering the message, it deletes the content it founds.
-
-For example, if you turn on <b>photo</b> in this menu. It will delete photo's from every media and just redirect the text.
+This command will show you a menu which you can access <b>[Bot Settings](/commands/#bot-settings), [Redirection Settings](/commands/#redirection-settings), [Filters Menu](/commands/#filters) and [Cleaners Menu](/commands/#cleaner)</b>
 
 
 ## Config
