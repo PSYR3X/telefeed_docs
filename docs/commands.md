@@ -512,6 +512,33 @@ On this menu you will find settings such as <b>Start</b>, <b>Stop</b>, <b>Perfor
 <b>Tip:</b> <b>Telegram Account Limited Error</b> is an error which happens when an account sends many messages at once. This does not cause any permanent issues with the account. When this error happens TeleFeed will not send any more messages via the account. This is because Telegram gives an <b>Temporary Wait Limit</b> so TeleFeed will need to for that to expire before it sends another message.
 
 
+## Action
+
+This command can be used to bypass bots which hide messages or get content from Telegram official GmailBot. Right now this command can bypass both <b>alert</b> & <b>text rewrite</b> modes
+
+```nohighlight
+/action action REDIRECTIONID on PHONE_NUMBER
+```
+
+<b  style="font-size: 115%;">Command Example</b>
+
+<p style="margin-bottom: -13px; font-size: 14px;">Add Action group1 on 2759205517</p>
+```nohighlight
+/action add group1 on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;">Remove Action from group1 on 2759205517</p>
+```nohighlight
+/action remove group1 on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;">Remove all Actions from group1 on 2759205517</p>
+```nohighlight
+/action clear group1 on 2759205517
+```
+
+<b>TeleFeed</b> will then ask you to about the button title. You do not need to fully match the name, for example if you want TeleFeed to click a button with title <b>▼ Read More</b>, you can just specify <b>Read More</b> and TeleFeed will match it.
+
 ## Translate
 
 This command is used for setting up translation for your redirection groups.
