@@ -168,9 +168,47 @@ To reach this first you will need to type [/settings](/commands/#settings) on <b
 /transformation ACTION FEATURE REDIRECTIONID on PHONE_NUMBER
 ```
 
+
+
 This command is used for setting up transformations for your redirections on <b>TeleFeed</b>. This command should be run after you have already connected a telegram account with <b>/connect</b> command and have one or more redirections active.
 
 With this command you can change messages format, remove words from messages or remove lines if <b>keyword</b> is in it.
+
+<b  style="font-size: 115%;">Command Example</b>
+
+<p style="margin-bottom: -13px; font-size: 14px;"><b>Add (format|power|removeLines) on group1</b></p>
+```nohighlight
+/transformation add format group1 on 2759205517
+/transformation add power group1 on 2759205517
+/transformation add removeLines group1 on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;"><b>Remove (format|power|removeLines) on group1</b></p>
+```nohighlight
+/transformation remove format group1 on 2759205517
+/transformation remove power group1 on 2759205517
+/transformation remove removeLines group1 on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;"><b>Show active transformations for grp1 on 2759205517</b></p>
+```nohighlight
+/transformation active grp1 on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;"><b>Show active transformations on 2759205517</b></p>
+```nohighlight
+/transformation active on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;"><b>Clear grp1 transformations on 2759205517</b></p>
+```nohighlight
+/transformation clear grp1 on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;"><b>Clear transformations on 2759205517</b></p>
+```nohighlight
+/transformation clear on 2759205517
+```
 
 ### 1. Format Feature
 
