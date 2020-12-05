@@ -235,6 +235,7 @@ TeleFeed will look at this and replace <b>[[Message.Text]]</b> with the actual <
 
 
 <b>Tip:</b> To change format you can just run the same command again.
+<b>Tip:</b> This command does not work well with emoji and icon characters. You can use them but this command result might not be correctly in that case.
 
 ### 2. Remove Lines Feature
 
