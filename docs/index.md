@@ -22,21 +22,4 @@ delay and change words.
 * Can Clone all messages from SOURCE chat to TARGET chat
 * Can forward or rewrite into the TARGET chat
 
-
-## Commands
-
-* <b>[/connect](/commands/#connect)</b> -> Setup gateway, run first
-* <b>[/redirection](/commands/#redirection)</b> -> Setup redirections, run second
-* <b>[/transformation](/commands/#transformation)</b> -> Setup transformations for message
-* <b>[/delay](/commands/#delay)</b> -> Set delay for redirections
-* <b>[/chats](/commands/#chats)</b> -> Get chats ID to use with redirection
-* <b>[/clone](/commands/#clone)</b> -> Clone chats
-* <b>[/whitelist](/commands/#whitelist)</b> -> Blacklist setup for redirections
-* <b>[/blacklist](/commands/#blacklist)</b> ->  Blacklist setup for redirections
-* <b>[/selectusers](/commands/#selectusers)</b> -> Use it to only allow message from allowed users
-* <b>[/features](/commands/#features)</b> -> Show all the features
-* <b>[/bitly](/commands/#bitly)</b> -> Setup bitly account
-* <b>[/config](/commands/#config)</b> -> Show active configuration
-* <b>[/clear](/commands/#clear)</b> -> Clear your active configuration
-* <b>[/settings](/commands/#settings)</b> -> Show settings menu to control redirections
-* <b>[/translate](/commands/#translate)</b> -> Setup translation for your redirections
+You can find all TeleFeed command in the [commands](/commands) page

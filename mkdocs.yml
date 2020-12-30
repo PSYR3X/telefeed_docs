@@ -1,6 +1,18 @@
 site_name: TeleFeed Docs
 theme:
-  name: readthedocs
+  name: material
   highlightjs: false
+  palette:
+      primary: teal
+      accent: red
+  features:
+      - navigation.instant
+      - toc.integrate
+      - navigation.expand
+hide:
+    - navigation
+
+markdown_extensions:
+  - meta
 
 extra_css: [extra.css]
