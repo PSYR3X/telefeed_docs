@@ -8,6 +8,5 @@ theme:
   features:
       - navigation.instant
       - navigation.expand
-      - header.autohide
 
 extra_css: [extra.css]
