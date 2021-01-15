@@ -314,17 +314,51 @@ This is one of the most powerful feature this bot has. It is used to remove and 
 /transformation power group1 on 2759205517
 ```
 
-<b  style="font-size: 115%;">Syntax Example</b>
+<b  style="font-size: 115%;">Syntax Example (Simple)</b>
 
-Change <b>app</b> to <b>bot</b> (REGEX ENABLED)
+Use the syntax as shown below when you want to replace words or full paragraphs.
+
+Change <b>red</b> to <b>blue</b>
 
 ```nohighlight
-app=bot
+"red","blue"
 ```
 
-Change <b>telegram.me</b> or <b>tm.me</b> to <b>test.com</b> (REGEX ENABLED)
+Change <b>22</b> to <b>40</b>
 
-    (telegram\.me|tm\.me)\/\w+=test.com
+```nohighlight
+"22","40"
+```
+
+Change <b>2+1=3</b> to <b>2+2=4</b>
+
+```nohighlight
+"2+1=3","2+2=4"
+```
+
+Remove keyword <b>red</b> from the message
+
+```nohighlight
+"red",""
+```
+
+Change paragraph <b>I do not like this text</b> to <b>This is better</b>
+
+```nohighlight
+"I do not like this text","This is better"
+```
+
+<b  style="font-size: 115%;">Syntax Example (Advanced)</b>
+
+Use the syntax as shown below when you want to achive result that is not possible with the simple syntax. This syntax uses regex to replace words and keywords. 
+
+<b>Do not use this syntax if you do not know regex because bad usage can stop your redirection.</b>
+
+Change <b>telegram.me</b> or <b>tm.me</b> to <b>test.com</b>
+
+```nohighlight
+(telegram\.me|tm\.me)\/\w+=test.com
+```
 
 Use regex to match <b>gray</b> or <b>grey</b> and change it to <b>red</b>
 
@@ -333,17 +367,11 @@ gr[ae]y=red
 ```
 
 Unshort urls, match <b>tag</b> (query) and change it to <b>client1</b> 
-URL functions have <b>REGEX DISABLED</b> by default. To use URL functions you need to have a bitly token setup. You can do it via the [/bitly](/commands/#bitly) command.
 
 ```nohighlight
 url:tag=client1
 ```
 
-Match <b>2+1=3</b> and change it to <b>2+2=4</b> (REGEX DISABLED)
-
-```nohighlight
-"2+1=3","2+2=4"
-```
 
 Match every <b>url</b> or <b>@mention</b> and change it to <b>@tg_feedbot</b>
 
@@ -352,10 +380,6 @@ Match every <b>url</b> or <b>@mention</b> and change it to <b>@tg_feedbot</b>
 ```
 
 Remove word <b>red</b> from the message
-
-```nohighlight
-red=
-```
 
 You can use multiline configurations like. In that case the bot will try to match every line on the message and act on it.
 
@@ -556,7 +580,7 @@ On this menu you will find settings such as <b>Start</b>, <b>Stop</b>, <b>Perfor
 This command can be used to bypass bots which hide messages or get content from Telegram official GmailBot. Right now this command can bypass both <b>alert</b> & <b>text rewrite</b> modes
 
 ```nohighlight
-/action action REDIRECTIONID on PHONE_NUMBER
+/action ACTION REDIRECTIONID on PHONE_NUMBER
 ```
 
 <b  style="font-size: 115%;">Command Example</b>
@@ -755,7 +779,7 @@ __Important:__ When using this command, the bot might delay message redirection 
 You can define start and stop time for each of your redirection setup using this command.
 
 ```nohighlight
-/scheduler action REDIRECTIONID on PHONE_NUMBER
+/scheduler ACTION REDIRECTIONID on PHONE_NUMBER
 ```
 
 <p style="margin-bottom: -13px; font-size: 14px;">Add schdule for REDIRECTIONID=<b>group1</b> on PHONE_NUMBER=<b>2759205517</b></p>
@@ -833,7 +857,7 @@ This command is used for configuring bitly access for <b>TeleFeed</b>
 You can use this command to add logo to every media <b>TeleFeed</b> forwards.
 
 ```nohighlight
-/watermark action REDIRECTIONID on PHONE_NUMBER
+/watermark ACTION REDIRECTIONID on PHONE_NUMBER
 ```
 
 <b  style="font-size: 115%;">Command Example</b>
