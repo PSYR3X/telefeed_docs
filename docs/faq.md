@@ -213,7 +213,7 @@ Most of the times when users ask us why their forwarding is not working is becau
 If teleFeed is not running, use the command <b>/settings</b>, choose your phone number account and then navigate through the button <b>Bot Settings</b> and click <b>Start</b>
 
 
-<p style="margin-bottom: 0px;"><b style="font-size: 115%; ">TeleFeed not running, stopped manually</b></p>
+<p style="margin-bottom: 0px;"><b style="font-size: 115%; ">TeleFeed not running, stopped manually ( Bad )</b></p>
 ```nohighlight
 Phone Number: 2759205517
 Hosted On: Server 1
@@ -233,7 +233,7 @@ Target: 642797040
 Enable: True
 ```
 
-<p style="margin-bottom: 0px;"><b style="font-size: 115%; ">TeleFeed Running</b></p>
+<p style="margin-bottom: 0px;"><b style="font-size: 115%; ">TeleFeed Running ( Good )</b></p>
 ```nohighlight
 Phone Number: 2759205517
 Hosted On: Server 1
@@ -259,6 +259,14 @@ There are three causes to this problem.
 1.   You lost access to that <b>Chat.</b> Some example can be when you are removed from that chat or TeleFeed cannot write into it (in case its a Source Chat Error)
 2.   Telegram chat ID's can change sometimes and this caused the error. This is known to happen on <b>Groups</b> changing to <b>Supergroups</b> and their <b>Chat ID</b> changes with them. This causes TeleFeed problems because it cannot find that chat anymore given the <b>Old ID</b>
 3.   In rare cases the <b>Chat ID</b> stays the same but Telegram does not return any chat from it. The way to tell this is when you get this error and when you try to checkout /chats, you cannot find the Chat ID in question but you have every access on it (such as you can view the Chat or you can write on it in case its a Source Chat)
+
+### Delete is not reliable. Why?
+
+The way TeleFeed works is as a bridge between Telegram and the user. Basically TeleFeed never actually knows what the message is and what messages does a chat contains. 
+
+Unlike Edit, telegram does not always send the Delete event to TeleFeed when that happens. We are not sure why and when this happens but we do however know about it.
+
+There's nothing we can do about this since TeleFeed does not check messages by itself and relies on Telegram to tell him what to do.
 
 ### TeleFeed stops working everyday, need to restart.
 
