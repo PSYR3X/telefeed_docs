@@ -1,4 +1,6 @@
 site_name: TeleFeed Docs
+site_dir: "docs/"
+
 theme:
   name: material
   highlightjs: false
@@ -8,5 +10,12 @@ theme:
   features:
       - navigation.instant
       - navigation.expand
+      - toc.integrate
+nav:
+    - Overview: "index.md"
+    - Commands: "commands.md"
+    - Faq:
+        - Questions: "faq_questions.md"
+        - Issues: "faq_issues.md"
 
 extra_css: [extra.css]
