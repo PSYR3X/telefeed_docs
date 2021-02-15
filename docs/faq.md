@@ -149,6 +149,14 @@ Yes. You can forward from a private channel as long as you as a user are joined 
 4.   Choose redirection
 5.   Toggle <b>Process Duplicates Off</b>
 
+### Can I forward replies and deletes?
+
+1.   First run the command [/settings](/commands/#settings)
+2.   Choose which number you want to change settings on
+3.   Choose which setup you want to change settings on
+4.   Choose redirection
+5.   Toggle <b>Process Reply On</b> or <b>Process Delete On</b>
+
 ### Can I filter out myself?
 
 1.   First run the command [/settings](/commands/#settings)
