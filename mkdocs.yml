@@ -8,14 +8,13 @@ theme:
       primary: teal
       accent: red
   features:
-      - navigation.instant
-      - navigation.expand
-      - toc.integrate
+      - navigation.tabs
 nav:
     - Overview: "index.md"
     - Commands: "commands.md"
     - Faq:
         - Questions: "faq_questions.md"
         - Issues: "faq_issues.md"
+    - Known Limitations: "know_limitations.md"
 
 extra_css: [extra.css]

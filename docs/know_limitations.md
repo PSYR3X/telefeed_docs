@@ -1,11 +1,9 @@
 # Known Limitations
-
-In this section we will show issues with the bot that come from the api limitation and the ways around it.
-
 ## Performance Sucks! Why can't I send 1000 messages at once?
 
 Probably most of you don't know but telegram api has limitations on the number of requests we can do at once. Sending lots of requests at once <B>is possible</B> if you want your account to keep getting <b>temporary</b> or <b>permanently</b> banned by telegram.  
-###### Our bot has the highest performance you can ever get from any bot of this kind
+
+__Our bot has the highest performance you can ever get from any bot of this kind__
 
 ## I enable "Process Forward" and now /transformation doesn't work.
 
