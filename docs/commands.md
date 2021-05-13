@@ -108,7 +108,9 @@ To reach this first you will need to type [/settings](/commands/#settings) on <b
 * <b>Process Delete:</b> Turn this <b>ON</b> if you want to remove messages if they got removed in the <b>SOURCE</b>
 * <b>Process Me:</b> Turn this <b>ON</b> if you want to redirect your own messages from <b>SOURCE</b>
 * <b>Process Forward:</b> Turn this <b>ON</b> if you want to <b>FORWARD</b> messages instead of writting them as <b>user</b>
+* <b>Process Raw:</b> Turn this <b>ON</b> if you want to post <b>raw text</b> messages.
 * <b>Process Duplicates:</b> Turn this <b>OFF</b> if you want to <b>block duplicate messages</b> from forwarding.
+* <b>Fix Bad Style:</b> Turn this <b>On</b> if you get <b>weird links coloring</b> after using [/transformation](/commands/#transformation).
 
 ## Filters
 
@@ -132,6 +134,8 @@ To reach this first you will need to type [/settings](/commands/#settings) on <b
 * <b>Document:</b> Turn this <b>ON</b> if you want to <b>ignore document messages</b>
 * <b>Text:</b> Turn this <b>ON</b> if you want to <b>ignore messages</b> that <b>contain text</b>
 * <b>Caption:</b> Turn this <b>ON</b> if you want to <b>ignore messages</b> that <b>contain captions</b>
+* <b>Forwards:</b> Turn this <b>ON</b> if you want to <b>ignore "Forwarded from" messages</b>
+* <b>Reply:</b> Turn this <b>ON</b> if you want to <b>ignore reply messages</b>
 
 <b>Tip:</b> You can choose to filter for <b>multiple conditions at once</b> by keeping them <b>on</b>
 
@@ -218,7 +222,7 @@ This feature is used to change the output format for the message. Basically you 
 
 ```nohighlight
 /transformation add format group1 on 2759205517
-/redirection format 2759205517
+/transformation format 2759205517
 ```
 
 After typing the command you will be asked to enter how you want to message to output as.  
@@ -283,8 +287,8 @@ This feature is used to remove lines from the message. You will use keywords to 
 
 ```nohighlight
 /transformation add removeLines group1 on 2759205517
-/redirection remove removeLines group1 on 2759205517
-/redirection removeLines 2759205517
+/transformation remove removeLines group1 on 2759205517
+/transformation removeLines 2759205517
 ```
 
 After typing the command you will be asked to enter which keywords you want to look for in the message. You can enter multiple lines so the bot looks for multiple keywords etc.
@@ -773,6 +777,33 @@ You will get a notification from the bot when such a limit is encountered (You w
 
 __Important:__ When using this command, the bot might delay message redirection for your setups.
 
+## Global
+The [/global](/commands/#global) command can be used to apply globally one specific configuration. This command works only for the features shown below.
+
+```nohighlight
+/global ACTION REDIRECTIONID on PHONE_NUMBER
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;">Make group1 <b>configuration</b> global on 2759205517</p>
+```
+/global add group1 on 2759205517
+```
+
+<p style="margin-bottom: -13px; font-size: 14px;">Remove group1 <b>configuration</b> from global on 2759205517</p>
+```
+/global remove group1 on 2759205517
+```
+
+<b>Supported Features Globally</b>
+```
+Transformation
+Translate
+Watermark
+Action
+Whitelist & Blacklist
+Filters & Cleaners
+```
+
 
 ## Scheduler
 
@@ -854,7 +885,7 @@ This command is used for configuring bitly access for <b>TeleFeed</b>
 
 ## Watermark
 
-You can use this command to add logo to every media <b>TeleFeed</b> forwards.
+You can use this command to add a watermark to every media that <b>TeleFeed</b> forwards.
 
 ```nohighlight
 /watermark ACTION REDIRECTIONID on PHONE_NUMBER
