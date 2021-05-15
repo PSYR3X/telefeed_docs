@@ -1,21 +1,29 @@
+{%set action = "<a href='#commands-arguments-meaning'>action</a>" %}
+{%set redirectionid = "<a href='#commands-arguments-meaning'>redirectionid</a>" %}
+{%set feature = "<a href='#commands-arguments-meaning'>feature</a>" %}
+{%set phonenumber = "<a href='#commands-arguments-meaning'>phonenumber</a>" %}
+{%set amount = "<a href='#commands-arguments-meaning'>amount</a>" %}
+
 # Commands
 
-Every command has some variables in common. Below you will find their meaning so you can use them. You can run every command without arguments and it will return its help menu.
+In this documentation you will find every TeleFeed command and examples on how to use them. We suggest you read this documentation from the start so you can learn more about each feature TeleFeed supports. Every <u>Example Command</u> you see in this documentation is using <u>dummy values</u> so don't copy and paste it.
 
-* <b>PHONE_NUMBER</b> -> Phone number for the command to act upon
-* <b>REDIRECTIONID</b> -> When you create redirections, you give them an ID to reference in other commands. When a comand asks you for <b>REDIRECTIONID</b> it means it wants the name/title you used when you created the redirection.
-* <b>ACTION</b> -> What action to do for the command. Commands like <b>/transformation</b> and <b>/redirection</b> have an add and remove <b>ACTION</b>
-* <b>FEATURE</b> -> Commands like <b>/transformation</b> have a FEATURE argument which is used to tell the bot what feature of the command you want to use.
+#### Commands Arguments Meaning
 
-<b>Every <u>Example Command</u> you see in this documentation is using <u>dummy values</u> so don't copy and paste it.</b>
+* <b>PhoneNumber:</b> Used to specify which <b>connected account</b> you want to use the command on.
+* <b>RedirectionID:</b> Used to specify on which <b>redirection setup</b> you want to use.
+* <b>Action:</b> Used to specify what you want to do with the command. Supported actions are <b>Add, Remove, Change</b> and <b>Clear</b>.
+* <b>Feature</b> Some commands contain more than one feature inside. With this argument you need to specify which feature you want to use.
+* <b>Amount</b> Specify the amount in numbers for the given command. Commands such as /delay use this argument to specify seconds.
+
 
 ## Connect
 
-```nohighlight
-/connect PHONE_NUMBER
-```
-
 This command is used for connecting telegram accounts with <b>TeleFeed</b>. You need to run this first before trying to run other commands since they rely on you having a number connected.
+
+!!! Example "Command"
+    <p style="font-size: 16px">/connect  {{phonenumber}}</p>
+
 
 <b  style="font-size: 115%;">Command Example</b>
 
@@ -71,29 +79,29 @@ You can use the [/chats](/commands/#chats) command to get channel/users/groups I
 /redirection 2759205517
 ```
 
-After typing the command you will be asked to enter ID's of the channel/groups/users you want to use as <b>SOURCE</b> and <b>TARGET</b>. 
+After typing the command you will be asked to enter ID's of the channel/groups/users you want to use as <b>SOURCE</b> and <b>DESTINATION</b>. 
 
 <b>The right syntax to type it is as:</b>  
-<b>SOURCE</b> - <b>TARGET</b>
+<b>SOURCE</b> - <b>DESTINATION</b>
 
-Where <b>SOURCE</b> is the channel/user/group you want to redirect messages from and <b>TARGET</b> is the channel/group/user you want to redirect message into.
+Where <b>SOURCE</b> is the channel/user/group you want to redirect messages from and <b>DESTINATION</b> is the channel/group/user you want to redirect message into.
 
 <b  style="font-size: 115%;">Syntax Example</b>
 
 ```nohighlight
-Redirect messages from SOURCE: 708415014 to TARGET:642797040
+Redirect messages from SOURCE: 708415014 to DESTINATION:642797040
 708415014 - 642797040
 
-Redirect messages from multiple SOURCES to TARGET
+Redirect messages from multiple SOURCES to DESTINATION
 53469647,708415014 - 20801978
 
-Redirect messages from SOURCE to Multiple TARGETS
+Redirect messages from SOURCE to Multiple DESTINATIONS
 20801978 - 53469647,708415014 
 ```
 
 
-<b>Min Source/Target Number:</b> -2147483648  
-<b>Max Source/Target Number:</b> 2147483647
+<b>Min Source/Destination Number:</b> -2147483648  
+<b>Max Source/Destination Number:</b> 2147483647
 
 ## Redirection Settings
 
@@ -432,119 +440,117 @@ To show active configuration on <b>/transformation</b> you need to use the follo
 
 ## Whitelist
 
-You can set a list of words or regex patterns that tell the bot <b>to process message</b> you receive from source channel <b>only if it has at least one</b> of the whitelisted word or regex pattern match.
+You can set a list of words or regex patterns that tell the bot <b>to process message</b> you receive from source channel <b>only if it has at least one</b> of the whitelisted word or regex pattern match. When you use this command for adding a whitelist, TeleFeed will ask you for your input syntax. Make sure to use the right syntax by reading the examples below.
 
-```nohighlight
-/whitelist ACTION REDIRECTIONID on PHONE_NUMBER
-/whitelist ACTION on PHONE_NUMBER
-```
+!!! Danger "Warning"
+    <p style='font-size: 18px'>When this command is used incorrectly, it will cause redirections to stop working. Always make sure you use the right syntax when using whitelist. Make sure you check your regex with [regex101.com](https://regex101.com) before using them.</p>
 
-<b  style="font-size: 115%;">Command Example</b>
-
-<p style="margin-bottom: -13px; font-size: 14px;">Add whitelist for REDIRECTIONID: <b>group1</b> on PHONE_NUMBER: <b>2759205517</b></p>
-```nohighlight
-/whitelist add group1 on 2759205517
-```
-
-<p style="margin-bottom: -13px; font-size: 14px;">Remove whitelist for REDIRECTIONID: <b>group1</b> on PHONE_NUMBER: <b>2759205517</b></p>
-```nohighlight
-/whitelist remove group1 on 2759205517
-```
-
-<p style="margin-bottom: -13px; font-size: 14px;">Change whitelist for REDIRECTIONID: <b>group1</b> on PHONE_NUMBER: <b>2759205517</b></p>
-```nohighlight
-/whitelist change group1 on 2759205517
-```
-
-<p style="margin-bottom: -13px; font-size: 14px;">Show active whitelist on PHONE_NUMBER: <b>2759205517</b></p>
-```nohighlight
-/whitelist active on 2759205517
-```
-
-<p style="margin-bottom: -13px; font-size: 14px;">Clear all whitelist on PHONE_NUMBER: <b>2759205517</b></p>
-```nohighlight
-/whitelist clear on 2759205517
-```
-
-<b>TeleFeed</b> will ask you to input the keywords you want to whitelist.
-
-<b  style="font-size: 115%;">Syntax Example</b>
-
-The synax for this command is the same as [/transformation](/commands/#power-feature) <b>power feature</b>
+!!! Example "Command"
+    /whitelist {{action}} {{redirectionid}} on  {{phonenumber}}  
+    /whitelist {{action}} on {{phonenumber}}
 
 
-<p style="margin-bottom: -13px; font-size: 14px;">Process messages only if it has the word <b>bad</b> in it. <b>(REGEX DISABLED)</b></p>
-```nohighlight
-"bad"
-```
+!!! Example "Command Example"
+    <p style="margin-bottom: -13px;">Add whitelist for <b>group1</b> on <b>2759205517</b></p>
+    ```nohighlight
+    /whitelist add group1 on 2759205517
+    ```
 
-<p style="margin-bottom: -13px; font-size: 14px;">Process messages only if it has the any <b>@mention</b> word on it. <b>(REGEX ENABLED)</b></p>
-```nohighlight
-@\S+
-```
+    <p style="margin-bottom: -13px;">Remove whitelist for <b>group1</b> on <b>2759205517</b></p>
+    ```nohighlight
+    /whitelist remove group1 on 2759205517
+    ```
 
-<b>Tip:</b> Normal keywords are faster than regex, so use them if you do not need regex.  
-<b>Tip:</b> To disable regex just wrap the word in quotes such as the word <b>bad</b> becomes <b>"bad"</b>  
-<b>Tip:</b> To use regex effectivity, test your regex on [regex101.com](https://regex101.com)  
-<b>Tip:</b> Make sure to use the <b>Python Flavor</b> otherwise your regex will not work on <b>TeleFeed</b>    
+    <p style="margin-bottom: -13px;">Change whitelist for <b>group1</b> on <b>2759205517</b></p>
+    ```nohighlight
+    /whitelist change group1 on 2759205517
+    ```
+
+    <p style="margin-bottom: -13px;">Show active whitelist on <b>2759205517</b></p>
+    ```nohighlight
+    /whitelist active on 2759205517
+    ```
+
+    <p style="margin-bottom: -13px;">Clear all whitelist on <b>2759205517</b></p>
+    ```nohighlight
+    /whitelist clear on 2759205517
+    ```
+
+!!! Example "Input Syntax Example"
+    The synax for this command is the same as [/transformation power feature](/commands/#power-feature)
+
+    <p style="margin-bottom: -13px;">Process messages only if it has the word <b>bad</b> in it. <b>(REGEX DISABLED)</b></p>
+    ```nohighlight
+    "bad"
+    ```
+
+    <p style="margin-bottom: -13px;">Process messages only if it has the any <b>@mention</b> word on it. <b>(REGEX ENABLED)</b></p>
+    ```nohighlight
+    @\S+
+    ```
+
+!!! Tip "Tips"
+    1. Normal keywords are faster than regex, so use them if you do not need regex.  
+    2. To disable regex just wrap the word in quotes such as the word <b>bad</b> becomes <b>"bad"</b>  
+    3. Make sure to use the <b>Python Flavor</b> otherwise your regex will not work on <b>TeleFeed</b>  
+    4. To use regex effectivity, test your regex on [regex101.com](https://regex101.com)
 
 ## Blacklist
 
-You can set a list of words or regex patterns which tells the bot that <b>if the message received</b> from source channel has any of the blacklisted words or regex pattern match the bot should <b>ignore</b> that <b>message</b> and do not process it even if it passes all other conditions.
+You can set a list of words or regex patterns which tells the bot that <b>if the message received</b> from source channel has any of the blacklisted words or regex pattern match the bot should <b>ignore</b> that <b>message</b> and do not process it even if it passes all other conditions. When you use this command for adding a blacklist, TeleFeed will ask you for your input syntax. Make sure to use the right syntax by reading the examples below.
 
-```nohighlight
-/blacklist ACTION REDIRECTIONID on PHONE_NUMBER
-/blacklist ACTION on PHONE_NUMBER
-```
+!!! Danger "Warning"
+    <p style='font-size: 18px'>When this command is used incorrectly, it will cause redirections to stop working. Always make sure you use the right syntax when using blacklist. Make sure you check your regex with [regex101.com](https://regex101.com) before using them.</p>
 
-<b  style="font-size: 115%;">Command Example</b>
-
-<p style="margin-bottom: -13px; font-size: 14px;">Add blacklist for REDIRECTIONID: <b>group1</b> on PHONE_NUMBER: <b>2759205517</b></p>
-```nohighlight
-/blacklist add group1 on 2759205517
-```
-
-<p style="margin-bottom: -13px; font-size: 14px;">Remove blacklist for REDIRECTIONID: <b>group1</b> on PHONE_NUMBER: <b>2759205517</b></p>
-```nohighlight
-/blacklist remove group1 on 2759205517
-```
-
-<p style="margin-bottom: -13px; font-size: 14px;">Change blacklist for REDIRECTIONID: <b>group1</b> on PHONE_NUMBER: <b>2759205517</b></p>
-```nohighlight
-/blacklist change group1 on 2759205517
-```
-
-<p style="margin-bottom: -13px; font-size: 14px;">Show active blacklist on PHONE_NUMBER: <b>2759205517</b></p>
-```nohighlight
-/blacklist active on 2759205517
-```
-
-<p style="margin-bottom: -13px; font-size: 14px;">Clear all blacklist on PHONE_NUMBER: <b>2759205517</b></p>
-```nohighlight
-/blacklist clear on 2759205517
-```
-
-<b>TeleFeed</b> will ask you to input the keywords you want to blacklist.
-
-<b  style="font-size: 115%;">Syntax Example</b>
-
-The synax for this command is the same as [/transformation](/commands/#power-feature) <b>power feature</b>
+!!! Example "Command"
+    /blacklist {{action}} {{redirectionid}} on  {{phonenumber}}  
+    /blacklist {{action}} on {{phonenumber}}
 
 
-<p style="margin-bottom: -13px; font-size: 14px;">Process messages only if it has the word <b>bad</b> in it. <b>(REGEX DISABLED)</b></p>
-```nohighlight
-"bad"
-```
+!!! Example "Command Example"
+    <p style="margin-bottom: -13px; ">Add blacklist for <b>group1</b> on <b>2759205517</b></p>
+    ```nohighlight
+    /blacklist add group1 on 2759205517
+    ```
 
-<p style="margin-bottom: -13px; font-size: 14px;">Process messages only if it has the any <b>@mention</b> word on it. <b>(REGEX ENABLED)</b></p>
-```nohighlight
-@\S+
-```
+    <p style="margin-bottom: -13px; ">Remove blacklist for <b>group1</b> on <b>2759205517</b></p>
+    ```nohighlight
+    /blacklist remove group1 on 2759205517
+    ```
 
-<b>Tip:</b> Normal keywords are faster than regex, so use them if you do not need regex.  
-<b>Tip:</b> To disable regex just wrap the word in quotes such as the word <b>bad</b> becomes <b>"bad"</b>  
-<b>Tip:</b> To use regex effectivity, test your regex on [regex101.com](https://regex101.com)  
-<b>Tip:</b> Make sure to use the <b>Python Flavor</b> otherwise your regex will not work on <b>TeleFeed</b>    
+    <p style="margin-bottom: -13px; ">Change blacklist for <b>group1</b> on <b>2759205517</b></p>
+    ```nohighlight
+    /blacklist change group1 on 2759205517
+    ```
+
+    <p style="margin-bottom: -13px; ">Show active blacklist on <b>2759205517</b></p>
+    ```nohighlight
+    /blacklist active on 2759205517
+    ```
+
+    <p style="margin-bottom: -13px; ">Clear all blacklist on <b>2759205517</b></p>
+    ```nohighlight
+    /blacklist clear on 2759205517
+    ```
+
+!!! Example "Input Syntax Example"
+    The synax for this command is the same as [/transformation power feature](/commands/#power-feature)
+
+    <p style="margin-bottom: -13px; ">Ignore messages only if it has the word <b>bad</b> in it. <b>(REGEX DISABLED)</b></p>
+    ```nohighlight
+    "bad"
+    ```
+
+    <p style="margin-bottom: -13px; font-size: 16px;">Ignore messages if it contains any <b>@mention</b> tag on it. <b>(REGEX ENABLED)</b></p>
+    ```nohighlight
+    @\S+
+    ```
+
+!!! Tip "Tips"
+    1. Normal keywords are faster than regex, so use them if you do not need regex.  
+    2. To disable regex just wrap the word in quotes such as the word <b>bad</b> becomes <b>"bad"</b>  
+    3. Make sure to use the <b>Python Flavor</b> otherwise your regex will not work on <b>TeleFeed</b>  
+    4. To use regex effectivity, test your regex on [regex101.com](https://regex101.com)
 
 ## Chats
 
@@ -746,27 +752,27 @@ __This command will not work if you use wrong language codes.__
 
 ## Clone
 
-This command is used for cloning (mirror) chats/channels or users messages from SOURCE to TARGET
+This command is used for cloning (mirror) chats/channels or users messages from SOURCE to DESTINATION
 
 ```nohighlight
-/clone SOURCE TARGET on PHONE_NUMBER
-/clone SOURCE TARGET LIMIT on PHONE_NUMBER
+/clone SOURCE DESTINATION on PHONE_NUMBER
+/clone SOURCE DESTINATION LIMIT on PHONE_NUMBER
 ```
 
 * <b>SOURCE</b>  -> Chat/User you want to clone messages from
-* <b>TARGET</b> -> Chat/User you want to clone messages into
+* <b>DESTINATION</b> -> Chat/User you want to clone messages into
 
-If you have a redirection setup with the same ID's (SOURCE, TARGET) when using this command. It will use the your redirection setup (transformation, filtering) when applying this command.
+If you have a redirection setup with the same ID's (SOURCE, DESTINATION) when using this command. It will use the your redirection setup (transformation, filtering) when applying this command.
 
 <b  style="font-size: 115%;">Command Example</b>
 
-<p style="margin-bottom: -13px; font-size: 14px;">Clone from SOURCE=<b>2759205517</b> to TARGET=<b>28887387</b> on PHONE_NUMBER=<b>2759205517</b></p>
+<p style="margin-bottom: -13px; font-size: 14px;">Clone from SOURCE=<b>2759205517</b> to DESTINATION=<b>28887387</b> on PHONE_NUMBER=<b>2759205517</b></p>
 ```nohighlight
 /clone 2759205517 28887387 on 2759205517
 ```
 
 
-<p style="margin-bottom: -13px; font-size: 14px;">Clone from SOURCE=<b>2759205517</b> to TARGET=<b>28887387</b> with LIMIT=<b>200</b> on PHONE_NUMBER=<b>2759205517</b></p>
+<p style="margin-bottom: -13px; font-size: 14px;">Clone from SOURCE=<b>2759205517</b> to DESTINATION=<b>28887387</b> with LIMIT=<b>200</b> on PHONE_NUMBER=<b>2759205517</b></p>
 ```
 /clone 2759205517 28887387 200 on 2759205517
 ```
@@ -809,160 +815,175 @@ Filters & Cleaners
 
 You can define start and stop time for each of your redirection setup using this command.
 
-```nohighlight
-/scheduler ACTION REDIRECTIONID on PHONE_NUMBER
-```
+!!! Example "Command"
+    /scheduler {{ action }} {{ redirectionid }} on {{ phonenumber }}
 
-<p style="margin-bottom: -13px; font-size: 14px;">Add schdule for REDIRECTIONID=<b>group1</b> on PHONE_NUMBER=<b>2759205517</b></p>
-```nohighlight
-/scheduler add group1 on 2759205517
-```
+!!! Example "Command Example"
+    <p style="margin-bottom: -13px;">Add schdule for <b>group1</b> on <b>2759205517</b></p>
+    ```nohighlight
+    /scheduler add group1 on 2759205517
+    ```
 
-<p style="margin-bottom: -13px; font-size: 14px;">Remove schdule for REDIRECTIONID=<b>group1</b> on PHONE_NUMBER=<b>2759205517</b></p>
-```nohighlight
-/scheduler remove group1 on 2759205517
-```
+    <p style="margin-bottom: -13px;">Remove schdule for <b>group1</b> on <b>2759205517</b></p>
+    ```nohighlight
+    /scheduler remove group1 on 2759205517
+    ```
 
-<p style="margin-bottom: -13px; font-size: 14px;">Clear all schedules for PHONE_NUMBER=<b>2759205517</b></p>
-```nohighlight
-/scheduler clear on 2759205517
-```
+    <p style="margin-bottom: -13px;">Clear all schedules for <b>2759205517</b></p>
+    ```nohighlight
+    /scheduler clear on 2759205517
+    ```
 
+</br>
 After running the above commands <b>you will be asked</b> to input the time that you want TeleFeed to turn on and off your setups.
-Here are a few example syntax on how to do this.
+Here are a few example syntax on how to do this.  
+</br>
 
-<p style="margin-bottom: -13px; font-size: 14px;">Start at <b>12:30</b> and Stop at <b>2:30</b></p>
-```nohighlight
-12:30 - 2:30
-```
+!!! Example "Input Syntax Example "
+    <p style="margin-bottom: -13px; font-size: 14px;">Start at <b>12:30</b> and Stop at <b>2:30</b></p>
+    ```nohighlight
+    12:30 - 2:30
+    ```
 
-<p style="margin-bottom: -13px; font-size: 14px;">Start at <b>09:00</b> and Stop at <b>21:00</b></p>
-```nohighlight
-9:00 - 21:00
-```
-
+    <p style="margin-bottom: -13px; font-size: 14px;">Start at <b>09:00</b> and Stop at <b>21:00</b></p>
+    ```nohighlight
+    9:00 - 21:00
+    ```
+</br>
 That's all. Now TeleFeed will (based on first example) <b>turn on</b> group1 <b>at 12:30</b> and <b>turn off at 2:30</b>
 
 ## Selectusers
 
-You can set a list of <b>user id s</b> to tell the bot <b>to process messages</b> you receive from source channel <b>only if it matches at least one</b> of the <b>user id's</b> on the list.
+You can set a list of <b>user id s</b> to tell the bot <b>to process messages</b> you receive from source channel <b>only if it matches at least one</b> of the <b>user id's</b> on the list. 
 
 
-```nohighlight
-/selectusers REDIRECTIONID> on PHONE_NUMBER
-```
+!!! Example "Command"
+    /selectusers {{ action }} {{ redirectionid }} on {{ phonenumber }}
 
-<b  style="font-size: 115%;">Command Example</b>
+!!! Example "Command Example"
+    <p style="margin-bottom: -13px;">Add for <b>group1</b> on <b>2759205517</b></p>
+    ```nohighlight
+    /selectusers add group1 on 2759205517
+    ```
 
-<p style="margin-bottom: -13px; font-size: 14px;">Setup for REDIRECTIONID=<b>grp</b> on PHONE_NUMBER=<b>2759205517</b></p>
-```nohighlight
-/selectusers group1 on 2759205517
-```
+    <p style="margin-bottom: -13px;">Remove for <b>group1</b> on <b>2759205517</b></p>
+    ```nohighlight
+    /selectusers remove group1 on 2759205517
+    ```
 
-After running the above command <b>you will be asked</b> to input a list of <b>users id's</b>.  
-Input the user you want to allow messages from. Separate them using commads <b>,</b> for multiple users.
+    <p style="margin-bottom: -13px;">Remove <b>everything</b> on <b>2759205517</b></p>
+    ```nohighlight
+    /selectusers clear on 2759205517
+    ```
 
-```nohighlight
-6516516,651651651,16516516
-```
+</br>
+After running <b>"/selectusers add group1 on 2759205517"</b>, <b>you will be asked</b> to input a list of <b>users id's</b>. Input the user you want to allow messages from. Separate them using commads <b>,</b> for multiple users.  
+</br>
 
-That's all. Now every time you receive a message on <b>group1 SOURCE</b>, the bot will check if the user who sent the message is allowed. If so it will process the message otherwise it will not.
+!!! Example "Input Syntax Example "
+    ```nohighlight
+    6516516,651651651,16516516
+    ```
+
+</br>
+That's all. Now every time you receive a message on <b>group1 SOURCE</b>, TeleFeed will check if the user who sent the message is allowed based on your user ID's input. If so it will process the message otherwise it will ignore it.  
 
 ## Bitly
 
 This command is used for configuring bitly access for <b>TeleFeed</b>
 
-```nohighlight
-/bitly TOKEN
-```
+!!! Example "Command"
+    /bitly key
 
-<b  style="font-size: 115%;">Command Example</b>
-
-<p style="margin-bottom: -13px; font-size: 14px;">Setting bitly api with TOKEN=<b>43nafkiynmy7pn7lkqgiuwn6krquwisvjsdbgf</b></p>
-```nohighlight
-/bitly 43nafkiynmy7pn7lkqgiuwn6krquwisvjsdbgf
-```
+!!! Example "Command Example"
+    <p style="margin-bottom: -13px;">Setting bitly api with <b>43nafkiynmy7pn7lkqgiuwn6krquwisvjsdbgf</b></p>
+    ```nohighlight
+    /bitly 43nafkiynmy7pn7lkqgiuwn6krquwisvjsdbgf
+    ```
 
 ## Watermark
 
 You can use this command to add a watermark to every media that <b>TeleFeed</b> forwards.
 
-```nohighlight
-/watermark ACTION REDIRECTIONID on PHONE_NUMBER
-```
+!!! Example "Command"
+    /watermark {{ action }} {{ redirectionid }} on {{ phonenumber }}
 
-<b  style="font-size: 115%;">Command Example</b>
+!!! Example "Command Example"
+    <p style="margin-bottom: -13px;"><b>Add Watermark group1 on 2759205517</b></p>
+    ```nohighlight
+    /watermark add group1 on 2759205517
+    ```
 
-<p style="margin-bottom: -13px; font-size: 14px;"><b>Add Watermark group1 on 2759205517</b></p>
-```nohighlight
-/watermark add group1 on 2759205517
-```
+    <p style="margin-bottom: -13px;"><b>Remove Watermark group1 on 2759205517</b></p>
+    ```nohighlight
+    /watermark remove group1 on 2759205517
+    ```
 
-<p style="margin-bottom: -13px; font-size: 14px;"><b>Remove Watermark group1 on 2759205517</b></p>
-```nohighlight
-/watermark remove group1 on 2759205517
-```
+    <p style="margin-bottom: -13px;"><b>Remove all watermarks from 2759205517</b></p>
+    ```nohighlight
+    /watermark clear on 2759205517
+    ```
 
-<p style="margin-bottom: -13px; font-size: 14px;"><b>Remove all watermarks from 2759205517</b></p>
-```nohighlight
-/watermark clear on 2759205517
-```
+!!! Info "Information"
+    1. This command can cause redirection to run slower because TeleFeed will need to generate the watermark before it sends the message
+
 
 ## PlanSwap
 
-This command is used to exchange plans between phone numbers. To use this command you need to have both phone numbers <b>connected</b> with TeleFeed and the <b>Target Phone Number</b> should be on <b>Free Plan</b>
+This command is used to exchange plans between phone numbers. You can use this to move your paid plan from one number to another. 
 
-This command <b>has a fee of 1 day</b> for each usage. This means that when you move a <b>30 Days Pro Plan</b> from 27505517, you will get <b>29 Days of Pro Plan</b> on 32529517
+!!! Example "Command"
+    ```nohighlight
+    /planswap SOURCE_PHONE_NUMBER DESTINATION_PHONE_NUMBER
+    ```
 
-```nohighlight
-/planswap SOURCE_PHONE_NUMBER TARGET_PHONE_NUMBER
-```
-
-<b  style="font-size: 115%;">Command Example</b>
-
-<p style="margin-bottom: -13px; font-size: 14px;"><b>Exchange Plan from 27505517 to 32529517</b></p>
-```nohighlight
-/planswap 27505517 32529517
-```
+!!! Example "Command Example"
+    <p style="margin-bottom: -13px"><b>Exchange Plan from 27505517 to 32529517</b></p>
+    ```nohighlight
+    /planswap 27505517 32529517
+    ```
+!!! Warning "Important"
+    1. This command <b>has a fee of 1 day</b> for each usage. This means that when you move a <b>31 Days Pro Plan</b> from 27505517, you will get <b>30 Days of Pro Plan</b> on 32529517
+    2. The <b>source number</b> needs to be connected with your account for <b>planswap</b> to work.
+    3. The <b>destination number</b> needs to be in <b>Free Plan</b> for <b>planswap</b> to work.
 
 ## Delay
 
-This command is used for setting up delays for your redirections.
+This command is used for setting up delays for your redirections. When delay is active, TeleFeed will schedule messages and send them later.
 
-```nohighlight
-/delay VALUE REDIRECTIONID on PHONE_NUMBER
-```
+!!! Example "Command"
+    /delay {{ amount }} {{ redirectionid }} on {{ phonenumber }}  
+    /delay {{ amount }} on {{ phonenumber }}
 
-<b  style="font-size: 115%;">Command Example</b>
+!!! Example "Command Example"
+    <p style="margin-bottom: -13px">Delay <b>group_1</b> by <b>120 seconds</b> on <b>2759205517</b></p>
+    ```nohighlight
+    /delay 120 group1 on 2759205517
+    ```
 
-<p style="margin-bottom: -13px; font-size: 14px;">Delay REDIRECTIONID=<b>group_1</b> by Value=<b>120sec</b> on PHONE_NUMBER=<b>2759205517</b></p>
-```nohighlight
-/delay 120 group1 on 2759205517
-```
+    <p style="margin-bottom: -13px">Delay all redirections by <b>120 seconds</b> on <b>2759205517</b></p>
+    ```
+    /delay 120 on 2759205517
+    ```
 
-
-<p style="margin-bottom: -13px; font-size: 14px;">Delay all redirections by Value=<b>120sec</b> on PHONE_NUMBER=<b>2759205517</b></p>
-```
-/delay 120 group1 on 2759205517
-```
-
-## Settings
-
-This command will show you a menu which you can access <b>[Bot Settings](/commands/#bot-settings), [Redirection Settings](/commands/#redirection-settings), [Filters Menu](/commands/#filters) and [Cleaners Menu](/commands/#cleaner)</b>
+!!! Tip "Tips"
+    1. Setting delay to 0 will remove it
 
 
 ## Config
 
 This command is used to get a message with your active configuration. You can use it for when you don't know what redirections, filters, cleaners etc you have active.
 
-```nohighlight
-/config
-```
+!!! Example "Command"
+    /config
 
 ## Clear
 
-This command is used to clear your active configuration.
+This command is used to clear your active configuration. Everything including [/redirection](/commands/#redirection) setups will be removed. TeleFeed will still keep your number connected so you can configure it again.
 
-```nohighlight
-/clear PHONE_NUMBER
-```
+!!! Example "Command"
+    /clear {{phonenumber}}  
+
+## Settings
+
+This command will show you a menu which you can access <b>[Bot Settings](/commands/#bot-settings), [Redirection Settings](/commands/#redirection-settings), [Filters Menu](/commands/#filters) and [Cleaners Menu](/commands/#cleaner)</b>

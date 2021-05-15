@@ -1,3 +1,7 @@
+.md-typeset abbr {
+    border-bottom: .05rem dotted hsl(0deg 0% 0% / 100%);
+}
+
 pre code{
   color: black !important;
 }
@@ -83,6 +87,22 @@ pre code{
 
     table td {
         font-size: .8em;
+    }
+}
+
+
+@media only screen and (min-width: 900px) {
+    .admonition > p:not(.admonition-title),li {
+        font-size: 1.2em;
+    }
+    .admonition-title {
+        font-size: 1.3em;
+        padding: .4rem .6rem .4rem 2.2rem !important;
+    }
+
+    .admonition-title::before {
+        width: 1.5em !important;
+        height: 1.5em !important;
     }
 }
 

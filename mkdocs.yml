@@ -9,6 +9,15 @@ theme:
       accent: red
   features:
       - navigation.tabs
+  font:
+    text: Roboto
+
+markdown_extensions:
+    - abbr
+    - admonition
+    - pymdownx.details
+    - pymdownx.superfences
+
 nav:
     - Overview: "index.md"
     - Commands: "commands.md"
@@ -16,5 +25,8 @@ nav:
         - Questions: "faq_questions.md"
         - Issues: "faq_issues.md"
     - Known Limitations: "know_limitations.md"
+
+plugins:
+  - macros
 
 extra_css: [extra.css]

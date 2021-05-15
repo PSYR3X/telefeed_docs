@@ -14,12 +14,12 @@ delay and change words.
 
 * Forward from anything (be it public or private)
 * Highest <b>performance</b> from any bot available currently (up to 200 msg/min)
-* Can setup multiple SOURCES to one TARGET or one TARGET to multiple SOURCES
+* Can setup multiple SOURCES to one DESTINATION or one SOURCE to multiple DESTINATIONS
 * Can change messages format and remove/add defined words
 * Can filter messages (images, media, voice_notes etc)
-* Can translate messages from source to target
+* Can translate messages from source to destination
 * Can delay messages up to defined amount
-* Can Clone all messages from SOURCE chat to TARGET chat
-* Can forward or rewrite into the TARGET chat
+* Can Clone all messages from SOURCE chat to DESTINATION chat
+* Can forward or rewrite into the DESTINATION chat
 
 You can find all TeleFeed command in the [commands](/commands) page
