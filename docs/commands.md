@@ -3,6 +3,9 @@
 {%set feature = "<a href='#commands-arguments-meaning'>feature</a>" %}
 {%set phonenumber = "<a href='#commands-arguments-meaning'>phonenumber</a>" %}
 {%set amount = "<a href='#commands-arguments-meaning'>amount</a>" %}
+{%set source = "<a href='#commands-arguments-meaning'>source</a>" %}
+{%set destination = "<a href='#commands-arguments-meaning'>destination</a>" %}
+{%set limit = "<a href='#commands-arguments-meaning'>limit</a>" %}
 
 # Commands
 
@@ -15,6 +18,9 @@ In this documentation you will find every TeleFeed command and examples on how t
 * <b>Action:</b> Used to specify what you want to do with the command. Supported actions are <b>Add, Remove, Change</b> and <b>Clear</b>.
 * <b>Feature</b> Some commands contain more than one feature inside. With this argument you need to specify which feature you want to use.
 * <b>Amount</b> Specify the amount in numbers for the given command. Commands such as /delay use this argument to specify seconds.
+* <b>Source</b>  -> The destination chat you want to use the TeleFeed command with. Can be user, bot, channel, group or supergroup.
+* <b>Destination</b> -> The destination chat you want to use the TeleFeed command with. Can be user, bot, channel, group or supergroup.
+* <b>Limit</b> -> Clone command specific argument. Used to limit the number of message the clone commands processes.
 
 
 ## Connect
@@ -25,206 +31,195 @@ This command is used for connecting telegram accounts with <b>TeleFeed</b>. You 
     <p style="font-size: 16px">/connect  {{phonenumber}}</p>
 
 
-<b  style="font-size: 115%;">Command Example</b>
+!!! Example "Command Example"
+    <p style="margin-bottom: -13px;">Connecting to TeleFeed with <b>2759205517</b></b></p>
+    ```nohighlight
+    /connect 2759205517
+    ```
 
-<p style="margin-bottom: -13px; font-size: 14px;">Connecting to TeleFeed with PHONE_NUMBER=<b>2759205517</b></b></p>
-```nohighlight
-/connect 2759205517
-```
-
-Connecting to <b>TeleFeed</b> with the number 2759205517  
-Remember to always add your <b>country prefix</b> otherwise the connection might fail.
-
-After you type the command with your <b>OWN TELEGRAM PHONE NUMBER</b>, <b>TeleFeed</b> will ask you to enter the code that you got from telegram (Its a 5 digit code number).
-
-Make sure to follow every instruction from <b>TeleFeed</b> (such as when it asks you to enter the code with aa in front).
-
-If you are using a <b>Two Factor Authentication</b> you will be asked to enter that too.
-
-**Important:** Whenever you enter a code on this command make sure you add **aa** in front such as the code **52234** becomes **aa52234**. Same thing applies to **2FA**
+!!! warning "Careful"
+    * Remember to always add your <b>country prefix</b> otherwise the connection might fail.  
+    * Whenever you enter a code on this command make sure you add **aa** in front such as the code **52234** becomes **aa52234**. Same thing for <b>Two Factor Authentication</b>
 
 
 ## Redirection
+This command is used for setting up redirections for <b>TeleFeed</b>. This command should be run after you have already connected a telegram account with [/connect](/commands/#connect) command.
 
-```nohighlight
-/redirection ACTION REDIRECTIONID on PHONE_NUMBER
-/redirection PHONE_NUMBER
-```
+!!! Info "Command Information"
+    * This commands needs input from the [/chats](/commands/#chats)
+    * You can only use source and destination id's you find via [/chats](/commands/#chats)
 
-This command is used for setting up redirections for <b>TeleFeed</b>. This command should be run after you have already connected a telegram account with [/connect](/commands/#connect) command
+!!! Example "Command"
+    /redirection {{ action }} {{ redirectionid }} on {{ phonenumber }}
+    /redirection {{ phonenumber }}
 
-You can use the [/chats](/commands/#chats) command to get channel/users/groups ID's for use with this command
+!!! Example "Command Example"
+    <p style="margin-bottom: -13px;">Setting up redirection with <b>group1</b> on <b>2759205517</b></p>
+    ```nohighlight
+    /redirection add group1 on 2759205517
+    ```
 
-<b  style="font-size: 115%;">Command Example</b>
+    <p style="margin-bottom: -13px;">Removing redirection with <b>group1</b> on <b>2759205517</b></p>
+    ```
+    /redirection remove group1 on 2759205517
+    ```
 
+    <p style="margin-bottom: -13px;">Changing redirection with <b>group1</b> on <b>2759205517</b></p>
+    ```
+    /redirection change group1 on 2759205517
+    ```
 
-<p style="margin-bottom: -13px; font-size: 14px;">Setting up redirection with REDIRECTIONID=<b>group1</b> on PHONE_NUMBER=<b>2759205517</b></p>
-```nohighlight
-/redirection add group1 on 2759205517
-```
+    <p style="margin-bottom: -13px;">Showing all active redirections on <b>2759205517</b></p>
+    ```
+    /redirection 2759205517
+    ```
 
-<p style="margin-bottom: -13px; font-size: 14px;">Removing redirection with REDIRECTIONID=<b>group1</b> on PHONE_NUMBER=<b>2759205517</b></p>
-```
-/redirection remove group1 on 2759205517
-```
+</br>
+After typing <b>"/redirection add group1 on 2759205517"</b> you will be asked to enter id's of channel/groups/users you want to use as <b>SOURCE</b> and <b>DESTINATION</b>. Please make sure to use the right syntax when input id's as shown below.  
+</br>
 
-<p style="margin-bottom: -13px; font-size: 14px;">Changing redirection with REDIRECTIONID=<b>group1</b> on PHONE_NUMBER=<b>2759205517</b></p>
-```
-/redirection change group1 on 2759205517
-```
+!!! Example "Input Syntax"
+    <b>SOURCE</b> - <b>DESTINATION</b>
 
+</br>
+Where <b>SOURCE</b> is the user, bot, channel or group you want to redirect messages from and <b>DESTINATION</b> is the user, bot, channel or group you want to redirect message into.  
+</br>
 
-<p style="margin-bottom: -13px; font-size: 14px;">Showing all active redirections on PHONE_NUMBER=<b>2759205517</b></p>
-```
-/redirection 2759205517
-```
+!!! Example "Input Syntax Example"
+    Redirect messages from <b>708415014</b> to <b>642797040</b>
+    ```
+    708415014 - 642797040
+    ```
 
-After typing the command you will be asked to enter ID's of the channel/groups/users you want to use as <b>SOURCE</b> and <b>DESTINATION</b>. 
+    Redirect messages from multiple <b>sources</b> to <b>destination</b>
+    ```
+    53469647,708415014 - 20801978
+    ```
 
-<b>The right syntax to type it is as:</b>  
-<b>SOURCE</b> - <b>DESTINATION</b>
+    Redirect messages from <b>one source</b> to <b>multiple destinations</b> 
+    ```
+    20801978 - 53469647,708415014 
+    ```
 
-Where <b>SOURCE</b> is the channel/user/group you want to redirect messages from and <b>DESTINATION</b> is the channel/group/user you want to redirect message into.
-
-<b  style="font-size: 115%;">Syntax Example</b>
-
-```nohighlight
-Redirect messages from SOURCE: 708415014 to DESTINATION:642797040
-708415014 - 642797040
-
-Redirect messages from multiple SOURCES to DESTINATION
-53469647,708415014 - 20801978
-
-Redirect messages from SOURCE to Multiple DESTINATIONS
-20801978 - 53469647,708415014 
-```
-
-
-<b>Min Source/Destination Number:</b> -2147483648  
-<b>Max Source/Destination Number:</b> 2147483647
+!!! warning "Syntax Limitations"
+    * ID's can only be numbers
+    * You can only use <b>-</b> once
+    * You should never repeat the same setup
+    * ID's should be higher than <b>0</b> and lower than <b>2147483647</b>
+    * You should never use the <b>same ID</b> in both <b>source</b> and <b>destination</b>
 
 ## Redirection Settings
 
 This menu is used for controlling redirection setttings such as <b>reply, edit, delete and more</b>
 
-To reach this first you will need to type [/settings](/commands/#settings) on <b>TeleFeed</b>, then click on <b>2759205517</b> to open settings menu for <b>2759205517 phone number</b>. Now click on <b>group1</b> so you can access the setup settings. Finally the <b>Redirection Menu</b> will show up and you can proceed by clicking on it
+!!! info "Instructions"
+    To reach this first you will need to type [/settings](/commands/#settings) on <b>TeleFeed</b>, then click on <b>2759205517</b> to open settings menu for <b>2759205517 phone number</b>. Now click on <b>group1</b> so you can access the setup settings. Finally the <b>Redirection Menu</b> will show up and you can proceed by clicking on it
 
-<p style="margin-bottom: 5px;"><b style="font-size: 115%; ">Available Options:</b></p>
-
-* <b>Process Reply:</b> Turn this <b>ON</b> if you want to properly <b>process replies</b>
-* <b>Process Edit:</b> Turn this <b>ON</b> if you want to edit messages if they got edited in the <b>SOURCE</b>
-* <b>Process Delete:</b> Turn this <b>ON</b> if you want to remove messages if they got removed in the <b>SOURCE</b>
-* <b>Process Me:</b> Turn this <b>ON</b> if you want to redirect your own messages from <b>SOURCE</b>
-* <b>Process Forward:</b> Turn this <b>ON</b> if you want to <b>FORWARD</b> messages instead of writting them as <b>user</b>
-* <b>Process Raw:</b> Turn this <b>ON</b> if you want to post <b>raw text</b> messages.
-* <b>Process Duplicates:</b> Turn this <b>OFF</b> if you want to <b>block duplicate messages</b> from forwarding.
-* <b>Fix Bad Style:</b> Turn this <b>On</b> if you get <b>weird links coloring</b> after using [/transformation](/commands/#transformation).
+!!! Abstract "Options Explained"
+    * <b>Process Reply:</b> Turn this <b>ON</b> if you want to properly <b>process replies</b>
+    * <b>Process Edit:</b> Turn this <b>ON</b> if you want to edit messages if they got edited in the <b>SOURCE</b>
+    * <b>Process Delete:</b> Turn this <b>ON</b> if you want to remove messages if they got removed in the <b>SOURCE</b>
+    * <b>Process Me:</b> Turn this <b>ON</b> if you want to redirect your own messages from <b>SOURCE</b>
+    * <b>Process Forward:</b> Turn this <b>ON</b> if you want to <b>FORWARD</b> messages instead of writting them as <b>user</b>
+    * <b>Process Raw:</b> Turn this <b>ON</b> if you want to post <b>raw text</b> messages.
+    * <b>Process Duplicates:</b> Turn this <b>OFF</b> if you want to <b>block duplicate messages</b> from forwarding.
+    * <b>Fix Bad Style:</b> Turn this <b>On</b> if you get <b>weird links coloring</b> after using [/transformation](/commands/#transformation).
 
 ## Filters
 
 This menu is used to filter messages by type. Using it will tell TeleFeed which messages you want <b>to process</b> and which ones <b>to ignore</b>
 
-To reach this first you will need to type [/settings](/commands/#settings) on <b>TeleFeed</b>, then click on <b>2759205517</b> to open settings menu for <b>2759205517 phone number</b>. Now click on <b>group1</b> so you can access the setup settings. Finally the <b>Filters Menu</b> will show up and you can proceed by clicking on it
+!!! info "Instructions"
+    To reach this first you will need to type [/settings](/commands/#settings) on <b>TeleFeed</b>, then click on <b>2759205517</b> to open settings menu for <b>2759205517 phone number</b>. Now click on <b>group1</b> so you can access the setup settings. Finally the <b>Filters Menu</b> will show up and you can proceed by clicking on it
 
-<p style="margin-bottom: -13px; font-size: 14px;">Access <b>Filters Menu</b> for REDIRECTIONID: <b>group1</b> on PHONE_NUMBER: <b>2759205517</b></p>
-```nohighlight
-/settings > 2759205517 > group1 > Filters
-```
+!!! Abstract "Options Explained"
+    * <b>Audio:</b> Turn this <b>ON</b> if you want to <b>ignore audio messages</b>
+    * <b>Videos:</b> Turn this <b>ON</b> if you want to <b>ignore video messages</b>
+    * <b>Voicenotes:</b> Turn this <b>ON</b> if you want to <b>ignore voicenotes messages</b>
+    * <b>Animations:</b> Turn this <b>ON</b> if you want to <b>ignore message</b> that <b>contain animations (gif etc)</b> 
+    * <b>Photos:</b> Turn this <b>ON</b> if you want to <b>ignore photo messages</b>
+    * <b>Stickers:</b> Turn this <b>ON</b> if you want to <b>ignore sticker messages</b>
+    * <b>Document:</b> Turn this <b>ON</b> if you want to <b>ignore document messages</b>
+    * <b>Text:</b> Turn this <b>ON</b> if you want to <b>ignore messages</b> that <b>contain text</b>
+    * <b>Caption:</b> Turn this <b>ON</b> if you want to <b>ignore messages</b> that <b>contain captions</b>
+    * <b>Forwards:</b> Turn this <b>ON</b> if you want to <b>ignore "Forwarded from" messages</b>
+    * <b>Reply:</b> Turn this <b>ON</b> if you want to <b>ignore reply messages</b>
 
-<p style="margin-bottom: 5px;"><b style="font-size: 115%; ">Available Filters:</b></p>
-
-* <b>Audio:</b> Turn this <b>ON</b> if you want to <b>ignore audio messages</b>
-* <b>Videos:</b> Turn this <b>ON</b> if you want to <b>ignore video messages</b>
-* <b>Voicenotes:</b> Turn this <b>ON</b> if you want to <b>ignore voicenotes messages</b>
-* <b>Animations:</b> Turn this <b>ON</b> if you want to <b>ignore message</b> that <b>contain animations (gif etc)</b> 
-* <b>Photos:</b> Turn this <b>ON</b> if you want to <b>ignore photo messages</b>
-* <b>Stickers:</b> Turn this <b>ON</b> if you want to <b>ignore sticker messages</b>
-* <b>Document:</b> Turn this <b>ON</b> if you want to <b>ignore document messages</b>
-* <b>Text:</b> Turn this <b>ON</b> if you want to <b>ignore messages</b> that <b>contain text</b>
-* <b>Caption:</b> Turn this <b>ON</b> if you want to <b>ignore messages</b> that <b>contain captions</b>
-* <b>Forwards:</b> Turn this <b>ON</b> if you want to <b>ignore "Forwarded from" messages</b>
-* <b>Reply:</b> Turn this <b>ON</b> if you want to <b>ignore reply messages</b>
-
-<b>Tip:</b> You can choose to filter for <b>multiple conditions at once</b> by keeping them <b>on</b>
+!!! tip "Tip"
+    You can choose to filter for <b>multiple conditions at once</b> by keeping them <b>on</b>
 
 
 ## Cleaner
 
 This menu is used to remove text, video, photo etc from messages if the <b>conditions match.</b> It's basically <b>Filters</b> but instead of ignoring or allowing messages, <b>it removes the content it matches</b>
 
-To reach this first you will need to type [/settings](/commands/#settings) on <b>TeleFeed</b>, then click on <b>2759205517</b> to open settings menu for <b>2759205517 phone number</b>. Now click on <b>group1</b> so you can access the setup settings. Finally the <b>Cleaner Menu</b> will show up and you can proceed by clicking on it
+!!! info "Instructions"
+    To reach this first you will need to type [/settings](/commands/#settings) on <b>TeleFeed</b>, then click on <b>2759205517</b> to open settings menu for <b>2759205517 phone number</b>. Now click on <b>group1</b> so you can access the setup settings. Finally the <b>Cleaner Menu</b> will show up and you can proceed by clicking on it
 
-<p style="margin-bottom: -13px; font-size: 14px;">Access <b>Filters Menu</b> for REDIRECTIONID: <b>group1</b> on PHONE_NUMBER: <b>2759205517</b></p>
-```nohighlight
-/settings > 2759205517 > group1 > Cleaner
-```
+!!! Abstract "Options Explained"
+    * <b>Audio:</b> Turn this <b>ON</b> if you want to <b>remove audio from messages</b>
+    * <b>Videos:</b> Turn this <b>ON</b> if you want to <b>remove video from messages</b>
+    * <b>Voicenotes:</b> Turn this <b>ON</b> if you want to <b>remove voicenotes from messages</b>
+    * <b>Animations:</b> Turn this <b>ON</b> if you want to <b>remove animations (gif, etc) from messages</b>
+    * <b>Photos:</b> Turn this <b>ON</b> if you want to <b>remove photo from messages</b>
+    * <b>Stickers:</b> Turn this <b>ON</b> if you want to <b>remove sticker from messages</b>
+    * <b>Document:</b> Turn this <b>ON</b> if you want to <b>remove document from messages</b>
+    * <b>Text:</b> Turn this <b>ON</b> if you want to <b>remove text from messages</b>
+    * <b>Caption:</b> Turn this <b>ON</b> if you want to <b>remove caption from messages</b>
 
-<p style="margin-bottom: 5px;"><b style="font-size: 115%; ">Available Cleaners:</b></p>
-
-* <b>Audio:</b> Turn this <b>ON</b> if you want to <b>remove audio from messages</b>
-* <b>Videos:</b> Turn this <b>ON</b> if you want to <b>remove video from messages</b>
-* <b>Voicenotes:</b> Turn this <b>ON</b> if you want to <b>remove voicenotes from messages</b>
-* <b>Animations:</b> Turn this <b>ON</b> if you want to <b>remove animations (gif, etc) from messages</b>
-* <b>Photos:</b> Turn this <b>ON</b> if you want to <b>remove photo from messages</b>
-* <b>Stickers:</b> Turn this <b>ON</b> if you want to <b>remove sticker from messages</b>
-* <b>Document:</b> Turn this <b>ON</b> if you want to <b>remove document from messages</b>
-* <b>Text:</b> Turn this <b>ON</b> if you want to <b>remove text from messages</b>
-* <b>Caption:</b> Turn this <b>ON</b> if you want to <b>remove caption from messages</b>
-
-<b>Tip:</b> Same as <b>Filters</b>, you can keep <b>on</b> multiple conditions at once
+!!! tip "Tip"
+    You can choose <b>multiple conditions at once</b> by keeping them <b>on</b>
 
 
 ## Transformation
 
-```nohighlight
-/transformation ACTION FEATURE REDIRECTIONID on PHONE_NUMBER
-```
+This command is used for setting up transformations for your redirections on <b>TeleFeed</b>. This command should be run after you have already connected a telegram account with <b>/connect</b> command and have one or more redirections active. With this command you can change messages format, remove words from messages or remove lines if <b>keyword</b> is in it.
 
+!!! Example "Command"
+    /transformation {{ action }} {{ feature }} {{ redirectionid }} on {{ phonenumber }}
 
+!!! Example "Command Example"
+    <p style="margin-bottom: -13px;"><b>Add (format|power|removeLines) on group1</b></p>
+    ```nohighlight
+    /transformation add format group1 on 2759205517
+    /transformation add power group1 on 2759205517
+    /transformation add removeLines group1 on 2759205517
+    ```
 
-This command is used for setting up transformations for your redirections on <b>TeleFeed</b>. This command should be run after you have already connected a telegram account with <b>/connect</b> command and have one or more redirections active.
+    <p style="margin-bottom: -13px;"><b>Remove (format|power|removeLines) on group1</b></p>
+    ```nohighlight
+    /transformation remove format group1 on 2759205517
+    /transformation remove power group1 on 2759205517
+    /transformation remove removeLines group1 on 2759205517
+    ```
 
-With this command you can change messages format, remove words from messages or remove lines if <b>keyword</b> is in it.
+    <p style="margin-bottom: -13px;"><b>Show active transformations for grp1 on 2759205517</b></p>
+    ```nohighlight
+    /transformation active grp1 on 2759205517
+    ```
 
-<b  style="font-size: 115%;">Command Example</b>
+    <p style="margin-bottom: -13px;"><b>Show active transformations on 2759205517</b></p>
+    ```nohighlight
+    /transformation active on 2759205517
+    ```
 
-<p style="margin-bottom: -13px; font-size: 14px;"><b>Add (format|power|removeLines) on group1</b></p>
-```nohighlight
-/transformation add format group1 on 2759205517
-/transformation add power group1 on 2759205517
-/transformation add removeLines group1 on 2759205517
-```
+    <p style="margin-bottom: -13px;"><b>Clear grp1 transformations on 2759205517</b></p>
+    ```nohighlight
+    /transformation clear grp1 on 2759205517
+    ```
 
-<p style="margin-bottom: -13px; font-size: 14px;"><b>Remove (format|power|removeLines) on group1</b></p>
-```nohighlight
-/transformation remove format group1 on 2759205517
-/transformation remove power group1 on 2759205517
-/transformation remove removeLines group1 on 2759205517
-```
-
-<p style="margin-bottom: -13px; font-size: 14px;"><b>Show active transformations for grp1 on 2759205517</b></p>
-```nohighlight
-/transformation active grp1 on 2759205517
-```
-
-<p style="margin-bottom: -13px; font-size: 14px;"><b>Show active transformations on 2759205517</b></p>
-```nohighlight
-/transformation active on 2759205517
-```
-
-<p style="margin-bottom: -13px; font-size: 14px;"><b>Clear grp1 transformations on 2759205517</b></p>
-```nohighlight
-/transformation clear grp1 on 2759205517
-```
-
-<p style="margin-bottom: -13px; font-size: 14px;"><b>Clear transformations on 2759205517</b></p>
-```nohighlight
-/transformation clear on 2759205517
-```
+    <p style="margin-bottom: -13px;"><b>Clear transformations on 2759205517</b></p>
+    ```nohighlight
+    /transformation clear on 2759205517
+    ```
 
 ### 1. Format Feature
 
 This feature is used to change the output format for the message. Basically you can add text on the message and have it output like that (for example a header or footer etc)
+
+!!! info "Information"
+    * To change format you can just run the same command again.
+
 
 <b  style="font-size: 115%;">Command Example</b>
 
@@ -268,24 +263,20 @@ Inserted Footer from Telefeed
 
 TeleFeed will look at this and replace <b>[[Message.Text]]</b> with the actual <b>message</b> and we will get the output we desire.  
 
-<p style="margin-bottom: 5px; font-size: 115%"><b>You can use the following keywords:</b></p>
+!!! Example "Keywords Supported"
+    * <b>[[PROCESS_EMPTY]] =></b> Normally <b>format</b> will ignore empty messages (media etc). If you add this <b>variable</b> then it will start <b>formatting</b> empty messages. This can be used for adding <b>USERNAME</b>, <b>GROUP_NAME</b> on <b>MEDIA</b>
 
-* <b>[[PROCESS_EMPTY]]</b> -> Normally <b>format</b> will ignore empty messages (media etc). If you add this <b>variable</b> then it will start <b>formatting</b> empty messages. This can be used for adding <b>USERNAME</b>, <b>GROUP_NAME</b> on <b>MEDIA</b>
+    * <b>[[Message.Text]] =></b> The source message <b>text</b> content  
+    * <b>[[Message.Group]] =></b> The source message <b>group</b> name  
 
-* <b>[[Message.Text]]</b> -> The source message <b>text</b> content  
-* <b>[[Message.Group]]</b> -> The source message <b>group</b> name  
+    * <b>[[Message.Username]] =></b> The user <b>Username</b> that sent the message  
+    * <b>[[Message.First_Name]] =></b> The user <B>First Name</b> that sent the message  
+    * <b>[[Message.Last_Name]] =></b> The user <b>Last Name</b> that sent the message  
 
-* <b>[[Message.Username]]</b> -> The user <b>Username</b> that sent the message  
-* <b>[[Message.First_Name]]</b> -> The user <B>First Name</b> that sent the message  
-* <b>[[Message.Last_Name]]</b> -> The user <b>Last Name</b> that sent the message  
+    * <b>[[Message.File.Filename]] =></b> The source message <b>file</b> filename
+    * <b>[[Message.File.File_Size]] =></b> The source message <b>file</b> filesize  
+    * <b>[[Message.File.File_Ext]] =></b> The source message <b>file</b> file extension  
 
-* <b>[[Message.File.Filename]]</b> -> The source message <b>file</b> filename
-* <b>[[Message.File.File_Size]]</b> -> The source message <b>file</b> filesize  
-* <b>[[Message.File.File_Ext]]</b> -> The source message <b>file</b> file extension  
-
-
-<b>Tip:</b> To change format you can just run the same command again.
-<b>Tip:</b> This command does not work well with emoji and icon characters. You can use them but this command result might not be correctly in that case.
 
 ### 2. Remove Lines Feature
 
@@ -415,7 +406,7 @@ You can use this command to remove configuration from power feature.
 
 ```nohighlight
 ## Syntax
-/transformation remove FEATURE REDIRECTIONID on PHONE_NUMBER
+/transformation remove FEATURE {{ redirectionid }} on {{ phonenumber }}
 
 ## Example
 /transformation remove power group1 on 2759205517
@@ -426,16 +417,16 @@ You can use this command to remove configuration from power feature.
 You can clear your current configuration on <b>/transformation</b> using the following syntax
 
 ```nohighlight
-/transformation remove REDIRECTIONID on PHONE_NUMBER
+/transformation remove {{ redirectionid }} on {{ phonenumber }}
 ```
 
-It will remove every config you have with <b>format</b>, <b>removeLines</b> and <b>power</b> on that REDIRECTIONID 
+It will remove every config you have with <b>format</b>, <b>removeLines</b> and <b>power</b> on that {{ redirectionid }} 
 
 ### 6. Show Active Configuration
 
 To show active configuration on <b>/transformation</b> you need to use the following syntax.
 ```nohighlight
-/transformation active on PHONE_NUMBER
+/transformation active on {{ phonenumber }}
 ```
 
 ## Whitelist
@@ -552,263 +543,241 @@ You can set a list of words or regex patterns which tells the bot that <b>if the
     3. Make sure to use the <b>Python Flavor</b> otherwise your regex will not work on <b>TeleFeed</b>  
     4. To use regex effectivity, test your regex on [regex101.com](https://regex101.com)
 
-## Chats
-
-This command is used to get a list of groups, bots, channels or users ID's for use [/redirection](/commands/#redirection) command.
-
-```nohighlight
-/chats PHONE_NUMBER
-```
-
-<b  style="font-size: 115%;">Command Example</b>
-
-<p style="margin-bottom: -13px; font-size: 14px;">Getting chats for PHONE_NUMBER: <b>2759205517</b></p>
-```nohighlight
-/chats 2759205517
-```
 
 ## Bot Settings
 
 On this menu you will find settings such as <b>Start</b>, <b>Stop</b>, <b>Performance Rate</b> and more.
 
-<p style="margin-bottom: 5px;"><b style="font-size: 115%; ">Available Options:</b></p>
+!!! Abstract "Options Explained"
+    * <b>Start:</b> Used to <b>start</b> TeleFeed
+    * <b>Stop:</b> Used to <b>stop</b> TeleFeed
+    * <b>Disconnect Account:</b> This removes your account from TeleFeed. When you use <b>Disconnect Account</b>, TeleFeed will not login into your account unless you use <b>[/connect](/commands/#connect)</b> again
+    * <b>Export:</b> You can use this option to <b>Export</b> TeleFeed configuration so you can import it on another account.
+    * <b>Import:</b> After using <b>Export</b>, you will need to import the configuration for usage. You can use this option to import any <b>TeleFeed configuration</b>
+    * <b>Improve Performance:</b> This option increases TeleFeed Performance. The reason this option is <b>OFF</b> by default is because using it will cause TeleFeed to <b>forward messages out of order.</b> If you do not care about message order, turning this setting <b>ON</b> will <b>increase performance</b> by a <b>big margin</b>
+    * <b>Burst Mode:</b> This option controls message rate for TeleFeed. Message rate means the number of messages TeleFeed can send at once. If this option is set to <b>HIGH (default)</b> then TeleFeed will use its max rate for sending messages. Sometimes this might cause <b>Telegram Account Limited Error</b>  which is why we offer a way to lower this rate.
 
-* <b>Start:</b> Used to <b>start</b> TeleFeed
-* <b>Stop:</b> Used to <b>stop</b> TeleFeed
-* <b>Disconnect Account:</b> This removes your account from TeleFeed. When you use <b>Disconnect Account</b>, TeleFeed will not login into your account unless you use <b>[/connect](/commands/#connect)</b> again
-* <b>Export:</b> You can use this option to <b>Export</b> TeleFeed configuration so you can import it on another account.
-* <b>Import:</b> After using <b>Export</b>, you will need to import the configuration for usage. You can use this option to import any <b>TeleFeed configuration</b>
-* <b>Improve Performance:</b> This option increases TeleFeed Performance. The reason this option is <b>OFF</b> by default is because using it will cause TeleFeed to <b>forward messages out of order.</b> If you do not care about message order, turning this setting <b>ON</b> will <b>increase performance</b> by a <b>big margin</b>
-* <b>Burst Mode:</b> This option controls message rate for TeleFeed. Message rate means the number of messages TeleFeed can send at once. If this option is set to <b>HIGH (default)</b> then TeleFeed will use its max rate for sending messages. Sometimes this might cause <b>Telegram Account Limited Error</b>  which is why we offer a way to lower this rate.
 
-
-<b>Tip:</b> <b>Telegram Account Limited Error</b> is an error which happens when an account sends many messages at once. This does not cause any permanent issues with the account. When this error happens TeleFeed will not send any more messages via the account. This is because Telegram gives an <b>Temporary Wait Limit</b> so TeleFeed will need to for that to expire before it sends another message.
+!!! Info "Information"
+    <b>Telegram Account Limited Error</b> is an error which happens when an account sends many messages at once. This does not cause any permanent issues with the account. When this error happens TeleFeed will not send any more messages via the account. This is because Telegram gives an <b>Temporary Wait Limit</b> so TeleFeed will need to for that to expire before it sends another message.
 
 
 ## Action
 
 This command can be used to bypass bots which hide messages or get content from Telegram official GmailBot. Right now this command can bypass both <b>alert</b> & <b>text rewrite</b> modes
 
-```nohighlight
-/action ACTION REDIRECTIONID on PHONE_NUMBER
-```
+!!! Info "Important Information"
+    * This command works in <b>case sensitive</b> mode so if you write <b>click me</b> and the button title is <b>Click Me</b>, TeleFeed will not click it.
 
-<b  style="font-size: 115%;">Command Example</b>
+    * This command will match buttons title partially. This means that you can use an input like <b>Read More</b> to match the button title <b>▼ Read More</b>
 
-<p style="margin-bottom: -13px; font-size: 14px;">Add Action group1 on 2759205517</p>
-```nohighlight
-/action add group1 on 2759205517
-```
+!!! Example "Command"
+    /action {{ action }} {{ redirectionid }} on {{ phonenumber }}
 
-<p style="margin-bottom: -13px; font-size: 14px;">Remove Action from group1 on 2759205517</p>
-```nohighlight
-/action remove group1 on 2759205517
-```
+!!! Example "Command Example"
+    <p style="margin-bottom: -13px;">Add Action group1 on 2759205517</p>
+    ```nohighlight
+    /action add group1 on 2759205517
+    ```
 
-<p style="margin-bottom: -13px; font-size: 14px;">Remove all Actions from group1 on 2759205517</p>
-```nohighlight
-/action clear group1 on 2759205517
-```
+    <p style="margin-bottom: -13px;">Remove Action from group1 on 2759205517</p>
+    ```nohighlight
+    /action remove group1 on 2759205517
+    ```
 
-<b>TeleFeed</b> will then ask you to about the button title. You do not need to fully match the name, for example if you want TeleFeed to click a button with title <b>▼ Read More</b>, you can just specify <b>Read More</b> and TeleFeed will match it.
+    <p style="margin-bottom: -13px;">Remove all Actions from group1 on 2759205517</p>
+    ```nohighlight
+    /action clear group1 on 2759205517
+    ```
 
 ## Translate
 
 This command is used for setting up translation for your redirection groups.
 
-```nohighlight
-/translate SRC DEST REDIRECTIONID on PHONE_NUMBER
-/translate remove REDIRECTIONID on PHONE_NUMBER
-```
+!!! Example "Command"
+    /translate SRC DEST {{ redirectionid }} on {{ phonenumber }}
+    /translate remove {{ redirectionid }} on {{ phonenumber }}
 
-* <b>SRC</b>  -> Language you want to translate from
-* <b>DEST</b> -> Language you want to translate into
+!!! Info "Command Information"
+    <b>SRC:</b> The language code you want to translate from  
+    <b>DEST:</b> The language code you want to translate into  
 
-<b  style="font-size: 115%;">Command Example</b>
+    <b>Refer to Language Code panel for supported languages code</b>
 
-<p style="margin-bottom: -13px; font-size: 14px;">Translate from src=<b>English</b> to dest=<b>Italian</b> for REDIRECTIONID=<b>group1</b> on PHONE_NUMBER=<b>2759205517</b></p>
-```nohighlight
-/translate en it group1 on 2759205517
-```
+!!! Example "Command Example"
+    <p style="margin-bottom: -13px;">Translate from <b>English</b> to <b>Italian</b> for <b>group1</b> on <b>2759205517</b></p>
+    ```nohighlight
+    /translate en it group1 on 2759205517
+    ```
 
-<p style="margin-bottom: -13px; font-size: 14px;">Remove translate setup for REDIRECTIONID=<b>group1</b> on PHONE_NUMBER=<B>2759205517</B></p>
-```
-/translate remove group1 on 2759205517
-```
+    <p style="margin-bottom: -13px;">Remove translate setup for <b>group1</b> on <b>2759205517</b></p>
+    ```
+    /translate remove group1 on 2759205517
+    ```
 
-<b  style="font-size: 115%;">Language Code for using this command</b>
-
-```nohighlight
-'af': 'afrikaans',
-'sq': 'albanian',
-'am': 'amharic',
-'ar': 'arabic',
-'hy': 'armenian',
-'az': 'azerbaijani',
-'eu': 'basque',
-'be': 'belarusian',
-'bn': 'bengali',
-'bs': 'bosnian',
-'bg': 'bulgarian',
-'ca': 'catalan',
-'ceb': 'cebuano',
-'ny': 'chichewa',
-'zh-cn': 'chinese (simplified)',
-'zh-tw': 'chinese (traditional)',
-'co': 'corsican',
-'hr': 'croatian',
-'cs': 'czech',
-'da': 'danish',
-'nl': 'dutch',
-'en': 'english',
-'eo': 'esperanto',
-'et': 'estonian',
-'tl': 'filipino',
-'fi': 'finnish',
-'fr': 'french',
-'fy': 'frisian',
-'gl': 'galician',
-'ka': 'georgian',
-'de': 'german',
-'el': 'greek',
-'gu': 'gujarati',
-'ht': 'haitian creole',
-'ha': 'hausa',
-'haw': 'hawaiian',
-'iw': 'hebrew',
-'hi': 'hindi',
-'hmn': 'hmong',
-'hu': 'hungarian',
-'is': 'icelandic',
-'ig': 'igbo',
-'id': 'indonesian',
-'ga': 'irish',
-'it': 'italian',
-'ja': 'japanese',
-'jw': 'javanese',
-'kn': 'kannada',
-'kk': 'kazakh',
-'km': 'khmer',
-'ko': 'korean',
-'ku': 'kurdish (kurmanji)',
-'ky': 'kyrgyz',
-'lo': 'lao',
-'la': 'latin',
-'lv': 'latvian',
-'lt': 'lithuanian',
-'lb': 'luxembourgish',
-'mk': 'macedonian',
-'mg': 'malagasy',
-'ms': 'malay',
-'ml': 'malayalam',
-'mt': 'maltese',
-'mi': 'maori',
-'mr': 'marathi',
-'mn': 'mongolian',
-'my': 'myanmar (burmese)',
-'ne': 'nepali',
-'no': 'norwegian',
-'ps': 'pashto',
-'fa': 'persian',
-'pl': 'polish',
-'pt': 'portuguese',
-'pa': 'punjabi',
-'ro': 'romanian',
-'ru': 'russian',
-'sm': 'samoan',
-'gd': 'scots gaelic',
-'sr': 'serbian',
-'st': 'sesotho',
-'sn': 'shona',
-'sd': 'sindhi',
-'si': 'sinhala',
-'sk': 'slovak',
-'sl': 'slovenian',
-'so': 'somali',
-'es': 'spanish',
-'su': 'sundanese',
-'sw': 'swahili',
-'sv': 'swedish',
-'tg': 'tajik',
-'ta': 'tamil',
-'te': 'telugu',
-'th': 'thai',
-'tr': 'turkish',
-'uk': 'ukrainian',
-'ur': 'urdu',
-'uz': 'uzbek',
-'vi': 'vietnamese',
-'cy': 'welsh',
-'xh': 'xhosa',
-'yi': 'yiddish',
-'yo': 'yoruba',
-'zu': 'zulu',
-'fil': 'Filipino',
-'he': 'Hebrew'
-```
-
-__This command will not work if you use wrong language codes.__
-
+!!! Info "Supported Language Code"
+    * <b>af ==></b> afrikaans,
+    * <b>sq ==></b> albanian,
+    * <b>am ==></b> amharic,
+    * <b>ar ==></b> arabic,
+    * <b>hy ==></b> armenian,
+    * <b>az ==></b> azerbaijani,
+    * <b>eu ==></b> basque,
+    * <b>be ==></b> belarusian,
+    * <b>bn ==></b> bengali,
+    * <b>bs ==></b> bosnian,
+    * <b>bg ==></b> bulgarian,
+    * <b>ca ==></b> catalan,
+    * <b>ceb</b> ==> cebuano,
+    * <b>ny ==></b> chichewa,
+    * <b>zh-cn ==></b> chinese (simplified),
+    * <b>zh-tw ==></b> chinese (traditional),
+    * <b>co ==></b> corsican,
+    * <b>hr ==></b> croatian,
+    * <b>cs ==></b> czech,
+    * <b>da ==></b> danish,
+    * <b>nl ==></b> dutch,
+    * <b>en ==></b> english,
+    * <b>eo ==></b> esperanto,
+    * <b>et ==></b> estonian,
+    * <b>tl ==></b> filipino,
+    * <b>fi ==></b> finnish,
+    * <b>fr ==></b> french,
+    * <b>fy ==></b> frisian,
+    * <b>gl ==></b> galician,
+    * <b>ka ==></b> georgian,
+    * <b>de ==></b> german,
+    * <b>el ==></b> greek,
+    * <b>gu ==></b> gujarati,
+    * <b>ht ==></b> haitian creole,
+    * <b>ha ==></b> hausa,
+    * <b>haw ==></b> hawaiian,
+    * <b>iw ==></b> hebrew,
+    * <b>hi ==></b> hindi,
+    * <b>hmn</b> ==> hmong,
+    * <b>hu ==></b> hungarian,
+    * <b>is ==></b> icelandic,
+    * <b>ig ==></b> igbo,
+    * <b>id ==></b> indonesian,
+    * <b>ga ==></b> irish,
+    * <b>it ==></b> italian,
+    * <b>ja ==></b> japanese,
+    * <b>jw ==></b> javanese,
+    * <b>kn ==></b> kannada,
+    * <b>kk ==></b> kazakh,
+    * <b>km ==></b> khmer,
+    * <b>ko ==></b> korean,
+    * <b>ku ==></b> kurdish (kurmanji),
+    * <b>ky ==></b> kyrgyz,
+    * <b>lo ==></b> lao,
+    * <b>la ==></b> latin,
+    * <b>lv ==></b> latvian,
+    * <b>lt ==></b> lithuanian,
+    * <b>lb ==></b> luxembourgish,
+    * <b>mk ==></b> macedonian,
+    * <b>mg ==></b> malagasy,
+    * <b>ms ==></b> malay,
+    * <b>ml ==></b> malayalam,
+    * <b>mt ==></b> maltese,
+    * <b>mi ==></b> maori,
+    * <b>mr ==></b> marathi,
+    * <b>mn ==></b> mongolian,
+    * <b>my ==></b> myanmar (burmese),
+    * <b>ne ==></b> nepali,
+    * <b>no ==></b> norwegian,
+    * <b>ps ==></b> pashto,
+    * <b>fa ==></b> persian,
+    * <b>pl ==></b> polish,
+    * <b>pt ==></b> portuguese,
+    * <b>pa ==></b> punjabi,
+    * <b>ro ==></b> romanian,
+    * <b>ru ==></b> russian,
+    * <b>sm ==></b> samoan,
+    * <b>gd ==></b> scots gaelic,
+    * <b>sr ==></b> serbian,
+    * <b>st ==></b> sesotho,
+    * <b>sn ==></b> shona,
+    * <b>sd ==></b> sindhi,
+    * <b>si ==></b> sinhala,
+    * <b>sk ==></b> slovak,
+    * <b>sl ==></b> slovenian,
+    * <b>so ==></b> somali,
+    * <b>es ==></b> spanish,
+    * <b>su ==></b> sundanese,
+    * <b>sw ==></b> swahili,
+    * <b>sv ==></b> swedish,
+    * <b>tg ==></b> tajik,
+    * <b>ta ==></b> tamil,
+    * <b>te ==></b> telugu,
+    * <b>th ==></b> thai,
+    * <b>tr ==></b> turkish,
+    * <b>uk ==></b> ukrainian,
+    * <b>ur ==></b> urdu,
+    * <b>uz ==></b> uzbek,
+    * <b>vi ==></b> vietnamese,
+    * <b>cy ==></b> welsh,
+    * <b>xh ==></b> xhosa,
+    * <b>yi ==></b> yiddish,
+    * <b>yo ==></b> yoruba,
+    * <b>zu ==></b> zulu,
+    * <b>fil ==></b> Filipino,
+    * <b>he ==></b> Hebrew
 
 ## Clone
 
 This command is used for cloning (mirror) chats/channels or users messages from SOURCE to DESTINATION
 
-```nohighlight
-/clone SOURCE DESTINATION on PHONE_NUMBER
-/clone SOURCE DESTINATION LIMIT on PHONE_NUMBER
-```
+!!! Info "Important Information"
+    If you have a redirection setup with the same ID's (SOURCE, DESTINATION) when using this command. It will use every feature you have currently configured on that setup.
 
-* <b>SOURCE</b>  -> Chat/User you want to clone messages from
-* <b>DESTINATION</b> -> Chat/User you want to clone messages into
+    When using this command with an current setup, that setup will not be able to send any new message until /clone finishes.
 
-If you have a redirection setup with the same ID's (SOURCE, DESTINATION) when using this command. It will use the your redirection setup (transformation, filtering) when applying this command.
+!!! Example "Command"
+    /clone {{ source }} {{ destination }} on {{ phonenumber }}  
+    /clone {{ source }} {{ destination }} {{ limit }} on {{ phonenumber }}
 
-<b  style="font-size: 115%;">Command Example</b>
+!!! Example "Command Example"
+    <p style="margin-bottom: -13px;">Clone from <b>2759205517</b> to <b>28887387</b> on <b>2759205517</b></p>
+    ```nohighlight
+    /clone 2759205517 28887387 on 2759205517
+    ```
 
-<p style="margin-bottom: -13px; font-size: 14px;">Clone from SOURCE=<b>2759205517</b> to DESTINATION=<b>28887387</b> on PHONE_NUMBER=<b>2759205517</b></p>
-```nohighlight
-/clone 2759205517 28887387 on 2759205517
-```
+    <p style="margin-bottom: -13px;">Clone from <b>2759205517</b> to <b>28887387</b> with LIMIT=<b>200</b> on <b>2759205517</b></p>
+    ```
+    /clone 2759205517 28887387 200 on 2759205517
+    ```
 
+!!! Warning "Warning"
+    Because this commands sends a high amount of messages in a short time it will cause temporary limits from telegram servers. Basically when this happens you will not be able to send any message from this account for <b>5 minutes</b> to <b>1 hour</b> depending on the limit.
 
-<p style="margin-bottom: -13px; font-size: 14px;">Clone from SOURCE=<b>2759205517</b> to DESTINATION=<b>28887387</b> with LIMIT=<b>200</b> on PHONE_NUMBER=<b>2759205517</b></p>
-```
-/clone 2759205517 28887387 200 on 2759205517
-```
-__Warning!__  
-Because this commands sends a high amount of messages in a short time it will cause temporary limits from telegram servers. Basically when this happens you will not be able to send any message from this account for <b>5 minutes</b> to <b>1 hour</b> depending on the limit.
-
-You will get a notification from the bot when such a limit is encountered (You will also notice yourself since you will not be able to send any message when that happens). There's no way around this other than not using this command.
+    You will get a notification from the bot when such a limit is encountered (You will also notice yourself since you will not be able to send any message when that happens). There's no way around this other than not using this command.
 
 __Important:__ When using this command, the bot might delay message redirection for your setups.
 
 ## Global
-The [/global](/commands/#global) command can be used to apply globally one specific configuration. This command works only for the features shown below.
+The /global command can be used to apply globally one specific configuration. This command works only for the features shown below.
 
-```nohighlight
-/global ACTION REDIRECTIONID on PHONE_NUMBER
-```
+!!! Example "Command"
+    /global {{ action }} {{ redirectionid }} on {{ phonenumber }}
 
-<p style="margin-bottom: -13px; font-size: 14px;">Make group1 <b>configuration</b> global on 2759205517</p>
-```
-/global add group1 on 2759205517
-```
+!!! Example "Command Example"
+    <p style="margin-bottom: -13px;">Make <b>group1</b> configuration global on <b>2759205517</b></p>
+    ```
+    /global add group1 on 2759205517
+    ```
 
-<p style="margin-bottom: -13px; font-size: 14px;">Remove group1 <b>configuration</b> from global on 2759205517</p>
-```
-/global remove group1 on 2759205517
-```
+    <p style="margin-bottom: -13px;">Remove group1 <b>configuration</b> from global on 2759205517</p>
+    ```
+    /global remove group1 on 2759205517
+    ```
 
-<b>Supported Features Globally</b>
-```
-Transformation
-Translate
-Watermark
-Action
-Whitelist & Blacklist
-Filters & Cleaners
-```
+!!! Info "Supported Features"
+    - [x] Transformation
+    - [x] Translate
+    - [x] Watermark
+    - [x] Action
+    - [x] Whitelist & Blacklist
+    - [x] Filters & Cleaners
 
 
 ## Scheduler
@@ -840,12 +809,12 @@ Here are a few example syntax on how to do this.
 </br>
 
 !!! Example "Input Syntax Example "
-    <p style="margin-bottom: -13px; font-size: 14px;">Start at <b>12:30</b> and Stop at <b>2:30</b></p>
+    <p style="margin-bottom: -13px;">Start at <b>12:30</b> and Stop at <b>2:30</b></p>
     ```nohighlight
     12:30 - 2:30
     ```
 
-    <p style="margin-bottom: -13px; font-size: 14px;">Start at <b>09:00</b> and Stop at <b>21:00</b></p>
+    <p style="margin-bottom: -13px;">Start at <b>09:00</b> and Stop at <b>21:00</b></p>
     ```nohighlight
     9:00 - 21:00
     ```
@@ -969,6 +938,19 @@ This command is used for setting up delays for your redirections. When delay is 
 !!! Tip "Tips"
     1. Setting delay to 0 will remove it
 
+
+## Chats
+
+This command is used to get a list of groups, bots, channels or users ID's for use [/redirection](/commands/#redirection) command.
+
+!!! Example "Command"
+    /chats {{ phonenumber }}
+
+!!! Example "Command Example"
+    <p style="margin-bottom: -13px;">Getting chats for <b>2759205517</b></p>
+    ```nohighlight
+    /chats 2759205517
+    ```
 
 ## Config
 
