@@ -398,8 +398,14 @@ This is one of the most powerful feature this bot has. It is used to remove and 
 
 You can set a list of words or regex patterns that tell the bot <b>to process message</b> you receive from source channel <b>only if it has at least one</b> of the whitelisted word or regex pattern match. When you use this command for adding a whitelist, TeleFeed will ask you for your input syntax. Make sure to use the right syntax by reading the examples below.
 
+!!! info "Important Information"
+    * Using <b>Simple Syntax</b> will match words partially. This means that when you whitelist the word <b>"es"</b>, it will allow every message containing b<b>es</b>t, r<b>es</b>t, t<b>es</b>t because each of them have the word <b>"es"</b> within.
+    * If you want to match words fully, please use the regex example we have provided on <b>Advanced Syntax Panel</b>
+    * Make sure to use the <b>Python Flavor</b> with [regex101.com](https://regex101.com) otherwise your regex will not work on <b>TeleFeed</b>  
+
+
 !!! Danger "Warning"
-    <p style='font-size: 18px'>When this command is used incorrectly, it will cause redirections to stop working. Always make sure you use the right syntax when using whitelist. Make sure you check your regex with [regex101.com](https://regex101.com) before using them.</p>
+    When this command is used incorrectly, it will cause redirections to stop working. Always make sure you use the right syntax when using whitelist and do use regex only <b>if necessary.</b> Make sure you build your regex with [regex101.com](https://regex101.com) before inserting them into TeleFeed.
 
 !!! Example "Command"
     /whitelist {{action}} {{redirectionid}} on  {{phonenumber}}  
@@ -432,31 +438,62 @@ You can set a list of words or regex patterns that tell the bot <b>to process me
     /whitelist clear on 2759205517
     ```
 
-!!! Example "Input Syntax Example"
-    The synax for this command is the same as [/transformation power feature](/commands/#power-feature)
-
-    <p style="margin-bottom: -13px;">Process messages only if it has the word <b>bad</b> in it. <b>(REGEX DISABLED)</b></p>
+!!! Info "Input Syntax Example ( Simple )"
+    <p style="margin-bottom: -13px;">Process messages only if it has the word <b>bad</b> in it</b></p>
     ```nohighlight
     "bad"
     ```
 
-    <p style="margin-bottom: -13px;">Process messages only if it has the any <b>@mention</b> word on it. <b>(REGEX ENABLED)</b></p>
+    <p style="margin-bottom: -13px;">Process messages only if it has the word <b>advertisment</b> in it</b></p>
+    ```
+    "advertisment"
+    ```
+
+    <p style="margin-bottom: -13px;">Allowing <b>multiple words</b> is possible with newlines</p>
+    ```
+    "This is a match"
+    "math"
+    "earphones"
+    ```
+
+!!! Info "Input Syntax Example ( Advanced )"
+    Use the syntax as shown below when you want to achive result that is not possible with the simple syntax. This syntax uses regex to search for words and its more powerful than Simple Syntax.
+
+    <b>We do not support usage of regex, you are on your own if you decide to use regex.  
+    Only use it if you know what you are doing.</b>
+
+    <p style="margin-bottom: -13px;">Process messages only if it has the any <b>@mention</b> word on it.</p>
     ```nohighlight
     @\S+
     ```
 
-!!! Tip "Tips"
-    1. Normal keywords are faster than regex, so use them if you do not need regex.  
-    2. To disable regex just wrap the word in quotes such as the word <b>bad</b> becomes <b>"bad"</b>  
-    3. Make sure to use the <b>Python Flavor</b> otherwise your regex will not work on <b>TeleFeed</b>  
-    4. To use regex effectivity, test your regex on [regex101.com](https://regex101.com)
+    <p style="margin-bottom: -13px;">Process messages only if it has any "telegram links"</b></p>
+    ```nohighlight
+    (telegram\.me|tm\.me)\/\w+
+    ```
+
+    <p style="margin-bottom: -13px;">Process messages only if it has the word <b>black</b> or <b>white</b></p>
+    ```nohighlight
+    (black|white)
+    ```
+
+    <p style="margin-bottom: -13px;">Process messages only if it has the word <b>es</b> fully ( refer to <b>Important Information</b> )</p>
+    ```nohighlight
+    \bes\b
+    ```
 
 ## Blacklist
 
 You can set a list of words or regex patterns which tells the bot that <b>if the message received</b> from source channel has any of the blacklisted words or regex pattern match the bot should <b>ignore</b> that <b>message</b> and do not process it even if it passes all other conditions. When you use this command for adding a blacklist, TeleFeed will ask you for your input syntax. Make sure to use the right syntax by reading the examples below.
 
+!!! info "Important Information"
+    * Using <b>Simple Syntax</b> will match words partially. This means that when you blacklist the word <b>"es"</b>, it will block every message containing b<b>es</b>t, r<b>es</b>t, t<b>es</b>t because each of them have the word <b>"es"</b> within.
+    * If you want to match words fully, please use the regex example we have provided on <b>Advanced Syntax Panel</b>
+    * Make sure to use the <b>Python Flavor</b> with [regex101.com](https://regex101.com) otherwise your regex will not work on <b>TeleFeed</b>  
+
+
 !!! Danger "Warning"
-    <p style='font-size: 18px'>When this command is used incorrectly, it will cause redirections to stop working. Always make sure you use the right syntax when using blacklist. Make sure you check your regex with [regex101.com](https://regex101.com) before using them.</p>
+    When this command is used incorrectly, it will cause redirections to stop working. Always make sure you use the right syntax when using whitelist and do use regex only <b>if necessary.</b> Make sure you build your regex with [regex101.com](https://regex101.com) before inserting them into TeleFeed.
 
 !!! Example "Command"
     /blacklist {{action}} {{redirectionid}} on  {{phonenumber}}  
@@ -489,24 +526,49 @@ You can set a list of words or regex patterns which tells the bot that <b>if the
     /blacklist clear on 2759205517
     ```
 
-!!! Example "Input Syntax Example"
-    The synax for this command is the same as [/transformation power feature](/commands/#power-feature)
-
-    <p style="margin-bottom: -13px; ">Ignore messages only if it has the word <b>bad</b> in it. <b>(REGEX DISABLED)</b></p>
+!!! Info "Input Syntax Example ( Simple )"
+    <p style="margin-bottom: -13px;">Block messages only if it has the word <b>bad</b> in it</b></p>
     ```nohighlight
     "bad"
     ```
 
-    <p style="margin-bottom: -13px; font-size: 16px;">Ignore messages if it contains any <b>@mention</b> tag on it. <b>(REGEX ENABLED)</b></p>
+    <p style="margin-bottom: -13px;">Block messages only if it has the word <b>advertisment</b> in it</b></p>
+    ```
+    "advertisment"
+    ```
+
+    <p style="margin-bottom: -13px;">Blocking <b>multiple words</b> is possible with newlines</p>
+    ```
+    "This is a match"
+    "math"
+    "earphones"
+    ```
+
+!!! Info "Input Syntax Example ( Advanced )"
+    Use the syntax as shown below when you want to achive result that is not possible with the simple syntax. This syntax uses regex to search for words and its more powerful than Simple Syntax.
+
+    <b>We do not support usage of regex, you are on your own if you decide to use regex.  
+    Only use it if you know what you are doing.</b>
+
+    <p style="margin-bottom: -13px;">Block messages only if it has the any <b>@mention</b> word on it.</p>
     ```nohighlight
     @\S+
     ```
 
-!!! Tip "Tips"
-    1. Normal keywords are faster than regex, so use them if you do not need regex.  
-    2. To disable regex just wrap the word in quotes such as the word <b>bad</b> becomes <b>"bad"</b>  
-    3. Make sure to use the <b>Python Flavor</b> otherwise your regex will not work on <b>TeleFeed</b>  
-    4. To use regex effectivity, test your regex on [regex101.com](https://regex101.com)
+    <p style="margin-bottom: -13px;">Block messages only if it has any "telegram links"</b></p>
+    ```nohighlight
+    (telegram\.me|tm\.me)\/\w+
+    ```
+
+    <p style="margin-bottom: -13px;">Block messages only if it has the word <b>black</b> or <b>white</b></p>
+    ```nohighlight
+    (black|white)
+    ```
+
+    <p style="margin-bottom: -13px;">Block messages only if it has the word <b>es</b> fully ( refer to <b>Important Information</b> )</p>
+    ```nohighlight
+    \bes\b
+    ```
 
 
 ## Bot Settings
