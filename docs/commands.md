@@ -7,6 +7,23 @@
 {%set destination = "<a href='#commands-arguments-meaning'>destination</a>" %}
 {%set limit = "<a href='#commands-arguments-meaning'>limit</a>" %}
 
+{% macro message_preview(before, after) -%}
+<div class="flex_on flex_jst_around">
+    <div class="flex_size-50 flex_collapse_900">
+    <p style="margin-bottom: -10px;margin-bottom: 5px;"><u><b >Before Feature</b></u></p>
+        {{ before }}
+    </div>
+    <div class="flex_size-50 flex_collapse_900">
+        <p style="margin-bottom: -10px;margin-bottom: 5px;"><u><b>After Feature</b></u></p>
+        {{ after }}
+    </div>
+</div>
+{%- endmacro %}
+
+{% macro center_explain(text) -%}
+<p style="text-align: center; font-weight: bold; margin: 0 auto;width: 70%;"><br/>{{ text }}<br/><br/></p>
+{%- endmacro %}
+
 # Commands
 
 In this documentation you will find every TeleFeed command and examples on how to use them. We suggest you read this documentation from the start so you can learn more about each feature TeleFeed supports. Every <u>Example Command</u> you see in this documentation is using <u>dummy values</u> so don't copy and paste it.
@@ -213,7 +230,7 @@ This command is used for setting up transformations for your redirections on <b>
     /transformation clear on 2759205517
     ```
 
-### 1. Format Feature
+### Format Feature
 
 This feature is used to change the output format for the message. Basically you can add text on the message and have it output like that (for example a header or footer etc)
 
@@ -221,47 +238,26 @@ This feature is used to change the output format for the message. Basically you 
     * To change format you can just run the same command again.
 
 
-<b  style="font-size: 115%;">Command Example</b>
+!!! Example "Command Example"
+    <p style="margin-bottom: -13px;">Add <b>format</b> for <b>group1</b> on <b>2759205517</b></p>
+    ```
+    /transformation add format group1 on 2759205517
+    ```
 
-```nohighlight
-/transformation add format group1 on 2759205517
-/transformation format 2759205517
-```
+    <p style="margin-bottom: -13px;">Remove <b>format</b> for <b>group1</b> on <b>2759205517</b></p>
+    ```
+    /transformation remove format group1 on 2759205517
+    ```
 
-After typing the command you will be asked to enter how you want to message to output as.  
-In this example we will show how to turn the message.
+{{ center_explain("After typing the command you will be asked to enter how you want to message to output as. Below we are previewing one example of this command.") }}
+{{ message_preview("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.", "<b>Header Inserted By TeleFeed</b></br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.</br><b>Footer Inserted By TeleFeed</b>") }}
 
-```nohighlight
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, 
-when an unknown printer took a galley of type and 
-scrambled it to make a type specimen book.
-```
+!!! Example "Above Transformation Example"
+    Inserted Header from Telefeed  
+    <b>[[Message.Text]]</b>  
+    Inserted Footer from Telefeed  
 
-<b>into</b>
-
-```nohighlight
-Inserted Header from Telefeed
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, 
-when an unknown printer took a galley of type and 
-scrambled it to make a type specimen book.
-
-Inserted Footer from Telefeed
-```
-
-<b>The syntax we need to use to make the changes as shown above is as follow.</b>
-
-```nohighlight
-Inserted Header from Telefeed
-
-[[Message.Text]]
-
-Inserted Footer from Telefeed
-```
-
-TeleFeed will look at this and replace <b>[[Message.Text]]</b> with the actual <b>message</b> and we will get the output we desire.  
+{{ center_explain('TeleFeed will look at this and replace <b>"[[Message.Text]]"</b> with the actual <b>message</b> and add top and bottom text which will output the example above.') }}
 
 !!! Example "Keywords Supported"
     * <b>[[PROCESS_EMPTY]] =></b> Normally <b>format</b> will ignore empty messages (media etc). If you add this <b>variable</b> then it will start <b>formatting</b> empty messages. This can be used for adding <b>USERNAME</b>, <b>GROUP_NAME</b> on <b>MEDIA</b>
@@ -278,156 +274,125 @@ TeleFeed will look at this and replace <b>[[Message.Text]]</b> with the actual <
     * <b>[[Message.File.File_Ext]] =></b> The source message <b>file</b> file extension  
 
 
-### 2. Remove Lines Feature
+### Remove Lines Feature
 
 This feature is used to remove lines from the message. You will use keywords to check message lines and if a keyword or one of the keywords (if multiple) is found on the line, TeleFeed will remove that line from the final result.
 
-<b  style="font-size: 115%;">Command Example</b>
+!!! Example "Command Example"
+    <p style="margin-bottom: -13px;">Add <b>removeLines</b> for <b>group1</b> on <b>2759205517</b></p>
+    ```
+    /transformation add removeLines group1 on 2759205517
+    ```
 
-```nohighlight
-/transformation add removeLines group1 on 2759205517
-/transformation remove removeLines group1 on 2759205517
-/transformation removeLines 2759205517
-```
-
-After typing the command you will be asked to enter which keywords you want to look for in the message. You can enter multiple lines so the bot looks for multiple keywords etc.
-
-<b  style="font-size: 115%;">Syntax Example</b>
-
-```nohighlight
-good, bad
-apple
-```
-
-The setup we made above will look on every message if a line has the keyword <b>apple</b> (only) or if a line has the keywords <b>good</b> and <b>bad</b> (both) and remove it.
-
-<b>Important:</b> This command is not used for removing keywords from the message, what it does is remove the whole line if it contains the keyword. For removing just the keyword you will need to use the <b>next</b> feature
+    <p style="margin-bottom: -13px;">Remove <b>removeLines</b> for <b>group1</b> on <b>2759205517</b></p>
+    ```
+    /transformation remove removeLines group1 on 2759205517
+    ```
 
 
-### 3. Power Feature
+{{ center_explain('After typing the command you will be asked to enter which keywords you want to look for in the message. You can enter multiple lines so the bot looks for multiple keywords etc.') }}
+
+
+!!! Example "Input Syntax Example"
+    good, bad  
+    apple
+
+{{ center_explain('The setup we made above will look on every message if a line has the keyword <b>apple</b> (only) or if a line has the keywords <b>good</b> and <b>bad</b> (both) and remove it.') }}
+
+!!! question "Important!"
+    This command is not used for removing keywords from the message, what it does is remove the whole line if it contains the keyword. For removing just the keyword you will need to use the <b>next</b> feature called <b>Power</b>
+
+
+### Power Feature
 
 This is one of the most powerful feature this bot has. It is used to remove and change keywords from the message. You can use <b>regex</b> with this feature
 
-<b>Important:</b> You need to be careful with this command since it insert some wrong syntax (like wrong regex) it will stop message from redirecting. To fix it you just need to remove power feature.
+!!! Example "Command Example"
+    <p style="margin-bottom: -13px;">Add <b>power</b> for <b>group1</b> on <b>2759205517</b></p>
+    ```
+    /transformation add power group1 on 2759205517
+    ```
 
-<b  style="font-size: 115%;">Command Example</b>
+    <p style="margin-bottom: -13px;">Remove <b>power</b> for <b>group1</b> on <b>2759205517</b></p>
+    ```
+    /transformation power group1 on 2759205517
+    ```
 
-```nohighlight
-/transformation add power group1 on 2759205517
-/transformation power group1 on 2759205517
-```
+!!! Info "Input Syntax Example ( Simple )"
+    <b>Use the syntax as shown below when you want to replace words or full paragraphs.</b>
 
-<b  style="font-size: 115%;">Syntax Example (Simple)</b>
+    
+    <p style="margin-bottom: -13px;">Change <b>red</b> to <b>blue</b></p>
+    ```nohighlight
+    "red","blue"
+    ```
 
-Use the syntax as shown below when you want to replace words or full paragraphs.
+    <p style="margin-bottom: -13px;">Change <b>22</b> to <b>40</b></p>
+    ```nohighlight
+    "22","40"
+    ```
 
-Change <b>red</b> to <b>blue</b>
+    <p style="margin-bottom: -13px;">Change <b>2+1=3</b> to <b>2+2=4</b> ( text only, not math )</p>
+    ```nohighlight
+    "2+1=3","2+2=4"
+    ```
 
-```nohighlight
-"red","blue"
-```
+    <p style="margin-bottom: -13px;">Remove keyword <b>red</b> from the message</p>
+    ```nohighlight
+    "red",""
+    ```
 
-Change <b>22</b> to <b>40</b>
+    <p style="margin-bottom: -13px;">Change paragraph <b>I do not like this text</b> to <b>This is better</b></p>
+    ```nohighlight
+    "I do not like this text","This is better"
+    ```
 
-```nohighlight
-"22","40"
-```
+!!! Info "Input Syntax Example ( Advanced )"
 
-Change <b>2+1=3</b> to <b>2+2=4</b>
+    Use the syntax as shown below when you want to achive result that is not possible with the simple syntax. This syntax uses regex to replace words and keywords and you can do everything you want with the message if you know regex.
 
-```nohighlight
-"2+1=3","2+2=4"
-```
+    <b>We do not support usage of regex, you are on your own if you decide to use regex.  
+    Only use it if you know what you are doing.</b>
+    
+    <p style="margin-bottom: -13px;">Change <b>telegram.me</b> or <b>tm.me</b> to <b>test.com</b></p>
+    ```nohighlight
+    (telegram\.me|tm\.me)\/\w+=test.com
+    ```
 
-Remove keyword <b>red</b> from the message
+    <p style="margin-bottom: -13px;">Use regex to match <b>gray</b> or <b>grey</b> and change it to <b>red</b></p>
+    ```nohighlight
+    gr[ae]y=red
+    ```
 
-```nohighlight
-"red",""
-```
+    <p style="margin-bottom: -13px;">Unshort urls, match <b>tag</b> (query) and change it to <b>client1</b> </p>
+    ```nohighlight
+    url:tag=client1
+    ```
+    
+    <p style="margin-bottom: -13px;">Match every <b>url</b> or <b>@mention</b> and change it to <b>@tg_feedbot</b></p>
+    ```nohighlight
+    (@|www|https?)\S+=@tg_feedbot
+    ```
 
-Change paragraph <b>I do not like this text</b> to <b>This is better</b>
+!!! Info "Multiple rules"
+    To apply <b>multiple transformation</b> rules at once you just need to place them in a newline
 
-```nohighlight
-"I do not like this text","This is better"
-```
+    ```nohighlight
+    "2+1=3","2+2=4"
+    "red",""
+    (@|www|https?)\S+=@tg_feedbot
+    url:tag=client1
+    ```
 
-<b  style="font-size: 115%;">Syntax Example (Advanced)</b>
+!!! Danger "Important!"
+    We always suggest everyone to use the <b>Simple Syntax</b>, regex is only for <b>Advanced Users</b> who know how to use it. You can achieve every kind of text manipulation you wish via regex but you need to know how to use it. <b>We will not write the regex for your case.</b>
+    
 
-Use the syntax as shown below when you want to achive result that is not possible with the simple syntax. This syntax uses regex to replace words and keywords. 
+{{ center_explain('After inputing the syntax above, <b>TeleFeed</b> will ask you for some <b>text</b> or <b>forwarded message</b> so it can run <b>Power Transformation</b> and show you the result.') }}
 
-<b>Do not use this syntax if you do not know regex because bad usage can stop your redirection.</b>
-
-Change <b>telegram.me</b> or <b>tm.me</b> to <b>test.com</b>
-
-```nohighlight
-(telegram\.me|tm\.me)\/\w+=test.com
-```
-
-Use regex to match <b>gray</b> or <b>grey</b> and change it to <b>red</b>
-
-```nohighlight
-gr[ae]y=red
-```
-
-Unshort urls, match <b>tag</b> (query) and change it to <b>client1</b> 
-
-```nohighlight
-url:tag=client1
-```
-
-
-Match every <b>url</b> or <b>@mention</b> and change it to <b>@tg_feedbot</b>
-
-```nohighlight
-(@|www|https?)\S+=@tg_feedbot
-```
-
-Remove word <b>red</b> from the message
-
-You can use multiline configurations like. In that case the bot will try to match every line on the message and act on it.
-
-```nohighlight
-"2+1=3","2+2=4"
-(@|www|https?)\S+=@tg_feedbot
-```
-
-After this <b>TeleFeed</b> will ask you for some <b>text</b> or you can <b>forward a message</b>.  
-Then <b>TeleFeed</b> will run your <b>POWER Syntax</b> on that message and return you the result.  
-This way you will know if you have written the right syntax for what you need.
-
-If the result is correct you just have to click on the <b>Correct</b> button otherwise click <b>Incorrect</b> button.
-
-<b>Tip:</b> To use regex effectivity, test your regex on [regex101.com](https://regex101.com)  
-Make sure to use the <b>Python Flavor</b> otherwise your regex will not work on <b>TeleFeed</b>
-
-### 4. Remove
-
-You can use this command to remove configuration from power feature.
-
-```nohighlight
-## Syntax
-/transformation remove FEATURE {{ redirectionid }} on {{ phonenumber }}
-
-## Example
-/transformation remove power group1 on 2759205517
-```
-
-### 5. Clear configuration from /transformation
-
-You can clear your current configuration on <b>/transformation</b> using the following syntax
-
-```nohighlight
-/transformation remove {{ redirectionid }} on {{ phonenumber }}
-```
-
-It will remove every config you have with <b>format</b>, <b>removeLines</b> and <b>power</b> on that {{ redirectionid }} 
-
-### 6. Show Active Configuration
-
-To show active configuration on <b>/transformation</b> you need to use the following syntax.
-```nohighlight
-/transformation active on {{ phonenumber }}
-```
+!!! tip "Tips!"
+    * To use regex effectivity, test your regex on [regex101.com](https://regex101.com)  
+    * Make sure to use the <b>Python Flavor</b> otherwise your regex will not work on <b>TeleFeed</b>
 
 ## Whitelist
 
