@@ -21,7 +21,7 @@
 {%- endmacro %}
 
 {% macro center_explain(text) -%}
-<p style="text-align: center; font-weight: bold; margin: 0 auto;width: 70%;"><br/>{{ text }}<br/><br/></p>
+<p style="text-align: center; font-size: 1.3em; margin: 3em auto;width: 70%;">{{ text }}</p>
 {%- endmacro %}
 
 # Commands
@@ -55,7 +55,7 @@ This command is used for connecting telegram accounts with <b>TeleFeed</b>. You 
     ```
 
 !!! warning "Careful"
-    * Remember to always add your <b>country prefix</b> otherwise the connection might fail.  
+    * Remember to always add your <b>country prefix</b> otherwise the connection might fail.
     * Whenever you enter a code on this command make sure you add **aa** in front such as the code **52234** becomes **aa52234**. Same thing for <b>Two Factor Authentication</b>
 
 
@@ -91,16 +91,12 @@ This command is used for setting up redirections for <b>TeleFeed</b>. This comma
     /redirection 2759205517
     ```
 
-</br>
-After typing <b>"/redirection add group1 on 2759205517"</b> you will be asked to enter id's of channel/groups/users you want to use as <b>SOURCE</b> and <b>DESTINATION</b>. Please make sure to use the right syntax when input id's as shown below.  
-</br>
+{{ center_explain('After typing <b>/redirection add group1 on 2759205517</b> you will be asked to enter id\'s of chat you want to use as <b>SOURCE</b> and <b>DESTINATION</b>. Please make sure to use the right syntax when input id\'s as shown below.') }}
 
 !!! Example "Input Syntax"
     <b>SOURCE</b> - <b>DESTINATION</b>
 
-</br>
-Where <b>SOURCE</b> is the user, bot, channel or group you want to redirect messages from and <b>DESTINATION</b> is the user, bot, channel or group you want to redirect message into.  
-</br>
+{{ center_explain('Where <b>SOURCE</b> is the user, bot, channel or group you want to redirect messages from and <b>DESTINATION</b> is the user, bot, channel or group you want to redirect message into.') }}
 
 !!! Example "Input Syntax Example"
     Redirect messages from <b>708415014</b> to <b>642797040</b>
@@ -113,9 +109,9 @@ Where <b>SOURCE</b> is the user, bot, channel or group you want to redirect mess
     53469647,708415014 - 20801978
     ```
 
-    Redirect messages from <b>one source</b> to <b>multiple destinations</b> 
+    Redirect messages from <b>one source</b> to <b>multiple destinations</b>
     ```
-    20801978 - 53469647,708415014 
+    20801978 - 53469647,708415014
     ```
 
 !!! warning "Syntax Limitations"
@@ -153,7 +149,7 @@ This menu is used to filter messages by type. Using it will tell TeleFeed which 
     * <b>Audio:</b> Turn this <b>ON</b> if you want to <b>ignore audio messages</b>
     * <b>Videos:</b> Turn this <b>ON</b> if you want to <b>ignore video messages</b>
     * <b>Voicenotes:</b> Turn this <b>ON</b> if you want to <b>ignore voicenotes messages</b>
-    * <b>Animations:</b> Turn this <b>ON</b> if you want to <b>ignore message</b> that <b>contain animations (gif etc)</b> 
+    * <b>Animations:</b> Turn this <b>ON</b> if you want to <b>ignore message</b> that <b>contain animations (gif etc)</b>
     * <b>Photos:</b> Turn this <b>ON</b> if you want to <b>ignore photo messages</b>
     * <b>Stickers:</b> Turn this <b>ON</b> if you want to <b>ignore sticker messages</b>
     * <b>Document:</b> Turn this <b>ON</b> if you want to <b>ignore document messages</b>
@@ -253,25 +249,25 @@ This feature is used to change the output format for the message. Basically you 
 {{ message_preview("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.", "<b>Header Inserted By TeleFeed</b></br>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.</br><b>Footer Inserted By TeleFeed</b>") }}
 
 !!! Example "Above Transformation Example"
-    Inserted Header from Telefeed  
-    <b>[[Message.Text]]</b>  
-    Inserted Footer from Telefeed  
+    Inserted Header from Telefeed
+    <b>[[Message.Text]]</b>
+    Inserted Footer from Telefeed
 
 {{ center_explain('TeleFeed will look at this and replace <b>"[[Message.Text]]"</b> with the actual <b>message</b> and add top and bottom text which will output the example above.') }}
 
 !!! Example "Keywords Supported"
     * <b>[[PROCESS_EMPTY]] =></b> Normally <b>format</b> will ignore empty messages (media etc). If you add this <b>variable</b> then it will start <b>formatting</b> empty messages. This can be used for adding <b>USERNAME</b>, <b>GROUP_NAME</b> on <b>MEDIA</b>
 
-    * <b>[[Message.Text]] =></b> The source message <b>text</b> content  
-    * <b>[[Message.Group]] =></b> The source message <b>group</b> name  
+    * <b>[[Message.Text]] =></b> The source message <b>text</b> content
+    * <b>[[Message.Group]] =></b> The source message <b>group</b> name
 
-    * <b>[[Message.Username]] =></b> The user <b>Username</b> that sent the message  
-    * <b>[[Message.First_Name]] =></b> The user <B>First Name</b> that sent the message  
-    * <b>[[Message.Last_Name]] =></b> The user <b>Last Name</b> that sent the message  
+    * <b>[[Message.Username]] =></b> The user <b>Username</b> that sent the message
+    * <b>[[Message.First_Name]] =></b> The user <B>First Name</b> that sent the message
+    * <b>[[Message.Last_Name]] =></b> The user <b>Last Name</b> that sent the message
 
     * <b>[[Message.File.Filename]] =></b> The source message <b>file</b> filename
-    * <b>[[Message.File.File_Size]] =></b> The source message <b>file</b> filesize  
-    * <b>[[Message.File.File_Ext]] =></b> The source message <b>file</b> file extension  
+    * <b>[[Message.File.File_Size]] =></b> The source message <b>file</b> filesize
+    * <b>[[Message.File.File_Ext]] =></b> The source message <b>file</b> file extension
 
 
 ### Remove Lines Feature
@@ -294,7 +290,7 @@ This feature is used to remove lines from the message. You will use keywords to 
 
 
 !!! Example "Input Syntax Example"
-    good, bad  
+    good, bad
     apple
 
 {{ center_explain('The setup we made above will look on every message if a line has the keyword <b>apple</b> (only) or if a line has the keywords <b>good</b> and <b>bad</b> (both) and remove it.') }}
@@ -321,7 +317,7 @@ This is one of the most powerful feature this bot has. It is used to remove and 
 !!! Info "Input Syntax Example ( Simple )"
     <b>Use the syntax as shown below when you want to replace words or full paragraphs.</b>
 
-    
+
     <p style="margin-bottom: -13px;">Change <b>red</b> to <b>blue</b></p>
     ```nohighlight
     "red","blue"
@@ -351,9 +347,9 @@ This is one of the most powerful feature this bot has. It is used to remove and 
 
     Use the syntax as shown below when you want to achive result that is not possible with the simple syntax. This syntax uses regex to replace words and keywords and you can do everything you want with the message if you know regex.
 
-    <b>We do not support usage of regex, you are on your own if you decide to use regex.  
+    <b>We do not support usage of regex, you are on your own if you decide to use regex.
     Only use it if you know what you are doing.</b>
-    
+
     <p style="margin-bottom: -13px;">Change <b>telegram.me</b> or <b>tm.me</b> to <b>test.com</b></p>
     ```nohighlight
     (telegram\.me|tm\.me)\/\w+=test.com
@@ -368,7 +364,7 @@ This is one of the most powerful feature this bot has. It is used to remove and 
     ```nohighlight
     url:tag=client1
     ```
-    
+
     <p style="margin-bottom: -13px;">Match every <b>url</b> or <b>@mention</b> and change it to <b>@tg_feedbot</b></p>
     ```nohighlight
     (@|www|https?)\S+=@tg_feedbot
@@ -384,14 +380,11 @@ This is one of the most powerful feature this bot has. It is used to remove and 
     url:tag=client1
     ```
 
-!!! Danger "Important!"
-    We always suggest everyone to use the <b>Simple Syntax</b>, regex is only for <b>Advanced Users</b> who know how to use it. You can achieve every kind of text manipulation you wish via regex but you need to know how to use it. <b>We will not write the regex for your case.</b>
-    
 
 {{ center_explain('After inputing the syntax above, <b>TeleFeed</b> will ask you for some <b>text</b> or <b>forwarded message</b> so it can run <b>Power Transformation</b> and show you the result.') }}
 
 !!! tip "Tips!"
-    * To use regex effectivity, test your regex on [regex101.com](https://regex101.com)  
+    * To use regex effectivity, test your regex on [regex101.com](https://regex101.com)
     * Make sure to use the <b>Python Flavor</b> otherwise your regex will not work on <b>TeleFeed</b>
 
 ## Whitelist
@@ -401,14 +394,14 @@ You can set a list of words or regex patterns that tell the bot <b>to process me
 !!! info "Important Information"
     * Using <b>Simple Syntax</b> will match words partially. This means that when you whitelist the word <b>"es"</b>, it will allow every message containing b<b>es</b>t, r<b>es</b>t, t<b>es</b>t because each of them have the word <b>"es"</b> within.
     * If you want to match words fully, please use the regex example we have provided on <b>Advanced Syntax Panel</b>
-    * Make sure to use the <b>Python Flavor</b> with [regex101.com](https://regex101.com) otherwise your regex will not work on <b>TeleFeed</b>  
+    * Make sure to use the <b>Python Flavor</b> with [regex101.com](https://regex101.com) otherwise your regex will not work on <b>TeleFeed</b>
 
 
 !!! Danger "Warning"
     When this command is used incorrectly, it will cause redirections to stop working. Always make sure you use the right syntax when using whitelist and do use regex only <b>if necessary.</b> Make sure you build your regex with [regex101.com](https://regex101.com) before inserting them into TeleFeed.
 
 !!! Example "Command"
-    /whitelist {{action}} {{redirectionid}} on  {{phonenumber}}  
+    /whitelist {{action}} {{redirectionid}} on  {{phonenumber}}
     /whitelist {{action}} on {{phonenumber}}
 
 
@@ -459,7 +452,7 @@ You can set a list of words or regex patterns that tell the bot <b>to process me
 !!! Info "Input Syntax Example ( Advanced )"
     Use the syntax as shown below when you want to achive result that is not possible with the simple syntax. This syntax uses regex to search for words and its more powerful than Simple Syntax.
 
-    <b>We do not support usage of regex, you are on your own if you decide to use regex.  
+    <b>We do not support usage of regex, you are on your own if you decide to use regex.
     Only use it if you know what you are doing.</b>
 
     <p style="margin-bottom: -13px;">Process messages only if it has the any <b>@mention</b> word on it.</p>
@@ -489,14 +482,14 @@ You can set a list of words or regex patterns which tells the bot that <b>if the
 !!! info "Important Information"
     * Using <b>Simple Syntax</b> will match words partially. This means that when you blacklist the word <b>"es"</b>, it will block every message containing b<b>es</b>t, r<b>es</b>t, t<b>es</b>t because each of them have the word <b>"es"</b> within.
     * If you want to match words fully, please use the regex example we have provided on <b>Advanced Syntax Panel</b>
-    * Make sure to use the <b>Python Flavor</b> with [regex101.com](https://regex101.com) otherwise your regex will not work on <b>TeleFeed</b>  
+    * Make sure to use the <b>Python Flavor</b> with [regex101.com](https://regex101.com) otherwise your regex will not work on <b>TeleFeed</b>
 
 
 !!! Danger "Warning"
     When this command is used incorrectly, it will cause redirections to stop working. Always make sure you use the right syntax when using whitelist and do use regex only <b>if necessary.</b> Make sure you build your regex with [regex101.com](https://regex101.com) before inserting them into TeleFeed.
 
 !!! Example "Command"
-    /blacklist {{action}} {{redirectionid}} on  {{phonenumber}}  
+    /blacklist {{action}} {{redirectionid}} on  {{phonenumber}}
     /blacklist {{action}} on {{phonenumber}}
 
 
@@ -547,7 +540,7 @@ You can set a list of words or regex patterns which tells the bot that <b>if the
 !!! Info "Input Syntax Example ( Advanced )"
     Use the syntax as shown below when you want to achive result that is not possible with the simple syntax. This syntax uses regex to search for words and its more powerful than Simple Syntax.
 
-    <b>We do not support usage of regex, you are on your own if you decide to use regex.  
+    <b>We do not support usage of regex, you are on your own if you decide to use regex.
     Only use it if you know what you are doing.</b>
 
     <p style="margin-bottom: -13px;">Block messages only if it has the any <b>@mention</b> word on it.</p>
@@ -621,15 +614,16 @@ This command can be used to bypass bots which hide messages or get content from 
 
 This command is used for setting up translation for your redirection groups.
 
+!!! Info "Information"
+    <b>SRC:</b> The language code you want to translate from
+    <b>DEST:</b> The language code you want to translate into
+
+    <b>Refer to Language Code panel for supported languages code</b>
+
 !!! Example "Command"
     /translate SRC DEST {{ redirectionid }} on {{ phonenumber }}
     /translate remove {{ redirectionid }} on {{ phonenumber }}
 
-!!! Info "Command Information"
-    <b>SRC:</b> The language code you want to translate from  
-    <b>DEST:</b> The language code you want to translate into  
-
-    <b>Refer to Language Code panel for supported languages code</b>
 
 !!! Example "Command Example"
     <p style="margin-bottom: -13px;">Translate from <b>English</b> to <b>Italian</b> for <b>group1</b> on <b>2759205517</b></p>
@@ -643,124 +637,130 @@ This command is used for setting up translation for your redirection groups.
     ```
 
 !!! Info "Supported Language Code"
-    * <b>af ==></b> afrikaans,
-    * <b>sq ==></b> albanian,
-    * <b>am ==></b> amharic,
-    * <b>ar ==></b> arabic,
-    * <b>hy ==></b> armenian,
-    * <b>az ==></b> azerbaijani,
-    * <b>eu ==></b> basque,
-    * <b>be ==></b> belarusian,
-    * <b>bn ==></b> bengali,
-    * <b>bs ==></b> bosnian,
-    * <b>bg ==></b> bulgarian,
-    * <b>ca ==></b> catalan,
-    * <b>ceb</b> ==> cebuano,
-    * <b>ny ==></b> chichewa,
-    * <b>zh-cn ==></b> chinese (simplified),
-    * <b>zh-tw ==></b> chinese (traditional),
-    * <b>co ==></b> corsican,
-    * <b>hr ==></b> croatian,
-    * <b>cs ==></b> czech,
-    * <b>da ==></b> danish,
-    * <b>nl ==></b> dutch,
-    * <b>en ==></b> english,
-    * <b>eo ==></b> esperanto,
-    * <b>et ==></b> estonian,
-    * <b>tl ==></b> filipino,
-    * <b>fi ==></b> finnish,
-    * <b>fr ==></b> french,
-    * <b>fy ==></b> frisian,
-    * <b>gl ==></b> galician,
-    * <b>ka ==></b> georgian,
-    * <b>de ==></b> german,
-    * <b>el ==></b> greek,
-    * <b>gu ==></b> gujarati,
-    * <b>ht ==></b> haitian creole,
-    * <b>ha ==></b> hausa,
-    * <b>haw ==></b> hawaiian,
-    * <b>iw ==></b> hebrew,
-    * <b>hi ==></b> hindi,
-    * <b>hmn</b> ==> hmong,
-    * <b>hu ==></b> hungarian,
-    * <b>is ==></b> icelandic,
-    * <b>ig ==></b> igbo,
-    * <b>id ==></b> indonesian,
-    * <b>ga ==></b> irish,
-    * <b>it ==></b> italian,
-    * <b>ja ==></b> japanese,
-    * <b>jw ==></b> javanese,
-    * <b>kn ==></b> kannada,
-    * <b>kk ==></b> kazakh,
-    * <b>km ==></b> khmer,
-    * <b>ko ==></b> korean,
-    * <b>ku ==></b> kurdish (kurmanji),
-    * <b>ky ==></b> kyrgyz,
-    * <b>lo ==></b> lao,
-    * <b>la ==></b> latin,
-    * <b>lv ==></b> latvian,
-    * <b>lt ==></b> lithuanian,
-    * <b>lb ==></b> luxembourgish,
-    * <b>mk ==></b> macedonian,
-    * <b>mg ==></b> malagasy,
-    * <b>ms ==></b> malay,
-    * <b>ml ==></b> malayalam,
-    * <b>mt ==></b> maltese,
-    * <b>mi ==></b> maori,
-    * <b>mr ==></b> marathi,
-    * <b>mn ==></b> mongolian,
-    * <b>my ==></b> myanmar (burmese),
-    * <b>ne ==></b> nepali,
-    * <b>no ==></b> norwegian,
-    * <b>ps ==></b> pashto,
-    * <b>fa ==></b> persian,
-    * <b>pl ==></b> polish,
-    * <b>pt ==></b> portuguese,
-    * <b>pa ==></b> punjabi,
-    * <b>ro ==></b> romanian,
-    * <b>ru ==></b> russian,
-    * <b>sm ==></b> samoan,
-    * <b>gd ==></b> scots gaelic,
-    * <b>sr ==></b> serbian,
-    * <b>st ==></b> sesotho,
-    * <b>sn ==></b> shona,
-    * <b>sd ==></b> sindhi,
-    * <b>si ==></b> sinhala,
-    * <b>sk ==></b> slovak,
-    * <b>sl ==></b> slovenian,
-    * <b>so ==></b> somali,
-    * <b>es ==></b> spanish,
-    * <b>su ==></b> sundanese,
-    * <b>sw ==></b> swahili,
-    * <b>sv ==></b> swedish,
-    * <b>tg ==></b> tajik,
-    * <b>ta ==></b> tamil,
-    * <b>te ==></b> telugu,
-    * <b>th ==></b> thai,
-    * <b>tr ==></b> turkish,
-    * <b>uk ==></b> ukrainian,
-    * <b>ur ==></b> urdu,
-    * <b>uz ==></b> uzbek,
-    * <b>vi ==></b> vietnamese,
-    * <b>cy ==></b> welsh,
-    * <b>xh ==></b> xhosa,
-    * <b>yi ==></b> yiddish,
-    * <b>yo ==></b> yoruba,
-    * <b>zu ==></b> zulu,
-    * <b>fil ==></b> Filipino,
-    * <b>he ==></b> Hebrew
+    * <b>af =></b> afrikaans,
+    * <b>sq =></b> albanian,
+    * <b>am =></b> amharic,
+    * <b>ar =></b> arabic,
+    * <b>hy =></b> armenian,
+    * <b>az =></b> azerbaijani,
+    * <b>eu =></b> basque,
+    * <b>be =></b> belarusian,
+    * <b>bn =></b> bengali,
+    * <b>bs =></b> bosnian,
+    * <b>bg =></b> bulgarian,
+    * <b>ca =></b> catalan,
+    * <b>ceb</b> => cebuano,
+    * <b>ny =></b> chichewa,
+    * <b>zh-cn =></b> chinese (simplified),
+    * <b>zh-tw =></b> chinese (traditional),
+    * <b>co =></b> corsican,
+    * <b>hr =></b> croatian,
+    * <b>cs =></b> czech,
+    * <b>da =></b> danish,
+    * <b>nl =></b> dutch,
+    * <b>en =></b> english,
+    * <b>eo =></b> esperanto,
+    * <b>et =></b> estonian,
+    * <b>tl =></b> filipino,
+    * <b>fi =></b> finnish,
+    * <b>fr =></b> french,
+    * <b>fy =></b> frisian,
+    * <b>gl =></b> galician,
+    * <b>ka =></b> georgian,
+    * <b>de =></b> german,
+    * <b>el =></b> greek,
+    * <b>gu =></b> gujarati,
+    * <b>ht =></b> haitian creole,
+    * <b>ha =></b> hausa,
+    * <b>haw =></b> hawaiian,
+    * <b>iw =></b> hebrew,
+    * <b>hi =></b> hindi,
+    * <b>hmn</b> => hmong,
+    * <b>hu =></b> hungarian,
+    * <b>is =></b> icelandic,
+    * <b>ig =></b> igbo,
+    * <b>id =></b> indonesian,
+    * <b>ga =></b> irish,
+    * <b>it =></b> italian,
+    * <b>ja =></b> japanese,
+    * <b>jw =></b> javanese,
+    * <b>kn =></b> kannada,
+    * <b>kk =></b> kazakh,
+    * <b>km =></b> khmer,
+    * <b>ko =></b> korean,
+    * <b>ku =></b> kurdish (kurmanji),
+    * <b>ky =></b> kyrgyz,
+    * <b>lo =></b> lao,
+    * <b>la =></b> latin,
+    * <b>lv =></b> latvian,
+    * <b>lt =></b> lithuanian,
+    * <b>lb =></b> luxembourgish,
+    * <b>mk =></b> macedonian,
+    * <b>mg =></b> malagasy,
+    * <b>ms =></b> malay,
+    * <b>ml =></b> malayalam,
+    * <b>mt =></b> maltese,
+    * <b>mi =></b> maori,
+    * <b>mr =></b> marathi,
+    * <b>mn =></b> mongolian,
+    * <b>my =></b> myanmar (burmese),
+    * <b>ne =></b> nepali,
+    * <b>no =></b> norwegian,
+    * <b>ps =></b> pashto,
+    * <b>fa =></b> persian,
+    * <b>pl =></b> polish,
+    * <b>pt =></b> portuguese,
+    * <b>pa =></b> punjabi,
+    * <b>ro =></b> romanian,
+    * <b>ru =></b> russian,
+    * <b>sm =></b> samoan,
+    * <b>gd =></b> scots gaelic,
+    * <b>sr =></b> serbian,
+    * <b>st =></b> sesotho,
+    * <b>sn =></b> shona,
+    * <b>sd =></b> sindhi,
+    * <b>si =></b> sinhala,
+    * <b>sk =></b> slovak,
+    * <b>sl =></b> slovenian,
+    * <b>so =></b> somali,
+    * <b>es =></b> spanish,
+    * <b>su =></b> sundanese,
+    * <b>sw =></b> swahili,
+    * <b>sv =></b> swedish,
+    * <b>tg =></b> tajik,
+    * <b>ta =></b> tamil,
+    * <b>te =></b> telugu,
+    * <b>th =></b> thai,
+    * <b>tr =></b> turkish,
+    * <b>uk =></b> ukrainian,
+    * <b>ur =></b> urdu,
+    * <b>uz =></b> uzbek,
+    * <b>vi =></b> vietnamese,
+    * <b>cy =></b> welsh,
+    * <b>xh =></b> xhosa,
+    * <b>yi =></b> yiddish,
+    * <b>yo =></b> yoruba,
+    * <b>zu =></b> zulu,
+    * <b>fil =></b> Filipino,
+    * <b>he =></b> Hebrew
 
 ## Clone
 
 This command is used for cloning (mirror) chats/channels or users messages from SOURCE to DESTINATION
 
 !!! Info "Important Information"
-    If you have a redirection setup with the same ID's (SOURCE, DESTINATION) when using this command. It will use every feature you have currently configured on that setup.
+    * If you have a redirection setup with the same ID's (SOURCE, DESTINATION) when using this command. It will use every feature you have currently configured on that setup.
+    * When using this command with an current setup, that setup will not be able to send any new message until /clone finishes.
+    * When using this command, the bot might delay message redirection for your setups.
 
-    When using this command with an current setup, that setup will not be able to send any new message until /clone finishes.
+!!! Warning "Warning"
+    * Because this commands sends a high amount of messages in a short time it will cause temporary limits from telegram servers. Basically when this happens you will not be able to send any message from this account for <b>5 minutes</b> to <b>1 hour</b> depending on the limit.
+
+    * You will get a notification from the bot when such a limit is encountered (You will also notice yourself since you will not be able to send any message when that happens). There's no way around this other than not using this command.
+
 
 !!! Example "Command"
-    /clone {{ source }} {{ destination }} on {{ phonenumber }}  
+    /clone {{ source }} {{ destination }} on {{ phonenumber }}
     /clone {{ source }} {{ destination }} {{ limit }} on {{ phonenumber }}
 
 !!! Example "Command Example"
@@ -774,15 +774,16 @@ This command is used for cloning (mirror) chats/channels or users messages from 
     /clone 2759205517 28887387 200 on 2759205517
     ```
 
-!!! Warning "Warning"
-    Because this commands sends a high amount of messages in a short time it will cause temporary limits from telegram servers. Basically when this happens you will not be able to send any message from this account for <b>5 minutes</b> to <b>1 hour</b> depending on the limit.
-
-    You will get a notification from the bot when such a limit is encountered (You will also notice yourself since you will not be able to send any message when that happens). There's no way around this other than not using this command.
-
-__Important:__ When using this command, the bot might delay message redirection for your setups.
-
 ## Global
 The /global command can be used to apply globally one specific configuration. This command works only for the features shown below.
+
+!!! Info "Supported Features"
+    - [x] Transformation
+    - [x] Translate
+    - [x] Watermark
+    - [x] Action
+    - [x] Whitelist & Blacklist
+    - [x] Filters & Cleaners
 
 !!! Example "Command"
     /global {{ action }} {{ redirectionid }} on {{ phonenumber }}
@@ -797,14 +798,6 @@ The /global command can be used to apply globally one specific configuration. Th
     ```
     /global remove group1 on 2759205517
     ```
-
-!!! Info "Supported Features"
-    - [x] Transformation
-    - [x] Translate
-    - [x] Watermark
-    - [x] Action
-    - [x] Whitelist & Blacklist
-    - [x] Filters & Cleaners
 
 
 ## Scheduler
@@ -830,10 +823,8 @@ You can define start and stop time for each of your redirection setup using this
     /scheduler clear on 2759205517
     ```
 
-</br>
-After running the above commands <b>you will be asked</b> to input the time that you want TeleFeed to turn on and off your setups.
-Here are a few example syntax on how to do this.  
-</br>
+{{ center_explain('After running the above commands <b>you will be asked</b> to input the time that you want TeleFeed to turn on and off your setups.
+Here are a few example syntax on how to do this.') }}
 
 !!! Example "Input Syntax Example "
     <p style="margin-bottom: -13px;">Start at <b>12:30</b> and Stop at <b>2:30</b></p>
@@ -845,12 +836,12 @@ Here are a few example syntax on how to do this.
     ```nohighlight
     9:00 - 21:00
     ```
-</br>
-That's all. Now TeleFeed will (based on first example) <b>turn on</b> group1 <b>at 12:30</b> and <b>turn off at 2:30</b>
+
+{{ center_explain('In this case, TeleFeed will <b>turn on</b> group1 <b>at 12:30</b> and <b>turn off at 2:30</b>') }}
 
 ## Selectusers
 
-You can set a list of <b>user id s</b> to tell the bot <b>to process messages</b> you receive from source channel <b>only if it matches at least one</b> of the <b>user id's</b> on the list. 
+You can set a list of <b>user id s</b> to tell the bot <b>to process messages</b> you receive from source channel <b>only if it matches at least one</b> of the <b>user id's</b> on the list.
 
 
 !!! Example "Command"
@@ -872,17 +863,14 @@ You can set a list of <b>user id s</b> to tell the bot <b>to process messages</b
     /selectusers clear on 2759205517
     ```
 
-</br>
-After running <b>"/selectusers add group1 on 2759205517"</b>, <b>you will be asked</b> to input a list of <b>users id's</b>. Input the user you want to allow messages from. Separate them using commads <b>,</b> for multiple users.  
-</br>
+{{ center_explain('After running <b>/selectusers add group1 on 2759205517</b>, <b>you will be asked</b> to input a list of <b>users id\'s</b>. Input the user you want to allow messages from. Separate them using commads <b>,</b> for multiple users.') }}
 
 !!! Example "Input Syntax Example "
     ```nohighlight
     6516516,651651651,16516516
     ```
 
-</br>
-That's all. Now every time you receive a message on <b>group1 SOURCE</b>, TeleFeed will check if the user who sent the message is allowed based on your user ID's input. If so it will process the message otherwise it will ignore it.  
+{{ center_explain("Now every time you receive a message on <b>group1 SOURCE</b>, TeleFeed will check if the user who sent the message is allowed based on your <b>user id's input.</b> If so it will process the message otherwise it will ignore it.") }}
 
 ## Bitly
 
@@ -900,6 +888,9 @@ This command is used for configuring bitly access for <b>TeleFeed</b>
 ## Watermark
 
 You can use this command to add a watermark to every media that <b>TeleFeed</b> forwards.
+
+!!! Info "Information"
+    * This command can cause redirection to run slower because TeleFeed will need to generate the watermark before it sends the message
 
 !!! Example "Command"
     /watermark {{ action }} {{ redirectionid }} on {{ phonenumber }}
@@ -920,13 +911,15 @@ You can use this command to add a watermark to every media that <b>TeleFeed</b> 
     /watermark clear on 2759205517
     ```
 
-!!! Info "Information"
-    1. This command can cause redirection to run slower because TeleFeed will need to generate the watermark before it sends the message
-
 
 ## PlanSwap
 
-This command is used to exchange plans between phone numbers. You can use this to move your paid plan from one number to another. 
+This command is used to exchange plans between phone numbers. You can use this to move your paid plan from one number to another.
+
+!!! Warning "Important"
+    * This command <b>has a fee of 1 day</b> for each usage. This means that when you move a <b>31 Days Pro Plan</b> from 27505517, you will get <b>30 Days of Pro Plan</b> on 32529517
+    * The <b>source number</b> needs to be connected with your account for <b>planswap</b> to work.
+    * The <b>destination number</b> needs to be in <b>Free Plan</b> for <b>planswap</b> to work.
 
 !!! Example "Command"
     ```nohighlight
@@ -938,17 +931,13 @@ This command is used to exchange plans between phone numbers. You can use this t
     ```nohighlight
     /planswap 27505517 32529517
     ```
-!!! Warning "Important"
-    1. This command <b>has a fee of 1 day</b> for each usage. This means that when you move a <b>31 Days Pro Plan</b> from 27505517, you will get <b>30 Days of Pro Plan</b> on 32529517
-    2. The <b>source number</b> needs to be connected with your account for <b>planswap</b> to work.
-    3. The <b>destination number</b> needs to be in <b>Free Plan</b> for <b>planswap</b> to work.
 
 ## Delay
 
 This command is used for setting up delays for your redirections. When delay is active, TeleFeed will schedule messages and send them later.
 
 !!! Example "Command"
-    /delay {{ amount }} {{ redirectionid }} on {{ phonenumber }}  
+    /delay {{ amount }} {{ redirectionid }} on {{ phonenumber }}
     /delay {{ amount }} on {{ phonenumber }}
 
 !!! Example "Command Example"
@@ -963,7 +952,7 @@ This command is used for setting up delays for your redirections. When delay is 
     ```
 
 !!! Tip "Tips"
-    1. Setting delay to 0 will remove it
+    * Setting delay to 0 will remove it
 
 
 ## Chats
@@ -991,7 +980,7 @@ This command is used to get a message with your active configuration. You can us
 This command is used to clear your active configuration. Everything including [/redirection](/commands/#redirection) setups will be removed. TeleFeed will still keep your number connected so you can configure it again.
 
 !!! Example "Command"
-    /clear {{phonenumber}}  
+    /clear {{phonenumber}}
 
 ## Settings
 
