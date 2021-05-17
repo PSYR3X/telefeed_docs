@@ -1,3 +1,7 @@
+.md-sidebar--secondary .md-nav__item {
+    font-size: 1em;
+}
+
 .md-typeset abbr {
     border-bottom: .05rem dotted hsl(0deg 0% 0% / 100%);
 }

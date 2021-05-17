@@ -65,6 +65,7 @@ This command is used for setting up redirections for <b>TeleFeed</b>. This comma
 !!! Info "Command Information"
     * This commands needs input from the [/chats](/commands/#chats)
     * You can only use source and destination id's you find via [/chats](/commands/#chats)
+    * <b>RedirectionID</b> is the nickname you want to give to your setup. Do not use numbers you get from [/chats](/commands/#chats) in this field or Telegram chat names. This variable is used to define a nickname so you can identify your setup later on every TeleFeed command.
 
 !!! Example "Command"
     /redirection {{ action }} {{ redirectionid }} on {{ phonenumber }}
