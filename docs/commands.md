@@ -21,7 +21,7 @@
 {%- endmacro %}
 
 {% macro center_explain(text) -%}
-<p style="text-align: center; font-size: 1.3em; margin: 3em auto;width: 70%;">{{ text }}</p>
+<p class="centered_text">{{ text }}</p>
 {%- endmacro %}
 
 # Commands
@@ -596,20 +596,30 @@ This command can be used to bypass bots which hide messages or get content from 
     /action {{ action }} {{ redirectionid }} on {{ phonenumber }}
 
 !!! Example "Command Example"
-    <p style="margin-bottom: -13px;">Add Action group1 on 2759205517</p>
+    <p style="margin-bottom: -13px;">Add Action <b>group1</b> on <b>2759205517</b></p>
     ```nohighlight
     /action add group1 on 2759205517
     ```
 
-    <p style="margin-bottom: -13px;">Remove Action from group1 on 2759205517</p>
+    <p style="margin-bottom: -13px;">Remove Action from <b>group1</b> on <b>2759205517</b></p>
     ```nohighlight
     /action remove group1 on 2759205517
     ```
 
-    <p style="margin-bottom: -13px;">Remove all Actions from group1 on 2759205517</p>
+    <p style="margin-bottom: -13px;">Remove all Actions from <b>group1</b> on <b>2759205517</b></p>
     ```nohighlight
     /action clear group1 on 2759205517
     ```
+
+
+!!! Info "Input Syntax Example"
+    Input the name of the button that you want TeleFeed to click one. The title should be case sensitive.
+
+    ```nohighlight
+    Read more
+    ```
+
+{{ center_explain('After inputing the syntax above, <b>TeleFeed</b> will check every message and if a button matches the keyword <b>"Read more"</b> fully or partially, it will click that button and get the resulting message.') }}
 
 ## Translate
 
@@ -938,11 +948,11 @@ This command is used to exchange plans between phone numbers. You can use this t
 This command is used for setting up delays for your redirections. When delay is active, TeleFeed will schedule messages and send them later.
 
 !!! Example "Command"
-    /delay {{ amount }} {{ redirectionid }} on {{ phonenumber }}
+    /delay {{ amount }} {{ redirectionid }} on {{ phonenumber }}  
     /delay {{ amount }} on {{ phonenumber }}
 
 !!! Example "Command Example"
-    <p style="margin-bottom: -13px">Delay <b>group_1</b> by <b>120 seconds</b> on <b>2759205517</b></p>
+    <p style="margin-bottom: -13px">Delay <b>group1</b> by <b>120 seconds</b> on <b>2759205517</b></p>
     ```nohighlight
     /delay 120 group1 on 2759205517
     ```
@@ -952,9 +962,15 @@ This command is used for setting up delays for your redirections. When delay is 
     /delay 120 on 2759205517
     ```
 
-!!! Tip "Tips"
-    * Setting delay to 0 will remove it
+    <p style="margin-bottom: -13px">Remove delay for <b>group1</b> on <b>2759205517</b></p>
+    ```
+    /delay 0 group1 on 2759205517
+    ```
 
+    <p style="margin-bottom: -13px">Remove global delay on <b>2759205517</b></p>
+    ```
+    /delay 0 on 2759205517
+    ```
 
 ## Chats
 
