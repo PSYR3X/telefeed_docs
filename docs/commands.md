@@ -648,6 +648,7 @@ This command is used for setting up translation for your redirection groups.
     ```
 
 !!! Info "Supported Language Code"
+    * <b>auto =></b> Auto Detect Language,
     * <b>af =></b> afrikaans,
     * <b>sq =></b> albanian,
     * <b>am =></b> amharic,
