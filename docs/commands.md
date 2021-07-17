@@ -137,7 +137,7 @@ This menu is used for controlling redirection setttings such as <b>reply, edit, 
     * <b>Process Forward:</b> Turn this <b>ON</b> if you want to <b>FORWARD</b> messages instead of writting them as <b>user</b>
     * <b>Process Raw:</b> Turn this <b>ON</b> if you want to post <b>raw text</b> messages.
     * <b>Process Duplicates:</b> Turn this <b>OFF</b> if you want to <b>block duplicate messages</b> from forwarding.
-    * <b>Fix Bad Style:</b> Turn this <b>On</b> if you get <b>weird links coloring</b> after using [/transformation](/commands/#transformation).
+    * <b>Delay Spread Mode:</b> Turn this <b>On</b> if you want [/delay](/commands/#delay) to work based on last message sent. This will spread messages when they come at once instead of delaying them all together.
 
 ## Filters
 
@@ -574,10 +574,11 @@ On this menu you will find settings such as <b>Start</b>, <b>Stop</b>, <b>Perfor
     * <b>Start:</b> Used to <b>start</b> TeleFeed
     * <b>Stop:</b> Used to <b>stop</b> TeleFeed
     * <b>Disconnect Account:</b> This removes your account from TeleFeed. When you use <b>Disconnect Account</b>, TeleFeed will not login into your account unless you use <b>[/connect](/commands/#connect)</b> again
-    * <b>Export:</b> You can use this option to <b>Export</b> TeleFeed configuration so you can import it on another account.
-    * <b>Import:</b> After using <b>Export</b>, you will need to import the configuration for usage. You can use this option to import any <b>TeleFeed configuration</b>
+    * <b>Configuration Backups:</b> TeleFeed stores configuration backups every 4 hours. This menu will allow you to restore your configuration.
     * <b>Improve Performance:</b> This option increases TeleFeed Performance. The reason this option is <b>OFF</b> by default is because using it will cause TeleFeed to <b>forward messages out of order.</b> If you do not care about message order, turning this setting <b>ON</b> will <b>increase performance</b> by a <b>big margin</b>
     * <b>Burst Mode:</b> This option controls message rate for TeleFeed. Message rate means the number of messages TeleFeed can send at once. If this option is set to <b>HIGH (default)</b> then TeleFeed will use its max rate for sending messages. Sometimes this might cause <b>Telegram Account Limited Error</b>  which is why we offer a way to lower this rate.
+    * <b>Change Server:</b> This option allows you to move to <b>Premium TeleFeed Server</b>. This server will offer better performance and stability.
+    * <b>Notifications:</b> This menu allows you to choose if you want TeleFeed to send you notifications.
 
 
 !!! Info "Information"
@@ -947,7 +948,13 @@ This command is used to exchange plans between phone numbers. You can use this t
 
 ## Delay
 
-This command is used for setting up delays for your redirections. When delay is active, TeleFeed will schedule messages and send them later.
+This command is used for setting up delays for your redirections. When delay is active, TeleFeed will schedule messages and send them later. This command can be run in two modes. Delay mode and spread mode. You can turn Spread Mode On via the instructions below.
+
+* <b>Delay Mode</b> This mode is used by default. On this mode, TeleFeed will delay messages exactly the time they are received + delayed amount. This means that if the source sends 100 messages at once, with a 10 second delay set TeleFeed will send 100 messages after 10 seconds.
+* <b>Spread Mode</b> In this mode, TeleFeed will spread messages evenly. This means that if the source sends 100 messages and you have a delay of 10 seconds set. TeleFeed will delay each message 10 second from the last one.
+
+!!! Example "Turn On Spread Mode"
+    You can turn on spread mode by going to ```/settings > Phone > Redirection > Delay Spread Mode On```
 
 !!! Example "Command"
     /delay {{ amount }} {{ redirectionid }} on {{ phonenumber }}  
