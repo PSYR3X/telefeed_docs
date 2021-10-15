@@ -7,6 +7,11 @@
     border-bottom: .05rem dotted hsl(0deg 0% 0% / 100%);
 }
 
+.intruction_wrapper {
+    display: flex;
+}
+
+
 pre code{
   color: black !important;
 }
@@ -86,6 +91,13 @@ pre code{
         margin: 3em auto !important;
         width: 90%;
     }
+
+    .intruction_wrapper > .video {
+        flex: 0 0 40vw;
+        padding:75% 0 0 0;
+        position:relative;
+        margin: 0 0 0 2%;
+    }
 }
 
 
@@ -104,6 +116,13 @@ pre code{
 
 
 @media only screen and (min-width: 900px) {
+    .intruction_wrapper > .video {
+        flex: 0 0 350px;
+        padding:75% 0 0 0;
+        position:relative;
+        margin: 0 0 0 2%;
+    }
+
     .admonition > p:not(.admonition-title),li {
         font-size: 1.2em;
     }

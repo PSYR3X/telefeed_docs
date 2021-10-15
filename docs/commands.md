@@ -1,3 +1,6 @@
+<link href="https://vjs.zencdn.net/7.15.4/video-js.css" rel="stylesheet" />
+<script src="https://vjs.zencdn.net/7.15.4/video.min.js"></script>
+
 {%set action = "<a href='#commands-arguments-meaning'>action</a>" %}
 {%set redirectionid = "<a href='#commands-arguments-meaning'>redirectionid</a>" %}
 {%set feature = "<a href='#commands-arguments-meaning'>feature</a>" %}
@@ -60,7 +63,29 @@ This command is used for connecting telegram accounts with <b>TeleFeed</b>. You 
 
 
 ## Redirection
-This command is used for setting up redirections for <b>TeleFeed</b>. This command should be run after you have already connected a telegram account with [/connect](/commands/#connect) command.
+<div class="intruction_wrapper">
+<div class="text">
+<p>This command is used for setting up redirections for <b>TeleFeed</b>. This command should be run after you have already connected a telegram account with <a href='#connect'>connect</a> command.
+</p></div>
+<video
+id="my-video"
+class="video video-js vjs-big-play-centered"
+controls
+preload="auto"
+width="640"
+height="264"
+data-setup="{}"
+>
+<source src="https://telegrambotting.com/static/video/out.mp4" type="video/mp4" />
+<p class="vjs-no-js">
+To view this video please enable JavaScript, and consider upgrading to a
+web browser that
+<a href="https://videojs.com/html5-video-support/" target="_blank"
+>supports HTML5 video</a
+>
+</p>
+</video>
+</div>
 
 !!! Info "Command Information"
     * This commands needs input from the [/chats](/commands/#chats)

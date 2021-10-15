@@ -98,7 +98,7 @@ This command should only be used when its needed since it can cause issues. One 
 5.   Toggle <b>Style Fix On</b>
 
 
-### Channel Access Error. What did I do wrong?
+### Chat Access Error. What did I do wrong?
 
 There are three causes to this problem.
 
