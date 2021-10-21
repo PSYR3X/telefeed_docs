@@ -413,6 +413,7 @@ This is one of the most powerful feature this bot has. It is used to remove and 
     * To use regex effectivity, test your regex on [regex101.com](https://regex101.com)
     * Make sure to use the <b>Python Flavor</b> otherwise your regex will not work on <b>TeleFeed</b>
     * Make sure there regex <b>flags</b> <b>global, multiline</b> and <b>single line</b> are enabled when you build your regex via [regex101.com](https://regex101.com) otherwise it will not work with TeleFeed
+    * This feature supports <b>Telegram Styling</b> including <b>Bold</b>, <i>Italic</i>, <a href="#">Link</a> etc
 
 ## Whitelist
 
